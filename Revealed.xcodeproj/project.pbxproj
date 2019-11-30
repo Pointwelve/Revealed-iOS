@@ -15,6 +15,7 @@
 		1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6446B3238EA01200422926 /* LaunchScreen.storyboard */; };
 		1B6446C0238EA01200422926 /* RevealedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446BF238EA01200422926 /* RevealedTests.swift */; };
 		1B6446CB238EA01200422926 /* RevealedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446CA238EA01200422926 /* RevealedUITests.swift */; };
+		A00B7F7623926A17008C114B /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = A00B7F7523926A17008C114B /* Auth0.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		1B6446C6238EA01200422926 /* RevealedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevealedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6446CA238EA01200422926 /* RevealedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealedUITests.swift; sourceTree = "<group>"; };
 		1B6446CC238EA01200422926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A00B7F7523926A17008C114B /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 		1B64469C238EA01200422926 = {
 			isa = PBXGroup;
 			children = (
+				A00B7F72239269E2008C114B /* Resources */,
 				1B6446A7238EA01200422926 /* Revealed */,
 				1B6446BE238EA01200422926 /* RevealedTests */,
 				1B6446C9238EA01200422926 /* RevealedUITests */,
@@ -134,6 +137,30 @@
 				1B6446CC238EA01200422926 /* Info.plist */,
 			);
 			path = RevealedUITests;
+			sourceTree = "<group>";
+		};
+		A00B7F72239269E2008C114B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A00B7F73239269F6008C114B /* Configurations */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A00B7F73239269F6008C114B /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				A00B7F7423926A01008C114B /* Auth0 */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
+		A00B7F7423926A01008C114B /* Auth0 */ = {
+			isa = PBXGroup;
+			children = (
+				A00B7F7523926A17008C114B /* Auth0.plist */,
+			);
+			path = Auth0;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,6 +270,7 @@
 				1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */,
 				1B6446B2238EA01200422926 /* Preview Assets.xcassets in Resources */,
 				1B6446AF238EA01200422926 /* Assets.xcassets in Resources */,
+				A00B7F7623926A17008C114B /* Auth0.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
