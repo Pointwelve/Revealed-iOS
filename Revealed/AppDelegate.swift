@@ -7,14 +7,23 @@
 //
 
 import UIKit
+import Apollo
+import Combine
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
+    var sub: AnyCancellable?
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        sub = ApolloNetwork.shared.apollo.fetchPublisher(query: AllPostsQuery()).sink(receiveCompletion: { (error) in
+            switch error {
+            case let .failure(e):
+                debugPrint(e)
+            case .finished:
+                debugPrint("finished")
+            }
+        }) { (data) in
+            print(data.posts)
+        }
         return true
     }
 
