@@ -52,8 +52,8 @@ platform :ios do
     carthage_bootstrap
     
     scan(
-      project: "Revelaed.xcodeproj",
-      scheme: "Revelaed",
+      project: "Revealed.xcodeproj",
+      scheme: "Revealed",
       clean: true,
       devices: ["iPhone 8"]
     )

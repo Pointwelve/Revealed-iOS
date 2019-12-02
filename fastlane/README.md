@@ -36,6 +36,11 @@ fastlane ios carthage_bootstrap
 fastlane ios setup
 ```
 ⚙️ Setup dependencies and tools to get ready for development.
+### ios build
+```
+fastlane ios build
+```
+⚙️ build and test
 
 ----
 
