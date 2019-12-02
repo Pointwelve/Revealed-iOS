@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B045F91239555F700EE3333 /* ApolloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B045F90239555F700EE3333 /* ApolloError.swift */; };
 		1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446A8238EA01200422926 /* AppDelegate.swift */; };
 		1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446AA238EA01200422926 /* SceneDelegate.swift */; };
 		1B6446AD238EA01200422926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446AC238EA01200422926 /* ContentView.swift */; };
@@ -18,7 +19,7 @@
 		1B8AB2EC23926C0500907AF6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8AB2E823926C0500907AF6 /* API.swift */; };
 		1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
-		1BC61C912392ACF6006A83D7 /* ApolloClient+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Combine.swift */; };
+		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
 		1BC61C952393D946006A83D7 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BC61C942393D946006A83D7 /* Auth0.plist */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1B045F90239555F700EE3333 /* ApolloError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloError.swift; sourceTree = "<group>"; };
 		1B6446A5238EA01200422926 /* Revealed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revealed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6446A8238EA01200422926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B6446AA238EA01200422926 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +62,7 @@
 		1B8AB2E923926C0500907AF6 /* SamplePostDetails.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SamplePostDetails.graphql; sourceTree = "<group>"; };
 		1BC61C8323926D1E006A83D7 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloNetwork.swift; sourceTree = "<group>"; };
-		1BC61C902392ACF6006A83D7 /* ApolloClient+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Combine.swift"; sourceTree = "<group>"; };
+		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
 		1BC61C942393D946006A83D7 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 		1B6446A7238EA01200422926 /* Revealed */ = {
 			isa = PBXGroup;
 			children = (
+				1BC61C8D2392A990006A83D7 /* Network */,
 				1B8AB2E523926C0500907AF6 /* GraphQL */,
 				1B6446A8238EA01200422926 /* AppDelegate.swift */,
 				1B6446AA238EA01200422926 /* SceneDelegate.swift */,
@@ -156,7 +159,6 @@
 		1B8AB2E523926C0500907AF6 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				1BC61C8D2392A990006A83D7 /* Network */,
 				1B8AB2E623926C0500907AF6 /* SampleAllPosts.graphql */,
 				1B8AB2E723926C0500907AF6 /* schema.json */,
 				1B8AB2E823926C0500907AF6 /* API.swift */,
@@ -177,7 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */,
-				1BC61C902392ACF6006A83D7 /* ApolloClient+Combine.swift */,
+				1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */,
+				1B045F90239555F700EE3333 /* ApolloError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildConfigurationList = 1B6446CF238EA01200422926 /* Build configuration list for PBXNativeTarget "Revealed" */;
 			buildPhases = (
 				1BC61C8123926CA5006A83D7 /* Generate Apollo GraphQL API */,
+				1B045F922395582A00EE3333 /* Autocorrect lint issues & Lint */,
 				1B6446A1238EA01200422926 /* Sources */,
 				1B6446A2238EA01200422926 /* Frameworks */,
 				1B6446A3238EA01200422926 /* Resources */,
@@ -336,6 +340,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B045F922395582A00EE3333 /* Autocorrect lint issues & Lint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Autocorrect lint issues & Lint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  which swiftlint autocorrect\n  which swiftlint\nelse\n  echo \"error: SwiftLint not installed, do sh setup.sh to install SwiftLint.\"\n  exit 1\nfi\n";
+		};
 		1BC61C8123926CA5006A83D7 /* Generate Apollo GraphQL API */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -385,8 +407,9 @@
 			files = (
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
 				1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */,
+				1B045F91239555F700EE3333 /* ApolloError.swift in Sources */,
 				1B8AB2EC23926C0500907AF6 /* API.swift in Sources */,
-				1BC61C912392ACF6006A83D7 /* ApolloClient+Combine.swift in Sources */,
+				1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */,
 				1B6446AD238EA01200422926 /* ContentView.swift in Sources */,
 				1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */,
 			);
