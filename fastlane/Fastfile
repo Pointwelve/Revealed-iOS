@@ -46,6 +46,19 @@ platform :ios do
     setup
   end
 
+  desc "⚙️ build and test"
+  lane :build do
+    decrypt_configurations
+    carthage_bootstrap
+    
+    scan(
+      project: "Revelaed.xcodeproj",
+      scheme: "Revelaed",
+      clean: true,
+      devices: ["iPhone 8"]
+    )
+  end
+
   def encrypt_configurations
     if is_ci?
       UI.message("Getting encryption paraphrase from environment variable:..")
