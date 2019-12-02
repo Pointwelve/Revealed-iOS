@@ -1,0 +1,110 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc '⚙️ Encrypt configuration using `gpg`. Default directory is `Resources/Configurations`.'\
+       'Recommended to encrypt any secrets e.g **API_KEYS, configuration json/plist** to avoid checking in these file in git'\
+       'By using gpg, we can encrypt any files with a **passphrase** and it will be in `.gpg` binary format.'\
+       'User is able to use the decrypt the files by providing a passphrase using gpg". '\
+       'You can refer to the `encrypt_configurations` method on how to encrypt the files. '\
+       'e.g . `gpg --batch --yes --passphrase YOUR_PASSPHRASE --output \"YOUR_INPUT_FILE\" -c \"YOUR_OUTPUT_FILE_.GPG\`'
+  lane :encrypt_configs do
+    encrypt_configurations
+  end
+
+  desc '⚙️ Decrypt configuration using `gpg`. Default directory is `Resources/Configurations`.'\
+  'By using gpg, we can decrypt all `.gpg` files by providing a passphrase to it.'\
+  'The decrypt_configs lane will be run on every setup lane to enable initial setup.'\
+  'You can refer to the `decrypt_configurations` method on how to encrypt the files.'\
+  'e.g . `gpg --batch --yes --passphrase YOUR_PASSPHRASE --output \"YOUR_INPUT_FILE.GPG\" --decrypt \"YOUR_OUTPUT_FILE\`'
+  lane :decrypt_configs do
+    decrypt_configurations
+  end
+
+  desc '⚙️ Bootstrap and download Carthage dependencies from Rome Cache. This will download depedencies following the Cartfile.lock.'\
+       '**Note: This will not update the dependencies.**'
+  lane :carthage_bootstrap do
+    carthage_bootstrap
+  end
+
+  desc "⚙️ Setup dependencies and tools to get ready for development."
+  lane :setup do
+    setup
+  end
+
+  desc "⚙️ build and test"
+  lane :build do
+    decrypt_configurations
+    carthage_bootstrap
+    
+    scan(
+      project: "Revealed.xcodeproj",
+      scheme: "Revealed",
+      clean: true,
+      devices: ["iPhone 8"]
+    )
+  end
+
+  def encrypt_configurations
+    if is_ci?
+      UI.message("Getting encryption paraphrase from environment variable:..")
+      passphrase = ENV["UNICORN"]
+    else
+      UI.message("Getting encryption paraphrase from prompt:..")
+      passphrase = prompt(text: "Paraphrase to decrypt configs: ")
+    end
+
+    Dir.chdir("../Resources/Configurations") do
+      # Encrypt Auth0 configs
+      sh("gpg --batch --yes --passphrase #{passphrase} --output \"Auth0/fake-unicorn.gpg\" -c \"Auth0/Auth0.plist\"", log: false)
+    end
+  end
+
+  def decrypt_configurations
+    if is_ci?
+      UI.message("Getting encryption paraphrase from environment variable:..")
+      passphrase = ENV["UNICORN"]
+      UI.error("Passphrase not found in environment!") if passphrase.nil? || passphrase.empty?
+    else
+      UI.message("Getting encryption paraphrase from prompt:..")
+      passphrase = ENV["UNICORN"] || UI.password("Paraphrase to decrypt configs: ")
+    end
+
+    Dir.chdir("../Resources/Configurations") do
+      # Decrypt Firebase configs
+      sh("gpg --batch --yes --passphrase #{passphrase} --output \"Auth0/Auth0.plist\" --decrypt \"Auth0/fake-unicorn.gpg\"", log: false)
+    end
+  end
+
+  def setup
+    decrypt_configurations
+    Dir.chdir("..") do
+      sh("open Revealed.xcodeproj")
+    end
+  end
+
+  def carthage_bootstrap
+    carthage(
+      command: "bootstrap",
+      use_ssh: false,
+      verbose: false,
+      platform: "iOS",
+      configuration: "Release",
+      cache_builds: true,
+    )
+  end
+end
