@@ -21,6 +21,8 @@
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
 		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
 		1BC61C952393D946006A83D7 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BC61C942393D946006A83D7 /* Auth0.plist */; };
+		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
+		F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944C23954E5000EEEE2E /* Auth0.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,8 @@
 		1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloNetwork.swift; sourceTree = "<group>"; };
 		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
 		1BC61C942393D946006A83D7 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
+		F69D944C23954E5000EEEE2E /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */,
+				F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */,
+				F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +176,8 @@
 		1BC61C8223926D1E006A83D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F69D944C23954E5000EEEE2E /* Auth0.framework */,
+				F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */,
 				1BC61C8323926D1E006A83D7 /* Apollo.framework */,
 			);
 			name = Frameworks;
@@ -387,12 +395,16 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SimpleKeychain.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Auth0.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Apollo.framework\n",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SimpleKeychain.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Auth0.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
