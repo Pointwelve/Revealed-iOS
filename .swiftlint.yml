@@ -18,6 +18,10 @@ included:
   - Revealed
   - RevealedTests
 
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+    - Carthage
+    - Revealed/GraphQL/API.swift
+
 # excluded: # paths to ignore during linting. Takes precedence over `included`.
 
 # configurable rules can be customized from this configuration file
@@ -49,6 +53,7 @@ type_name:
     warning: 100
     error: 120
   excluded: iPhone # excluded via string
+  allowed_symbols: ["_"] # these are allowed in type names
 identifier_name:
   min_length:
     warning: 1
