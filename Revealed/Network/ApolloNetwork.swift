@@ -15,8 +15,7 @@ final class ApolloNetwork {
   // Configure the network transport to use the singleton as the delegate.
   private let session = URLSession(configuration: .default)
   private(set) lazy var apollo: ApolloClient = {
-    // TODO: Use environment variable for URL.
-    let url = URL(string: "http://localhost:8080/graphql")!
+    let url = URL(string: Config.shared.configuration.host)!
     return ApolloClient(networkTransport: HTTPNetworkTransport(url: url,
                                                                session: session,
                                                                delegate: self))
