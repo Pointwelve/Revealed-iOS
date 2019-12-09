@@ -14,32 +14,32 @@ public enum PostStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apo
 
   public init?(rawValue: RawValue) {
     switch rawValue {
-      case "NEW": self = .new
-      case "APPROVED": self = .approved
-      case "BLOCKED": self = .blocked
-      case "DELETED": self = .deleted
-      default: self = .__unknown(rawValue)
+    case "NEW": self = .new
+    case "APPROVED": self = .approved
+    case "BLOCKED": self = .blocked
+    case "DELETED": self = .deleted
+    default: self = .__unknown(rawValue)
     }
   }
 
   public var rawValue: RawValue {
     switch self {
-      case .new: return "NEW"
-      case .approved: return "APPROVED"
-      case .blocked: return "BLOCKED"
-      case .deleted: return "DELETED"
-      case .__unknown(let value): return value
+    case .new: return "NEW"
+    case .approved: return "APPROVED"
+    case .blocked: return "BLOCKED"
+    case .deleted: return "DELETED"
+    case let .__unknown(value): return value
     }
   }
 
-  public static func == (lhs: PostStatus, rhs: PostStatus) -> Bool {
+  public static func ==(lhs: PostStatus, rhs: PostStatus) -> Bool {
     switch (lhs, rhs) {
-      case (.new, .new): return true
-      case (.approved, .approved): return true
-      case (.blocked, .blocked): return true
-      case (.deleted, .deleted): return true
-      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
-      default: return false
+    case (.new, .new): return true
+    case (.approved, .approved): return true
+    case (.blocked, .blocked): return true
+    case (.deleted, .deleted): return true
+    case let (.__unknown(lhsValue), .__unknown(rhsValue)): return lhsValue == rhsValue
+    default: return false
     }
   }
 
@@ -48,7 +48,7 @@ public enum PostStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apo
       .new,
       .approved,
       .blocked,
-      .deleted,
+      .deleted
     ]
   }
 }
@@ -109,13 +109,13 @@ public final class GetAllPostQuery: GraphQLQuery {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("getAllPosts", arguments: ["first": GraphQLVariable("first"), "after": GraphQLVariable("commentFirst")], type: .object(GetAllPost.selections)),
+      GraphQLField("getAllPosts", arguments: ["first": GraphQLVariable("first"), "after": GraphQLVariable("commentFirst")], type: .object(GetAllPost.selections))
     ]
 
     public private(set) var resultMap: ResultMap
 
     public init(unsafeResultMap: ResultMap) {
-      self.resultMap = unsafeResultMap
+      resultMap = unsafeResultMap
     }
 
     public init(getAllPosts: GetAllPost? = nil) {
@@ -137,13 +137,13 @@ public final class GetAllPostQuery: GraphQLQuery {
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
         GraphQLField("edges", type: .list(.object(Edge.selections))),
-        GraphQLField("pageInfo", type: .object(PageInfo.selections)),
+        GraphQLField("pageInfo", type: .object(PageInfo.selections))
       ]
 
       public private(set) var resultMap: ResultMap
 
       public init(unsafeResultMap: ResultMap) {
-        self.resultMap = unsafeResultMap
+        resultMap = unsafeResultMap
       }
 
       public init(edges: [Edge?]? = nil, pageInfo: PageInfo? = nil) {
@@ -191,13 +191,13 @@ public final class GetAllPostQuery: GraphQLQuery {
           GraphQLField("totalLikesCount", type: .nonNull(.scalar(Int.self))),
           GraphQLField("totalCommentsCount", type: .nonNull(.scalar(Int.self))),
           GraphQLField("postViewCount", type: .nonNull(.scalar(Int.self))),
-          GraphQLField("status", type: .nonNull(.scalar(PostStatus.self))),
+          GraphQLField("status", type: .nonNull(.scalar(PostStatus.self)))
         ]
 
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
+          resultMap = unsafeResultMap
         }
 
         public init(author: Author, tags: [Tag]? = nil, topic: Topic, content: String, subject: String, createdAt: String, totalLikesCount: Int, totalCommentsCount: Int, postViewCount: Int, status: PostStatus) {
@@ -310,13 +310,13 @@ public final class GetAllPostQuery: GraphQLQuery {
 
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self)))
           ]
 
           public private(set) var resultMap: ResultMap
 
           public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
+            resultMap = unsafeResultMap
           }
 
           public init(id: GraphQLID) {
@@ -347,13 +347,13 @@ public final class GetAllPostQuery: GraphQLQuery {
 
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("name", type: .nonNull(.scalar(String.self)))
           ]
 
           public private(set) var resultMap: ResultMap
 
           public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
+            resultMap = unsafeResultMap
           }
 
           public init(name: String) {
@@ -384,13 +384,13 @@ public final class GetAllPostQuery: GraphQLQuery {
 
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-            GraphQLField("name", type: .nonNull(.scalar(String.self))),
+            GraphQLField("name", type: .nonNull(.scalar(String.self)))
           ]
 
           public private(set) var resultMap: ResultMap
 
           public init(unsafeResultMap: ResultMap) {
-            self.resultMap = unsafeResultMap
+            resultMap = unsafeResultMap
           }
 
           public init(name: String) {
@@ -423,13 +423,13 @@ public final class GetAllPostQuery: GraphQLQuery {
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
-          GraphQLField("endCursor", type: .scalar(String.self)),
+          GraphQLField("endCursor", type: .scalar(String.self))
         ]
 
         public private(set) var resultMap: ResultMap
 
         public init(unsafeResultMap: ResultMap) {
-          self.resultMap = unsafeResultMap
+          resultMap = unsafeResultMap
         }
 
         public init(hasNextPage: Bool, endCursor: String? = nil) {

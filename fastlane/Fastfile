@@ -71,6 +71,7 @@ platform :ios do
     Dir.chdir("../Resources/Configurations") do
       # Encrypt Auth0 configs
       sh("gpg --batch --yes --passphrase #{passphrase} --output \"Auth0/fake-unicorn.gpg\" -c \"Auth0/Auth0.plist\"", log: false)
+      sh("gpg --batch --yes --passphrase #{passphrase} --output \"GraphQL/fake-unicorn.gpg\" -c \"GraphQL/GraphQL.plist\"", log: false)
     end
   end
 
@@ -85,8 +86,9 @@ platform :ios do
     end
 
     Dir.chdir("../Resources/Configurations") do
-      # Decrypt Firebase configs
+      # Decrypt Auth0 configs
       sh("gpg --batch --yes --passphrase #{passphrase} --output \"Auth0/Auth0.plist\" --decrypt \"Auth0/fake-unicorn.gpg\"", log: false)
+      sh("gpg --batch --yes --passphrase #{passphrase} --output \"GraphQL/GraphQL.plist\" --decrypt \"GraphQL/fake-unicorn.gpg\"", log: false)
     end
   end
 
