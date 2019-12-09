@@ -43,3 +43,4 @@
 --enable consecutiveSpaces
 --enable anyObjectProtocol
 --disable isEmpty
+--exclude Revealed/GraphQL
