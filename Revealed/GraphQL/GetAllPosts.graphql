@@ -1,0 +1,26 @@
+query getAllPost($first: Int, $commentFirst: String) {
+  getAllPosts(first: $first, after: $commentFirst) {
+    edges {
+      author {
+        id
+      }
+      tags {
+        name
+      }
+      topic {
+        name
+      }
+      content
+      subject
+      createdAt
+      totalLikesCount
+      totalCommentsCount
+      postViewCount
+      status
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
