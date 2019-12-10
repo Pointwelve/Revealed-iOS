@@ -22,6 +22,9 @@
 		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
 		1BC61C952393D946006A83D7 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BC61C942393D946006A83D7 /* Auth0.plist */; };
 		1BF86B00239EA23600FE9D42 /* GraphQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BF86AFF239EA23600FE9D42 /* GraphQL.plist */; };
+		1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B05239FDE2700FE9D42 /* HomeView.swift */; };
+		1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B07239FE88200FE9D42 /* PostRow.swift */; };
+		1BF86B0A239FECA600FE9D42 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B09239FECA600FE9D42 /* HomeViewModel.swift */; };
 		1BF9082C239E95C600D1B9C4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9082B239E95C600D1B9C4 /* Configuration.swift */; };
 		1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9082E239E9E0200D1B9C4 /* RevealedError.swift */; };
 		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
@@ -69,6 +72,9 @@
 		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
 		1BC61C942393D946006A83D7 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
 		1BF86AFF239EA23600FE9D42 /* GraphQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQL.plist; sourceTree = "<group>"; };
+		1BF86B05239FDE2700FE9D42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		1BF86B07239FE88200FE9D42 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
+		1BF86B09239FECA600FE9D42 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		1BF9082B239E95C600D1B9C4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1BF9082E239E9E0200D1B9C4 /* RevealedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealedError.swift; sourceTree = "<group>"; };
 		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 		1B6446A7238EA01200422926 /* Revealed */ = {
 			isa = PBXGroup;
 			children = (
+				1BF86B03239FDE0600FE9D42 /* Features */,
 				1BF9082D239E9DD200D1B9C4 /* Setup */,
 				1BC61C8D2392A990006A83D7 /* Network */,
 				1B8AB2E523926C0500907AF6 /* GraphQL */,
@@ -196,6 +203,24 @@
 				1B045F90239555F700EE3333 /* ApolloError.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		1BF86B03239FDE0600FE9D42 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1BF86B04239FDE1500FE9D42 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1BF86B04239FDE1500FE9D42 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1BF86B05239FDE2700FE9D42 /* HomeView.swift */,
+				1BF86B07239FE88200FE9D42 /* PostRow.swift */,
+				1BF86B09239FECA600FE9D42 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		1BF90826239E93E100D1B9C4 /* GraphQL */ = {
@@ -444,8 +469,11 @@
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
 				1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */,
 				1B045F91239555F700EE3333 /* ApolloError.swift in Sources */,
+				1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				1B8AB2EC23926C0500907AF6 /* API.swift in Sources */,
+				1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */,
+				1BF86B0A239FECA600FE9D42 /* HomeViewModel.swift in Sources */,
 				1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */,
 				1B6446AD238EA01200422926 /* ContentView.swift in Sources */,
 				1BF9082C239E95C600D1B9C4 /* Configuration.swift in Sources */,

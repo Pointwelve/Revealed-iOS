@@ -10,11 +10,17 @@ import Auth0
 import SwiftUI
 
 struct ContentView: View {
+  @State var goToHome = false
+
   var body: some View {
     NavigationView {
-      Button(action: auth) {
-        Text("Auth0")
+      VStack {
+        NavigationLink(destination: HomeView(), isActive: $goToHome) { EmptyView() }.hidden()
+        Button(action: auth) {
+          Text("Auth0")
+        }
       }
+      .navigationBarTitle(Text("Main"))
     }
   }
 
@@ -31,7 +37,8 @@ struct ContentView: View {
         case let .success(credentials):
           // Do something with credentials e.g.: save them.
           // Auth0 will automatically dismiss the login page
-          print("Credentials: \(credentials)")
+          self.goToHome = true
+          print("Credentials: \(credentials.accessToken ?? "")")
         }
       }
   }
