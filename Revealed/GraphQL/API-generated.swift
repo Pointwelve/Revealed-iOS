@@ -65,6 +65,7 @@ public final class GetAllPostQuery: GraphQLQuery {
           author {
             __typename
             id
+            username
           }
           tags {
             __typename
@@ -74,7 +75,8 @@ public final class GetAllPostQuery: GraphQLQuery {
             __typename
             name
           }
-          content
+          id
+          excerpt
           subject
           createdAt
           totalLikesCount
@@ -185,7 +187,8 @@ public final class GetAllPostQuery: GraphQLQuery {
           GraphQLField("author", type: .nonNull(.object(Author.selections))),
           GraphQLField("tags", type: .list(.nonNull(.object(Tag.selections)))),
           GraphQLField("topic", type: .nonNull(.object(Topic.selections))),
-          GraphQLField("content", type: .nonNull(.scalar(String.self))),
+          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+          GraphQLField("excerpt", type: .nonNull(.scalar(String.self))),
           GraphQLField("subject", type: .nonNull(.scalar(String.self))),
           GraphQLField("createdAt", type: .nonNull(.scalar(String.self))),
           GraphQLField("totalLikesCount", type: .nonNull(.scalar(Int.self))),
@@ -200,8 +203,8 @@ public final class GetAllPostQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(author: Author, tags: [Tag]? = nil, topic: Topic, content: String, subject: String, createdAt: String, totalLikesCount: Int, totalCommentsCount: Int, postViewCount: Int, status: PostStatus) {
-          self.init(unsafeResultMap: ["__typename": "Post", "author": author.resultMap, "tags": tags.flatMap { (value: [Tag]) -> [ResultMap] in value.map { (value: Tag) -> ResultMap in value.resultMap } }, "topic": topic.resultMap, "content": content, "subject": subject, "createdAt": createdAt, "totalLikesCount": totalLikesCount, "totalCommentsCount": totalCommentsCount, "postViewCount": postViewCount, "status": status])
+        public init(author: Author, tags: [Tag]? = nil, topic: Topic, id: GraphQLID, excerpt: String, subject: String, createdAt: String, totalLikesCount: Int, totalCommentsCount: Int, postViewCount: Int, status: PostStatus) {
+          self.init(unsafeResultMap: ["__typename": "Post", "author": author.resultMap, "tags": tags.flatMap { (value: [Tag]) -> [ResultMap] in value.map { (value: Tag) -> ResultMap in value.resultMap } }, "topic": topic.resultMap, "id": id, "excerpt": excerpt, "subject": subject, "createdAt": createdAt, "totalLikesCount": totalLikesCount, "totalCommentsCount": totalCommentsCount, "postViewCount": postViewCount, "status": status])
         }
 
         public var __typename: String {
@@ -241,12 +244,21 @@ public final class GetAllPostQuery: GraphQLQuery {
           }
         }
 
-        public var content: String {
+        public var id: GraphQLID {
           get {
-            return resultMap["content"]! as! String
+            return resultMap["id"]! as! GraphQLID
           }
           set {
-            resultMap.updateValue(newValue, forKey: "content")
+            resultMap.updateValue(newValue, forKey: "id")
+          }
+        }
+
+        public var excerpt: String {
+          get {
+            return resultMap["excerpt"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "excerpt")
           }
         }
 
@@ -311,6 +323,7 @@ public final class GetAllPostQuery: GraphQLQuery {
           public static let selections: [GraphQLSelection] = [
             GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
             GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+            GraphQLField("username", type: .nonNull(.scalar(String.self))),
           ]
 
           public private(set) var resultMap: ResultMap
@@ -319,8 +332,8 @@ public final class GetAllPostQuery: GraphQLQuery {
             self.resultMap = unsafeResultMap
           }
 
-          public init(id: GraphQLID) {
-            self.init(unsafeResultMap: ["__typename": "User", "id": id])
+          public init(id: GraphQLID, username: String) {
+            self.init(unsafeResultMap: ["__typename": "User", "id": id, "username": username])
           }
 
           public var __typename: String {
@@ -338,6 +351,15 @@ public final class GetAllPostQuery: GraphQLQuery {
             }
             set {
               resultMap.updateValue(newValue, forKey: "id")
+            }
+          }
+
+          public var username: String {
+            get {
+              return resultMap["username"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "username")
             }
           }
         }
