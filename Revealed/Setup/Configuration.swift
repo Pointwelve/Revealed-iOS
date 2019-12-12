@@ -32,8 +32,8 @@ struct Config {
 
   let configuration: Configuration
 
-  init(fileName: String = "GraphQL") {
-    guard let url = Bundle.main.url(forResource: fileName, withExtension: "plist") else {
+  init(fileName: String = "GraphQL", bundle: Bundle = Bundle.main) {
+    guard let url = bundle.url(forResource: fileName, withExtension: "plist") else {
       RevealedError.error(Configuration.Error.fileMissing.localizedDescription)
     }
 

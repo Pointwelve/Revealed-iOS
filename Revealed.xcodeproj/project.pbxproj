@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1B045F91239555F700EE3333 /* ApolloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B045F90239555F700EE3333 /* ApolloError.swift */; };
+		1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */; };
+		1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */; };
+		1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */; };
+		1B3097ED23A2930A004F1DA9 /* GraphQLTestError.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097EC23A2930A004F1DA9 /* GraphQLTestError.plist */; };
 		1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446A8238EA01200422926 /* AppDelegate.swift */; };
 		1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446AA238EA01200422926 /* SceneDelegate.swift */; };
 		1B6446AD238EA01200422926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446AC238EA01200422926 /* ContentView.swift */; };
@@ -50,6 +54,10 @@
 
 /* Begin PBXFileReference section */
 		1B045F90239555F700EE3333 /* ApolloError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloError.swift; sourceTree = "<group>"; };
+		1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
+		1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTest.plist; sourceTree = "<group>"; };
+		1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FatalError.swift"; sourceTree = "<group>"; };
+		1B3097EC23A2930A004F1DA9 /* GraphQLTestError.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTestError.plist; sourceTree = "<group>"; };
 		1B6446A5238EA01200422926 /* Revealed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revealed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6446A8238EA01200422926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B6446AA238EA01200422926 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +117,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B3097F023A2937B004F1DA9 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */,
+				1B3097EC23A2930A004F1DA9 /* GraphQLTestError.plist */,
+			);
+			path = Configurations;
+			sourceTree = "<group>";
+		};
 		1B64469C238EA01200422926 = {
 			isa = PBXGroup;
 			children = (
@@ -160,8 +177,11 @@
 		1B6446BE238EA01200422926 /* RevealedTests */ = {
 			isa = PBXGroup;
 			children = (
+				1B3097F023A2937B004F1DA9 /* Configurations */,
+				1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */,
 				1B6446BF238EA01200422926 /* RevealedTests.swift */,
 				1B6446C1238EA01200422926 /* Info.plist */,
+				1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */,
 			);
 			path = RevealedTests;
 			sourceTree = "<group>";
@@ -384,6 +404,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */,
+				1B3097ED23A2930A004F1DA9 /* GraphQLTestError.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +507,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */,
 				1B6446C0238EA01200422926 /* RevealedTests.swift in Sources */,
+				1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
