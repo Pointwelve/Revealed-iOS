@@ -12,6 +12,8 @@
 		1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */; };
 		1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */; };
 		1B3097ED23A2930A004F1DA9 /* GraphQLTestError.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097EC23A2930A004F1DA9 /* GraphQLTestError.plist */; };
+		1B3097F223A2953D004F1DA9 /* XCTestCase+Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097F123A2953D004F1DA9 /* XCTestCase+Global.swift */; };
+		1B3D072323A29DB00041D479 /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B3D072223A29DB00041D479 /* OHHTTPStubs.framework */; };
 		1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446A8238EA01200422926 /* AppDelegate.swift */; };
 		1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446AA238EA01200422926 /* SceneDelegate.swift */; };
 		1B6446AD238EA01200422926 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446AC238EA01200422926 /* ContentView.swift */; };
@@ -19,7 +21,7 @@
 		1B6446B2238EA01200422926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6446B1238EA01200422926 /* Preview Assets.xcassets */; };
 		1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6446B3238EA01200422926 /* LaunchScreen.storyboard */; };
 		1B6446C0238EA01200422926 /* RevealedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446BF238EA01200422926 /* RevealedTests.swift */; };
-		1B6446CB238EA01200422926 /* RevealedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B6446CA238EA01200422926 /* RevealedUITests.swift */; };
+		1B9CCB6023A2986C00A45A55 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
 		1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
 		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
@@ -43,13 +45,6 @@
 			remoteGlobalIDString = 1B6446A4238EA01200422926;
 			remoteInfo = Revealed;
 		};
-		1B6446C7238EA01200422926 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B64469D238EA01200422926 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1B6446A4238EA01200422926;
-			remoteInfo = Revealed;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +53,8 @@
 		1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTest.plist; sourceTree = "<group>"; };
 		1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FatalError.swift"; sourceTree = "<group>"; };
 		1B3097EC23A2930A004F1DA9 /* GraphQLTestError.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTestError.plist; sourceTree = "<group>"; };
+		1B3097F123A2953D004F1DA9 /* XCTestCase+Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Global.swift"; sourceTree = "<group>"; };
+		1B3D072223A29DB00041D479 /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
 		1B6446A5238EA01200422926 /* Revealed.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Revealed.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6446A8238EA01200422926 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B6446AA238EA01200422926 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,9 +66,6 @@
 		1B6446BB238EA01200422926 /* RevealedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevealedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6446BF238EA01200422926 /* RevealedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealedTests.swift; sourceTree = "<group>"; };
 		1B6446C1238EA01200422926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B6446C6238EA01200422926 /* RevealedUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevealedUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1B6446CA238EA01200422926 /* RevealedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealedUITests.swift; sourceTree = "<group>"; };
-		1B6446CC238EA01200422926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B8AB2E623926C0500907AF6 /* GetAllPosts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAllPosts.graphql; sourceTree = "<group>"; };
 		1B8AB2E723926C0500907AF6 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		1BC61C8323926D1E006A83D7 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
@@ -104,13 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1B6446C3238EA01200422926 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				1B9CCB6023A2986C00A45A55 /* Apollo.framework in Frameworks */,
+				1B3D072323A29DB00041D479 /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +121,6 @@
 				A00B7F72239269E2008C114B /* Resources */,
 				1B6446A7238EA01200422926 /* Revealed */,
 				1B6446BE238EA01200422926 /* RevealedTests */,
-				1B6446C9238EA01200422926 /* RevealedUITests */,
 				1B6446A6238EA01200422926 /* Products */,
 				1BC61C8223926D1E006A83D7 /* Frameworks */,
 			);
@@ -143,7 +131,6 @@
 			children = (
 				1B6446A5238EA01200422926 /* Revealed.app */,
 				1B6446BB238EA01200422926 /* RevealedTests.xctest */,
-				1B6446C6238EA01200422926 /* RevealedUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,17 +169,9 @@
 				1B6446BF238EA01200422926 /* RevealedTests.swift */,
 				1B6446C1238EA01200422926 /* Info.plist */,
 				1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */,
+				1B3097F123A2953D004F1DA9 /* XCTestCase+Global.swift */,
 			);
 			path = RevealedTests;
-			sourceTree = "<group>";
-		};
-		1B6446C9238EA01200422926 /* RevealedUITests */ = {
-			isa = PBXGroup;
-			children = (
-				1B6446CA238EA01200422926 /* RevealedUITests.swift */,
-				1B6446CC238EA01200422926 /* Info.plist */,
-			);
-			path = RevealedUITests;
 			sourceTree = "<group>";
 		};
 		1B8AB2E523926C0500907AF6 /* GraphQL */ = {
@@ -208,6 +187,7 @@
 		1BC61C8223926D1E006A83D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1B3D072223A29DB00041D479 /* OHHTTPStubs.framework */,
 				F69D944C23954E5000EEEE2E /* Auth0.framework */,
 				F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */,
 				1BC61C8323926D1E006A83D7 /* Apollo.framework */,
@@ -326,24 +306,6 @@
 			productReference = 1B6446BB238EA01200422926 /* RevealedTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		1B6446C5238EA01200422926 /* RevealedUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1B6446D5238EA01200422926 /* Build configuration list for PBXNativeTarget "RevealedUITests" */;
-			buildPhases = (
-				1B6446C2238EA01200422926 /* Sources */,
-				1B6446C3238EA01200422926 /* Frameworks */,
-				1B6446C4238EA01200422926 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				1B6446C8238EA01200422926 /* PBXTargetDependency */,
-			);
-			name = RevealedUITests;
-			productName = RevealedUITests;
-			productReference = 1B6446C6238EA01200422926 /* RevealedUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -358,10 +320,6 @@
 						CreatedOnToolsVersion = 11.2.1;
 					};
 					1B6446BA238EA01200422926 = {
-						CreatedOnToolsVersion = 11.2.1;
-						TestTargetID = 1B6446A4238EA01200422926;
-					};
-					1B6446C5238EA01200422926 = {
 						CreatedOnToolsVersion = 11.2.1;
 						TestTargetID = 1B6446A4238EA01200422926;
 					};
@@ -382,7 +340,6 @@
 			targets = (
 				1B6446A4238EA01200422926 /* Revealed */,
 				1B6446BA238EA01200422926 /* RevealedTests */,
-				1B6446C5238EA01200422926 /* RevealedUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -406,13 +363,6 @@
 			files = (
 				1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */,
 				1B3097ED23A2930A004F1DA9 /* GraphQLTestError.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1B6446C4238EA01200422926 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,16 +458,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */,
+				1B3097F223A2953D004F1DA9 /* XCTestCase+Global.swift in Sources */,
 				1B6446C0238EA01200422926 /* RevealedTests.swift in Sources */,
 				1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		1B6446C2238EA01200422926 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1B6446CB238EA01200422926 /* RevealedUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -528,11 +471,6 @@
 			isa = PBXTargetDependency;
 			target = 1B6446A4238EA01200422926 /* Revealed */;
 			targetProxy = 1B6446BC238EA01200422926 /* PBXContainerItemProxy */;
-		};
-		1B6446C8238EA01200422926 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1B6446A4238EA01200422926 /* Revealed */;
-			targetProxy = 1B6446C7238EA01200422926 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -714,12 +652,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RevealedTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.RevealedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -735,56 +678,23 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RevealedTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.RevealedTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Revealed.app/Revealed";
-			};
-			name = Release;
-		};
-		1B6446D6238EA01200422926 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RevealedUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.RevealedUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Revealed;
-			};
-			name = Debug;
-		};
-		1B6446D7238EA01200422926 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = RevealedUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.RevealedUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Revealed;
 			};
 			name = Release;
 		};
@@ -814,15 +724,6 @@
 			buildConfigurations = (
 				1B6446D3238EA01200422926 /* Debug */,
 				1B6446D4238EA01200422926 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		1B6446D5238EA01200422926 /* Build configuration list for PBXNativeTarget "RevealedUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1B6446D6238EA01200422926 /* Debug */,
-				1B6446D7238EA01200422926 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
