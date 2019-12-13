@@ -23,56 +23,56 @@
         }
       },
       "swiftformat": {
-        "version": "0.41.2",
+        "version": "0.42.0",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.41.2.catalina.bottle.tar.gz",
-              "sha256": "50f8b073be59248151472808cae24ba533e250a93fe32576d5124b7de690cc44"
+              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.42.0.catalina.bottle.tar.gz",
+              "sha256": "3620b9c2c0a769d9256cacaba49cdd11122f0d0f22161dacb57a6b95f77ad066"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.41.2.mojave.bottle.tar.gz",
-              "sha256": "e52062c8ed242d331013e6adbab76b7087802214b47cb539b86e015d328a4db3"
+              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.42.0.mojave.bottle.tar.gz",
+              "sha256": "f51a6e95e61172ee390a66b1d79faac79e22508ed13b9162e75a65a1763f1f8a"
             },
             "high_sierra": {
-              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.41.2.high_sierra.bottle.tar.gz",
-              "sha256": "3603a831193cde5aef3a45026d701e62e9bd49976c63c0b332147a996eca1636"
+              "url": "https://homebrew.bintray.com/bottles/swiftformat-0.42.0.high_sierra.bottle.tar.gz",
+              "sha256": "b65ec9c24f46a0e786030367f1ac112ac5b498c8ef93ccf3b63e827be3fc80a7"
             }
           }
         }
       },
       "swiftlint": {
-        "version": "0.37.0",
+        "version": "0.38.0",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/swiftlint-0.37.0.catalina.bottle.tar.gz",
-              "sha256": "d3182e9d9f6c31bc22ff11cb61d6743d6908aed3de3cd3e6a31088e7b9d2c153"
+              "url": "https://homebrew.bintray.com/bottles/swiftlint-0.38.0.catalina.bottle.tar.gz",
+              "sha256": "a2b39e51661fc24d201788391ce4f9c68007c818857f423161b37bc51f7fcb0b"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/swiftlint-0.37.0.mojave.bottle.tar.gz",
-              "sha256": "0096952a2917bab113e2b6372d221d18ada6895f4f81fd64d304cc516398761e"
+              "url": "https://homebrew.bintray.com/bottles/swiftlint-0.38.0.mojave.bottle.tar.gz",
+              "sha256": "f8ae3a1cb06e0ff8034047a1a5e552ba36d475c6995ca11cd5449da84b98319f"
             }
           }
         }
       },
       "xcodegen": {
-        "version": "2.10.1",
+        "version": "2.11.0",
         "bottle": {
           "cellar": ":any_skip_relocation",
           "prefix": "/usr/local",
           "files": {
             "catalina": {
-              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.10.1.catalina.bottle.tar.gz",
-              "sha256": "887575b080ad6d0bd97f3eb72bea5c2246558b687f5cdcfeb41fc7d40a69f075"
+              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.11.0.catalina.bottle.tar.gz",
+              "sha256": "2b2feec5d445a91697c79cd7863b9bc53856ccf421f2cf078e9e4f4277a4faa1"
             },
             "mojave": {
-              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.10.1.mojave.bottle.tar.gz",
-              "sha256": "d943d1454494c09a2e5ded6321305b734faf8137a301d6e94325464254d6ba66"
+              "url": "https://homebrew.bintray.com/bottles/xcodegen-2.11.0.mojave.bottle.tar.gz",
+              "sha256": "d9b119751c32d2c5281a9eaf175f2c49aff398caf5193c3444c6c1b79e03dd16"
             }
           }
         }
@@ -85,9 +85,9 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.2.0",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "2627a25bd0aecd3f376d10e705aaf1c23b35c5a5",
-        "CLT": "11.2.0.0.1.1571444319",
-        "Xcode": "11.2.1",
+        "Homebrew/homebrew-core": "b82ebf7f81d0e9790e46d14d0786d666664ace12",
+        "CLT": "",
+        "Xcode": "11.3",
         "macOS": "10.15.1"
       }
     }
