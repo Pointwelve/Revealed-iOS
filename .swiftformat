@@ -44,3 +44,4 @@
 --enable anyObjectProtocol
 --disable isEmpty
 --exclude Revealed/GraphQL
+--exclude Revealed/Generated

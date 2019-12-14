@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>host</key>
-	<string>https://example.com</string>
+	<string>https://localhost:8080</string>
 </dict>
 </plist>
