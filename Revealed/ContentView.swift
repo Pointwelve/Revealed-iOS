@@ -27,7 +27,7 @@ struct ContentView: View {
   private func auth() {
     Auth0
       .webAuth()
-      .scope("openid profile")
+      .scope("openid profile offline_access")
       .audience("https://pointwelve.au.auth0.com/userinfo")
       .start {
         switch $0 {
@@ -35,10 +35,8 @@ struct ContentView: View {
           // Handle the error
           print("Error: \(error)")
         case let .success(credentials):
-          // Do something with credentials e.g.: save them.
-          // Auth0 will automatically dismiss the login page
+            AuthService.shared.store(credentials: credentials)
           self.goToHome = true
-          print("Credentials: \(credentials.accessToken ?? "")")
         }
       }
   }
