@@ -1,0 +1,6 @@
+sources:
+  - ./Revealed/GraphQL
+templates:
+  - ./Revealed/SourceryTemplate
+output:
+  ./Revealed/Generated
