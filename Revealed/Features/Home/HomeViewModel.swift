@@ -11,15 +11,12 @@ import Foundation
 
 typealias Post = GetAllPostQuery.Data.GetAllPost.Edge
 
-extension Post: Identifiable {
-  public var id: String {
-    return subject
-  }
-}
+extension Post: Identifiable {}
 
 class HomeViewModel: ObservableObject, Identifiable {
   @Published var posts: [Post] = []
   private var disposables = Set<AnyCancellable>()
+  private let queue = DispatchQueue(label: "com.pointwelve.revealed.postQueue")
 
   init() {
     refresh()
@@ -27,7 +24,7 @@ class HomeViewModel: ObservableObject, Identifiable {
 
   func refresh() {
     let query = GetAllPostQuery(first: 10, commentFirst: "")
-    ApolloNetwork.shared.apollo.fetchFuture(query: query)
+    ApolloNetwork.shared.apollo.fetchFuture(query: query, queue: queue)
       .map { $0.getAllPosts?.edges?.compactMap { $0 } ?? [] }
       .receive(on: DispatchQueue.main)
       .sink(receiveCompletion: { [weak self] value in
