@@ -11,7 +11,11 @@ import Foundation
 
 typealias Post = GetAllPostQuery.Data.GetAllPost.Edge
 
-extension Post: Identifiable {}
+extension Post: Identifiable {
+  public var id: String {
+    return self.fragments.postDetail.id
+  }
+}
 
 class HomeViewModel: ObservableObject, Identifiable {
   @Published var posts: [Post] = []

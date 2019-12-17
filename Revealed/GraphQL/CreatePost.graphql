@@ -1,5 +1,5 @@
-mutation CreatePost($post: PostInput!) {
-  createPost(post: $post) {
-      PostDetail
+mutation CreatePost($input: PostInput!) {
+  createPost(input: $input) {
+      ...PostDetail
   }
 }

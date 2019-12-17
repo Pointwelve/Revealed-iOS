@@ -1,20 +1,20 @@
-fragment PostDetail On Post {
+fragment PostDetail on Post {
     author {
-          id
-          username
-        }
-        tags {
-          name
-        }
-        topic {
-          name
-        }
-        id
-        excerpt
-        subject
-        createdAt
-        totalLikesCount
-        totalCommentsCount
-        postViewCount
-        status
+      id
+      username
+    }
+    tags {
+      name
+    }
+    topic {
+      name
+    }
+    id
+    excerpt
+    subject
+    createdAt
+    totalLikesCount
+    totalCommentsCount
+    postViewCount
+    status
 }
