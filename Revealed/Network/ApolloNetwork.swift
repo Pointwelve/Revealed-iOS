@@ -30,10 +30,10 @@ extension ApolloNetwork: HTTPNetworkTransportPreflightDelegate {
   func networkTransport(_ networkTransport: HTTPNetworkTransport,
                         willSend request: inout URLRequest) {
     guard let idToken = AuthService.shared.idToken else {
-        // TODO: reAuth
-        return
+      // TODO: reAuth
+      return
     }
-    
+
     request.addValue(idToken, forHTTPHeaderField: "Authorization")
   }
 }

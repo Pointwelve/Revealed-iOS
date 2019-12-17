@@ -35,7 +35,7 @@ struct ContentView: View {
           // Handle the error
           print("Error: \(error)")
         case let .success(credentials):
-            AuthService.shared.store(credentials: credentials)
+          AuthService.shared.store(credentials: credentials)
           self.goToHome = true
         }
       }

@@ -1,16 +1,16 @@
 //
-import Apollo
 //  CombineFutureSuccessTests.swift
 //  RevealedTests
 //
 //  Created by Hong on 14/12/19.
 //  Copyright © 2019 Pointwelve. All rights reserved.
 //
+import Apollo
 import OHHTTPStubs
 @testable import Revealed
 import XCTest
 
-class CombineFutureSuccessTests: XCTestCase {
+class GetAllPostQuerySuccessTests: XCTestCase {
   var mainStub: OHHTTPStubsDescriptor?
   override func setUp() {
     mainStub = stub(condition: isHost("localhost"), response: { (_) -> OHHTTPStubsResponse in
@@ -41,23 +41,23 @@ class CombineFutureSuccessTests: XCTestCase {
           break
         }
       }, receiveValue: { posts in
-        let post = Post(author: .init(id: "f9Qyh",
-                                      username: "Aiden"),
-                        tags: [
-                          .init(name: "Human"),
-                          .init(name: "Office"),
-                          .init(name: "Other")
-                        ],
-                        topic: .init(name: "braid"),
-                        id: "W38KpkBxfj",
-                        excerpt: "The secular cooling that must someday overtake our planet has already gone far indeed with our neighbour.",
-                        subject: "He spoke of the happiness that was now certainly theirs, of the folly of not breaking sooner out of that magnificent prison of latter-day life, of the old romantic days that had passed from the world for ever.",
-                        createdAt: "1523735771",
-                        totalLikesCount: 31,
-                        totalCommentsCount: 25,
-                        postViewCount: 60,
-                        status: .approved)
-        XCTAssertEqual(posts.getAllPosts?.edges?.first, post)
+        let post = PostDetail(author: .init(id: "f9Qyh",
+                                            username: "Aiden"),
+                              tags: [
+                                .init(name: "Human"),
+                                .init(name: "Office"),
+                                .init(name: "Other")
+                              ],
+                              topic: .init(name: "braid"),
+                              id: "W38KpkBxfj",
+                              excerpt: "The secular cooling that must someday overtake our planet has already gone far indeed with our neighbour.",
+                              subject: "He spoke of the happiness that was now certainly theirs, of the folly of not breaking sooner out of that magnificent prison of latter-day life, of the old romantic days that had passed from the world for ever.",
+                              createdAt: 1_523_735_771,
+                              totalLikesCount: 31,
+                              totalCommentsCount: 25,
+                              postViewCount: 60,
+                              status: .approved)
+        XCTAssertEqual(posts.getAllPosts?.edges?.first??.fragments.postDetail, post)
         expec.fulfill()
       })
 

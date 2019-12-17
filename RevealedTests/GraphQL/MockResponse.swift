@@ -92,4 +92,45 @@ enum MockResponse {
       }
   }
   """
+
+  static let CreatePost = """
+  {
+      "data": {
+          "createPost": {
+              "__typename": "Post",
+              "author": {
+                  "__typename": "User",
+                  "id": "f9Qyh",
+                  "username": "Aiden"
+              },
+              "tags": [
+                  {
+                      "__typename": "Tag",
+                      "name": "Human"
+                  },
+                  {
+                      "__typename": "Tag",
+                      "name": "Office"
+                  },
+                  {
+                      "__typename": "Tag",
+                      "name": "Other"
+                  }
+              ],
+              "topic": {
+                  "__typename": "Topic",
+                  "name": "braid"
+              },
+              "id": "W38KpkBxfj",
+              "excerpt": "The secular cooling that must someday overtake our planet has already gone far indeed with our neighbour.",
+              "subject": "He spoke of the happiness that was now certainly theirs, of the folly of not breaking sooner out of that magnificent prison of latter-day life, of the old romantic days that had passed from the world for ever.",
+              "createdAt": 1523735771,
+              "totalLikesCount": 31,
+              "totalCommentsCount": 25,
+              "postViewCount": 60,
+              "status": "APPROVED"
+          }
+      }
+  }
+  """
 }

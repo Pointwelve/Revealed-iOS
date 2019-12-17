@@ -531,7 +531,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  /// MARKDOWN only and unicode (emoji)
+  // MARK: only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int

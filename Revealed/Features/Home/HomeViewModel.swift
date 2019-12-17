@@ -13,7 +13,7 @@ typealias Post = GetAllPostQuery.Data.GetAllPost.Edge
 
 extension Post: Identifiable {
   public var id: String {
-    return self.fragments.postDetail.id
+    return fragments.postDetail.id
   }
 }
 
