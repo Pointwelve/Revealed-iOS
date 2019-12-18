@@ -13,7 +13,7 @@ struct HomeView: View {
   @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
   var body: some View {
     List(viewModel.posts) { post in
-      PostRow(post: post)
+      PostRow(post: post.fragments.postDetail)
     }
     .navigationBarTitle(Text("Home"))
   }

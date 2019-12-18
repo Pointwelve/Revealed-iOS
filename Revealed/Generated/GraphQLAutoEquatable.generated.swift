@@ -24,6 +24,25 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 
 
 // MARK: - AutoEquatable for classes, protocols, structs
+// MARK: - CreatePostMutation.Data AutoEquatable
+extension CreatePostMutation.Data: Equatable {}
+public func == (lhs: CreatePostMutation.Data, rhs: CreatePostMutation.Data) -> Bool {
+    guard compareOptionals(lhs: lhs.createPost, rhs: rhs.createPost, compare: ==) else { return false }
+    return true
+}
+// MARK: - CreatePostMutation.Data.CreatePost AutoEquatable
+extension CreatePostMutation.Data.CreatePost: Equatable {}
+public func == (lhs: CreatePostMutation.Data.CreatePost, rhs: CreatePostMutation.Data.CreatePost) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.fragments == rhs.fragments else { return false }
+    return true
+}
+// MARK: - CreatePostMutation.Data.CreatePost.Fragments AutoEquatable
+extension CreatePostMutation.Data.CreatePost.Fragments: Equatable {}
+public func == (lhs: CreatePostMutation.Data.CreatePost.Fragments, rhs: CreatePostMutation.Data.CreatePost.Fragments) -> Bool {
+    guard lhs.postDetail == rhs.postDetail else { return false }
+    return true
+}
 // MARK: - GetAllPostQuery.Data AutoEquatable
 extension GetAllPostQuery.Data: Equatable {}
 public func == (lhs: GetAllPostQuery.Data, rhs: GetAllPostQuery.Data) -> Bool {
@@ -42,6 +61,27 @@ public func == (lhs: GetAllPostQuery.Data.GetAllPost, rhs: GetAllPostQuery.Data.
 extension GetAllPostQuery.Data.GetAllPost.Edge: Equatable {}
 public func == (lhs: GetAllPostQuery.Data.GetAllPost.Edge, rhs: GetAllPostQuery.Data.GetAllPost.Edge) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.fragments == rhs.fragments else { return false }
+    return true
+}
+// MARK: - GetAllPostQuery.Data.GetAllPost.Edge.Fragments AutoEquatable
+extension GetAllPostQuery.Data.GetAllPost.Edge.Fragments: Equatable {}
+public func == (lhs: GetAllPostQuery.Data.GetAllPost.Edge.Fragments, rhs: GetAllPostQuery.Data.GetAllPost.Edge.Fragments) -> Bool {
+    guard lhs.postDetail == rhs.postDetail else { return false }
+    return true
+}
+// MARK: - GetAllPostQuery.Data.GetAllPost.PageInfo AutoEquatable
+extension GetAllPostQuery.Data.GetAllPost.PageInfo: Equatable {}
+public func == (lhs: GetAllPostQuery.Data.GetAllPost.PageInfo, rhs: GetAllPostQuery.Data.GetAllPost.PageInfo) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.hasNextPage == rhs.hasNextPage else { return false }
+    guard compareOptionals(lhs: lhs.endCursor, rhs: rhs.endCursor, compare: ==) else { return false }
+    return true
+}
+// MARK: - PostDetail AutoEquatable
+extension PostDetail: Equatable {}
+public func == (lhs: PostDetail, rhs: PostDetail) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
     guard lhs.author == rhs.author else { return false }
     guard compareOptionals(lhs: lhs.tags, rhs: rhs.tags, compare: ==) else { return false }
     guard lhs.topic == rhs.topic else { return false }
@@ -55,34 +95,26 @@ public func == (lhs: GetAllPostQuery.Data.GetAllPost.Edge, rhs: GetAllPostQuery.
     guard lhs.status == rhs.status else { return false }
     return true
 }
-// MARK: - GetAllPostQuery.Data.GetAllPost.Edge.Author AutoEquatable
-extension GetAllPostQuery.Data.GetAllPost.Edge.Author: Equatable {}
-public func == (lhs: GetAllPostQuery.Data.GetAllPost.Edge.Author, rhs: GetAllPostQuery.Data.GetAllPost.Edge.Author) -> Bool {
+// MARK: - PostDetail.Author AutoEquatable
+extension PostDetail.Author: Equatable {}
+public func == (lhs: PostDetail.Author, rhs: PostDetail.Author) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard lhs.id == rhs.id else { return false }
     guard lhs.username == rhs.username else { return false }
     return true
 }
-// MARK: - GetAllPostQuery.Data.GetAllPost.Edge.Tag AutoEquatable
-extension GetAllPostQuery.Data.GetAllPost.Edge.Tag: Equatable {}
-public func == (lhs: GetAllPostQuery.Data.GetAllPost.Edge.Tag, rhs: GetAllPostQuery.Data.GetAllPost.Edge.Tag) -> Bool {
+// MARK: - PostDetail.Tag AutoEquatable
+extension PostDetail.Tag: Equatable {}
+public func == (lhs: PostDetail.Tag, rhs: PostDetail.Tag) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard lhs.name == rhs.name else { return false }
     return true
 }
-// MARK: - GetAllPostQuery.Data.GetAllPost.Edge.Topic AutoEquatable
-extension GetAllPostQuery.Data.GetAllPost.Edge.Topic: Equatable {}
-public func == (lhs: GetAllPostQuery.Data.GetAllPost.Edge.Topic, rhs: GetAllPostQuery.Data.GetAllPost.Edge.Topic) -> Bool {
+// MARK: - PostDetail.Topic AutoEquatable
+extension PostDetail.Topic: Equatable {}
+public func == (lhs: PostDetail.Topic, rhs: PostDetail.Topic) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard lhs.name == rhs.name else { return false }
-    return true
-}
-// MARK: - GetAllPostQuery.Data.GetAllPost.PageInfo AutoEquatable
-extension GetAllPostQuery.Data.GetAllPost.PageInfo: Equatable {}
-public func == (lhs: GetAllPostQuery.Data.GetAllPost.PageInfo, rhs: GetAllPostQuery.Data.GetAllPost.PageInfo) -> Bool {
-    guard lhs.__typename == rhs.__typename else { return false }
-    guard lhs.hasNextPage == rhs.hasNextPage else { return false }
-    guard compareOptionals(lhs: lhs.endCursor, rhs: rhs.endCursor, compare: ==) else { return false }
     return true
 }
 

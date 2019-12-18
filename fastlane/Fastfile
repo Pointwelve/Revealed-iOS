@@ -59,6 +59,16 @@ platform :ios do
     )
   end
 
+  desc "🚀 Download graphql schema"
+  lane :download_schema do |options|
+    token = options[:token] || ENV['GRAPHQL_TOKEN']
+    end_point = options[:end_point] || ENV['GRAPHQL_ENDPOINT']
+    Dir.chdir("..") do
+      sh("apollo schema:download --endpoint='#{end_point}' --header='Authorization: #{token}'")
+      sh("mv schema.json Revealed/GraphQL/schema.json") 
+    end
+  end
+
   def encrypt_configurations
     if is_ci?
       UI.message("Getting encryption paraphrase from environment variable:..")

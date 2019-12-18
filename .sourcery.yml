@@ -4,3 +4,6 @@ templates:
   - ./Revealed/SourceryTemplate
 output:
   ./Revealed/Generated
+args:
+  verbose: true
+  prune: true
