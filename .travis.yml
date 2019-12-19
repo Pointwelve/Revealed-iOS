@@ -1,0 +1,16 @@
+os: osx
+language: objective-c
+osx_image: xcode11.2
+cache:
+  directories:
+  - Carthage
+before_install:
+- brew bundle
+- carthage bootstrap --platform iOS --cache-builds --new-resolver
+install:
+- bundle install
+script:
+- sh build.sh
+branches:
+  only:
+  - master
