@@ -98,7 +98,16 @@ platform :ios do
     end_point = options[:end_point] || ENV['GRAPHQL_ENDPOINT']
     Dir.chdir("..") do
       sh("apollo schema:download --endpoint='#{end_point}' --header='Authorization: #{token}'")
-      sh("mv schema.json Revealed/GraphQL/schema.json") 
+      sh("mv schema.json Revealed/GraphQL/schema.json")
+      
+      script_path="Carthage/Checkouts/apollo-ios/scripts"
+      Dir.chdir("Revealed") do
+        # Generate API
+        sh("../#{script_path}/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/GraphQL/*.graphql --localSchemaFile='GraphQL/schema.json' GraphQL/GraphQL.generated.swift")
+      end
+
+      # Run sourcery
+      sh("sourcery")
     end
   end
 

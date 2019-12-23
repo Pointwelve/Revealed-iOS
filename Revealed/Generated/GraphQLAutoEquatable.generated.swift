@@ -117,5 +117,42 @@ public func == (lhs: PostDetail.Topic, rhs: PostDetail.Topic) -> Bool {
     guard lhs.name == rhs.name else { return false }
     return true
 }
+// MARK: - QueryAllConfigsQuery.Data AutoEquatable
+extension QueryAllConfigsQuery.Data: Equatable {}
+public func == (lhs: QueryAllConfigsQuery.Data, rhs: QueryAllConfigsQuery.Data) -> Bool {
+    guard compareOptionals(lhs: lhs.getAllTopics, rhs: rhs.getAllTopics, compare: ==) else { return false }
+    guard compareOptionals(lhs: lhs.getAllTags, rhs: rhs.getAllTags, compare: ==) else { return false }
+    return true
+}
+// MARK: - QueryAllConfigsQuery.Data.GetAllTag AutoEquatable
+extension QueryAllConfigsQuery.Data.GetAllTag: Equatable {}
+public func == (lhs: QueryAllConfigsQuery.Data.GetAllTag, rhs: QueryAllConfigsQuery.Data.GetAllTag) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
+    return true
+}
+// MARK: - QueryAllConfigsQuery.Data.GetAllTag.Edge AutoEquatable
+extension QueryAllConfigsQuery.Data.GetAllTag.Edge: Equatable {}
+public func == (lhs: QueryAllConfigsQuery.Data.GetAllTag.Edge, rhs: QueryAllConfigsQuery.Data.GetAllTag.Edge) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.id == rhs.id else { return false }
+    guard lhs.name == rhs.name else { return false }
+    return true
+}
+// MARK: - QueryAllConfigsQuery.Data.GetAllTopic AutoEquatable
+extension QueryAllConfigsQuery.Data.GetAllTopic: Equatable {}
+public func == (lhs: QueryAllConfigsQuery.Data.GetAllTopic, rhs: QueryAllConfigsQuery.Data.GetAllTopic) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
+    return true
+}
+// MARK: - QueryAllConfigsQuery.Data.GetAllTopic.Edge AutoEquatable
+extension QueryAllConfigsQuery.Data.GetAllTopic.Edge: Equatable {}
+public func == (lhs: QueryAllConfigsQuery.Data.GetAllTopic.Edge, rhs: QueryAllConfigsQuery.Data.GetAllTopic.Edge) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.id == rhs.id else { return false }
+    guard lhs.name == rhs.name else { return false }
+    return true
+}
 
 // MARK: - AutoEquatable for Enums
