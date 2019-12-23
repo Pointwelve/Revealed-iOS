@@ -12,10 +12,12 @@ import SwiftUI
 struct HomeView: View {
   @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
   var body: some View {
-    List(viewModel.posts) { post in
-      PostRow(post: post.fragments.postDetail)
+    NavigationView {
+      List(viewModel.posts) { post in
+        PostRow(post: post.fragments.postDetail)
+      }
+      .navigationBarTitle(Text("Home"))
     }
-    .navigationBarTitle(Text("Home"))
   }
 }
 

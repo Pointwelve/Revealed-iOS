@@ -22,10 +22,6 @@ struct GetStartedView<Page: View>: View {
 
   var body: some View {
     ZStack(alignment: Alignment(horizontal: .center, vertical: .bottom)) {
-      NavigationLink(destination: HomeView(), isActive: $goToHome) {
-        EmptyView()
-      }.hidden()
-
       GetStartedPageViewController(controllers: viewControllers, currentPage: $currentPage)
 
       VStack {
