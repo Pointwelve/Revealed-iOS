@@ -2005,30 +2005,6 @@
         "args": []
       },
       {
-        "name": "aws_cognito_user_pools",
-        "description": "Tells the service this field/object has access authorized by a Cognito User Pools token.",
-        "locations": [
-          "OBJECT",
-          "FIELD_DEFINITION"
-        ],
-        "args": [
-          {
-            "name": "cognito_groups",
-            "description": "List of cognito user pool groups which have access on this field",
-            "type": {
-              "kind": "LIST",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
-              }
-            },
-            "defaultValue": null
-          }
-        ]
-      },
-      {
         "name": "deprecated",
         "description": null,
         "locations": [
@@ -2072,9 +2048,10 @@
         ]
       },
       {
-        "name": "aws_auth",
-        "description": "Directs the schema to enforce authorization on a field",
+        "name": "aws_cognito_user_pools",
+        "description": "Tells the service this field/object has access authorized by a Cognito User Pools token.",
         "locations": [
+          "OBJECT",
           "FIELD_DEFINITION"
         ],
         "args": [
@@ -2093,6 +2070,24 @@
             "defaultValue": null
           }
         ]
+      },
+      {
+        "name": "aws_iam",
+        "description": "Tells the service this field/object has access authorized by sigv4 signing.",
+        "locations": [
+          "OBJECT",
+          "FIELD_DEFINITION"
+        ],
+        "args": []
+      },
+      {
+        "name": "aws_oidc",
+        "description": "Tells the service this field/object has access authorized by an OIDC token.",
+        "locations": [
+          "OBJECT",
+          "FIELD_DEFINITION"
+        ],
+        "args": []
       },
       {
         "name": "aws_publish",
@@ -2127,22 +2122,27 @@
         "args": []
       },
       {
-        "name": "aws_oidc",
-        "description": "Tells the service this field/object has access authorized by an OIDC token.",
+        "name": "aws_auth",
+        "description": "Directs the schema to enforce authorization on a field",
         "locations": [
-          "OBJECT",
           "FIELD_DEFINITION"
         ],
-        "args": []
-      },
-      {
-        "name": "aws_iam",
-        "description": "Tells the service this field/object has access authorized by sigv4 signing.",
-        "locations": [
-          "OBJECT",
-          "FIELD_DEFINITION"
-        ],
-        "args": []
+        "args": [
+          {
+            "name": "cognito_groups",
+            "description": "List of cognito user pool groups which have access on this field",
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "defaultValue": null
+          }
+        ]
       }
     ]
   }
