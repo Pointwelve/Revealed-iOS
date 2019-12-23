@@ -59,6 +59,49 @@ platform :ios do
     )
   end
 
+  lane :certificates do
+    decrypt_configurations
+    matchCerts
+  end
+  
+  desc "⚙️ release"
+  lane :release do
+    if !analyze_commits(match: '*') 
+      UI.message("Release not required.")
+      return
+    else
+      decrypt_configurations
+      carthage_bootstrap
+      version = lane_context[SharedValues::RELEASE_NEXT_VERSION]
+      build = sh("cd ..; git rev-list --all --count")
+      increment_version_number(version_number: version, 
+        xcodeproj: "Revealed.xcodeproj")
+      increment_build_number(build_number: build, xcodeproj: "Revealed.xcodeproj")
+      matchCerts
+      build_app(
+        project: "Revealed.xcodeproj",
+        scheme: "Revealed",
+        clean: true,
+        export_options: {
+          provisioningProfiles: { 
+            "com.pointwelve.app.revealed" => "match AppStore com.pointwelve.app.revealed"
+           }
+       }
+      )
+      upload_to_testflight(skip_waiting_for_build_processing: true)
+    end
+  end
+
+  desc "🚀 Download graphql schema"
+  lane :download_schema do |options|
+    token = options[:token] || ENV['GRAPHQL_TOKEN']
+    end_point = options[:end_point] || ENV['GRAPHQL_ENDPOINT']
+    Dir.chdir("..") do
+      sh("apollo schema:download --endpoint='#{end_point}' --header='Authorization: #{token}'")
+      sh("mv schema.json Revealed/GraphQL/schema.json") 
+    end
+  end
+
   def encrypt_configurations
     if is_ci?
       UI.message("Getting encryption paraphrase from environment variable:..")
@@ -66,6 +109,11 @@ platform :ios do
     else
       UI.message("Getting encryption paraphrase from prompt:..")
       passphrase = prompt(text: "Paraphrase to decrypt configs: ")
+    end
+
+    Dir.chdir("..") do
+      # Encrypt Google Cloud Config
+      sh("gpg --batch --yes --passphrase #{passphrase} --output \"gc_keys.gpg\" -c \"gc_keys.json\"", log: false)
     end
 
     Dir.chdir("../Resources/Configurations") do
@@ -83,6 +131,10 @@ platform :ios do
     else
       UI.message("Getting encryption paraphrase from prompt:..")
       passphrase = ENV["UNICORN"] || UI.password("Paraphrase to decrypt configs: ")
+    end
+    Dir.chdir("..") do
+      # Encrypt Google Cloud Config
+      sh("gpg --batch --yes --passphrase #{passphrase} --output \"gc_keys.json\" --decrypt \"gc_keys.gpg\"", log: false)
     end
 
     Dir.chdir("../Resources/Configurations") do
@@ -108,5 +160,18 @@ platform :ios do
       configuration: "Release",
       cache_builds: true,
     )
+  end
+
+
+  def matchCerts 
+    match(type: "development", 
+      app_identifier: ["com.pointwelve.app.revealed"],
+         readonly: is_ci)
+    match(type: "adhoc", 
+      app_identifier: ["com.pointwelve.app.revealed"],
+         readonly: is_ci)
+    match(type: "appstore", 
+      app_identifier: ["com.pointwelve.app.revealed"],
+         readonly: is_ci)
   end
 end

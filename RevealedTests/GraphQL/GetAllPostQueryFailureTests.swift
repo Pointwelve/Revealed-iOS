@@ -1,16 +1,16 @@
 //
-import Apollo
 //  CombineFutureFailureTests.swift
 //  RevealedTests
 //
 //  Created by Hong on 14/12/19.
 //  Copyright © 2019 Pointwelve. All rights reserved.
 //
+import Apollo
 import OHHTTPStubs
 @testable import Revealed
 import XCTest
 
-class CombineFutureFailureTests: XCTestCase {
+class GetAllPostQueryFailureTests: XCTestCase {
   var mainStub: OHHTTPStubsDescriptor?
   override func setUp() {
     mainStub = stub(condition: isHost("localhost"), response: { (_) -> OHHTTPStubsResponse in

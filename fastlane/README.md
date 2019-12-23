@@ -41,6 +41,21 @@ fastlane ios setup
 fastlane ios build
 ```
 ⚙️ build and test
+### ios certificates
+```
+fastlane ios certificates
+```
+
+### ios release
+```
+fastlane ios release
+```
+⚙️ release
+### ios download_schema
+```
+fastlane ios download_schema
+```
+🚀 Download graphql schema
 
 ----
 

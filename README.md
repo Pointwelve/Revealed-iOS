@@ -11,5 +11,12 @@
 
 ## GraphQL Update Schema
 1. Install Apollo CLI `npm install -g apollo`
-2. run `apollo schema:download --endpoint="YOUR_END_POINT" --header="YOUR_AUTH_TOKEN"`
-3. Update the schema in `Revealed/GraphQL/schema.json`.
+2. You can supply your server access token `GRAPHQL_TOKEN` and graphql end point `GRAPHQL_ENDPOINT` in environment variable.
+3. Or you can supply as options in fastlane. See `download_schema` lane in Fastfile
+4. run `bundle exec fastlane ios download_schema`.
+
+
+## GraphQL query structure
+- All .graphql files should in `Revealed/GraphQL`.
+- Each graphql file should represent a single use case. E.G `GetAllPosts` or `CreatePost`
+- All shared fragments can declared in `Fragments.graphql`

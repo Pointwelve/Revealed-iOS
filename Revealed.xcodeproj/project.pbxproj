@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1B045F91239555F700EE3333 /* ApolloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B045F90239555F700EE3333 /* ApolloError.swift */; };
+		1B1BB91F23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB91E23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift */; };
+		1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */; };
 		1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */; };
 		1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */; };
 		1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */; };
@@ -20,10 +22,10 @@
 		1B6446AF238EA01200422926 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6446AE238EA01200422926 /* Assets.xcassets */; };
 		1B6446B2238EA01200422926 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B6446B1238EA01200422926 /* Preview Assets.xcassets */; };
 		1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6446B3238EA01200422926 /* LaunchScreen.storyboard */; };
-		1B738C8423A3EF9F00124158 /* CombineFutureSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B738C8323A3EF9F00124158 /* CombineFutureSuccessTests.swift */; };
+		1B738C8423A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B738C8323A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift */; };
 		1B738C8723A3F7B400124158 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B738C8623A3F7B400124158 /* MockResponse.swift */; };
 		1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */; };
-		1B9C716823A4D1E90028016F /* CombineFutureFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716723A4D1E90028016F /* CombineFutureFailureTests.swift */; };
+		1B9C716823A4D1E90028016F /* GetAllPostQueryFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */; };
 		1B9CCB6023A2986C00A45A55 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
 		1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
@@ -57,6 +59,10 @@
 
 /* Begin PBXFileReference section */
 		1B045F90239555F700EE3333 /* ApolloError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloError.swift; sourceTree = "<group>"; };
+		1B1BB91A23A9038D00B6EA43 /* Fragments.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
+		1B1BB91B23A9038D00B6EA43 /* CreatePost.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CreatePost.graphql; sourceTree = "<group>"; };
+		1B1BB91E23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostMutationSuccessTests.swift; sourceTree = "<group>"; };
+		1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostMutationFailureTests.swift; sourceTree = "<group>"; };
 		1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTest.plist; sourceTree = "<group>"; };
 		1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FatalError.swift"; sourceTree = "<group>"; };
@@ -73,13 +79,13 @@
 		1B6446B6238EA01200422926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B6446BB238EA01200422926 /* RevealedTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RevealedTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B6446C1238EA01200422926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1B738C8323A3EF9F00124158 /* CombineFutureSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineFutureSuccessTests.swift; sourceTree = "<group>"; };
+		1B738C8323A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPostQuerySuccessTests.swift; sourceTree = "<group>"; };
 		1B738C8623A3F7B400124158 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
 		1B8AB2E623926C0500907AF6 /* GetAllPosts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAllPosts.graphql; sourceTree = "<group>"; };
 		1B8AB2E723926C0500907AF6 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAutoEquatable.generated.swift; sourceTree = "<group>"; };
 		1B9C716623A4D1810028016F /* SourceryTemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SourceryTemplate; sourceTree = "<group>"; };
-		1B9C716723A4D1E90028016F /* CombineFutureFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineFutureFailureTests.swift; sourceTree = "<group>"; };
+		1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPostQueryFailureTests.swift; sourceTree = "<group>"; };
 		1BC61C8323926D1E006A83D7 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloNetwork.swift; sourceTree = "<group>"; };
 		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
@@ -197,8 +203,10 @@
 		1B738C8523A3F7A300124158 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				1B9C716723A4D1E90028016F /* CombineFutureFailureTests.swift */,
-				1B738C8323A3EF9F00124158 /* CombineFutureSuccessTests.swift */,
+				1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */,
+				1B1BB91E23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift */,
+				1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */,
+				1B738C8323A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift */,
 				1B738C8623A3F7B400124158 /* MockResponse.swift */,
 			);
 			path = GraphQL;
@@ -207,9 +215,11 @@
 		1B8AB2E523926C0500907AF6 /* GraphQL */ = {
 			isa = PBXGroup;
 			children = (
-				5ABB46C523A12B1D00216BD8 /* GraphQL.generated.swift */,
+				1B1BB91B23A9038D00B6EA43 /* CreatePost.graphql */,
+				1B1BB91A23A9038D00B6EA43 /* Fragments.graphql */,
 				1B8AB2E623926C0500907AF6 /* GetAllPosts.graphql */,
 				1B8AB2E723926C0500907AF6 /* schema.json */,
+				5ABB46C523A12B1D00216BD8 /* GraphQL.generated.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -339,8 +349,8 @@
 			buildConfigurationList = 1B6446CF238EA01200422926 /* Build configuration list for PBXNativeTarget "Revealed" */;
 			buildPhases = (
 				1BC61C8123926CA5006A83D7 /* Generate Apollo GraphQL API */,
-				1B045F922395582A00EE3333 /* Autocorrect lint issues & Lint */,
 				1B9C716323A4D0C60028016F /* Sourcery */,
+				1B045F922395582A00EE3333 /* Autocorrect lint issues & Lint */,
 				1B6446A1238EA01200422926 /* Sources */,
 				1B6446A2238EA01200422926 /* Frameworks */,
 				1B6446A3238EA01200422926 /* Resources */,
@@ -456,7 +466,7 @@
 		};
 		1B9C716323A4D0C60028016F /* Sourcery */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputFileListPaths = (
@@ -468,7 +478,7 @@
 			);
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which sourcery >/dev/null; then\n  sourcery\nelse\n  echo \"error: Sourcery not installed, do sh setup.sh to install Sourcery.\"\n  exit 1\nfi\n";
 		};
@@ -549,11 +559,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				1B738C8723A3F7B400124158 /* MockResponse.swift in Sources */,
-				1B738C8423A3EF9F00124158 /* CombineFutureSuccessTests.swift in Sources */,
+				1B738C8423A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift in Sources */,
 				1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */,
 				1B3097F223A2953D004F1DA9 /* XCTestCase+Global.swift in Sources */,
 				1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */,
-				1B9C716823A4D1E90028016F /* CombineFutureFailureTests.swift in Sources */,
+				1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */,
+				1B1BB91F23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift in Sources */,
+				1B9C716823A4D1E90028016F /* GetAllPostQueryFailureTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -697,8 +709,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Revealed/Preview Content\"";
+				DEVELOPMENT_TEAM = Z2Q7ZE2E5A;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -709,8 +723,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.Revealed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.app.revealed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.pointwelve.app.revealed";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -720,8 +735,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_ASSET_PATHS = "\"Revealed/Preview Content\"";
+				DEVELOPMENT_TEAM = Z2Q7ZE2E5A;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -732,8 +749,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.Revealed;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pointwelve.app.revealed;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.pointwelve.app.revealed";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
