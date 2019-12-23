@@ -129,6 +129,7 @@ extension QueryAllConfigsQuery.Data.GetAllTag: Equatable {}
 public func == (lhs: QueryAllConfigsQuery.Data.GetAllTag, rhs: QueryAllConfigsQuery.Data.GetAllTag) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
+    guard compareOptionals(lhs: lhs.pageInfo, rhs: rhs.pageInfo, compare: ==) else { return false }
     return true
 }
 // MARK: - QueryAllConfigsQuery.Data.GetAllTag.Edge AutoEquatable
@@ -139,11 +140,20 @@ public func == (lhs: QueryAllConfigsQuery.Data.GetAllTag.Edge, rhs: QueryAllConf
     guard lhs.name == rhs.name else { return false }
     return true
 }
+// MARK: - QueryAllConfigsQuery.Data.GetAllTag.PageInfo AutoEquatable
+extension QueryAllConfigsQuery.Data.GetAllTag.PageInfo: Equatable {}
+public func == (lhs: QueryAllConfigsQuery.Data.GetAllTag.PageInfo, rhs: QueryAllConfigsQuery.Data.GetAllTag.PageInfo) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.hasNextPage == rhs.hasNextPage else { return false }
+    guard compareOptionals(lhs: lhs.endCursor, rhs: rhs.endCursor, compare: ==) else { return false }
+    return true
+}
 // MARK: - QueryAllConfigsQuery.Data.GetAllTopic AutoEquatable
 extension QueryAllConfigsQuery.Data.GetAllTopic: Equatable {}
 public func == (lhs: QueryAllConfigsQuery.Data.GetAllTopic, rhs: QueryAllConfigsQuery.Data.GetAllTopic) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
+    guard compareOptionals(lhs: lhs.pageInfo, rhs: rhs.pageInfo, compare: ==) else { return false }
     return true
 }
 // MARK: - QueryAllConfigsQuery.Data.GetAllTopic.Edge AutoEquatable
@@ -152,6 +162,14 @@ public func == (lhs: QueryAllConfigsQuery.Data.GetAllTopic.Edge, rhs: QueryAllCo
     guard lhs.__typename == rhs.__typename else { return false }
     guard lhs.id == rhs.id else { return false }
     guard lhs.name == rhs.name else { return false }
+    return true
+}
+// MARK: - QueryAllConfigsQuery.Data.GetAllTopic.PageInfo AutoEquatable
+extension QueryAllConfigsQuery.Data.GetAllTopic.PageInfo: Equatable {}
+public func == (lhs: QueryAllConfigsQuery.Data.GetAllTopic.PageInfo, rhs: QueryAllConfigsQuery.Data.GetAllTopic.PageInfo) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.hasNextPage == rhs.hasNextPage else { return false }
+    guard compareOptionals(lhs: lhs.endCursor, rhs: rhs.endCursor, compare: ==) else { return false }
     return true
 }
 

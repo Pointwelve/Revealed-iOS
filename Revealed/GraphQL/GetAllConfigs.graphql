@@ -4,12 +4,20 @@ query queryAllConfigs {
         id
         name
     }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
   }
 
   getAllTags {
     edges {
         id
         name
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
     }
   }
 }
