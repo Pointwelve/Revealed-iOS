@@ -1,0 +1,15 @@
+query queryAllConfigs {
+  getAllTopics {
+    edges {
+        id
+        name
+    }
+  }
+
+  getAllTags {
+    edges {
+        id
+        name
+    }
+  }
+}
