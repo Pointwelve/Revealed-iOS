@@ -202,11 +202,11 @@ public final class CreatePostMutation: GraphQLMutation {
   }
 }
 
-public final class QueryAllConfigsQuery: GraphQLQuery {
+public final class GetAllConfigsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition =
     """
-    query queryAllConfigs {
+    query getAllConfigs {
       getAllTopics {
         __typename
         edges {
@@ -236,7 +236,7 @@ public final class QueryAllConfigsQuery: GraphQLQuery {
     }
     """
 
-  public let operationName = "queryAllConfigs"
+  public let operationName = "getAllConfigs"
 
   public init() {
   }
@@ -891,7 +891,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  /// MARKDOWN only and unicode (emoji)
+  // MARK: only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int
