@@ -1,4 +1,4 @@
-query queryAllConfigs {
+query getAllConfigs {
   getAllTopics {
     edges {
         id

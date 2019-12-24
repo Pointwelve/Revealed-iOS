@@ -26,6 +26,10 @@ class HomeViewModel: ObservableObject, Identifiable {
     refresh()
   }
 
+  deinit {
+    disposables.removeAll()
+  }
+
   func refresh() {
     let query = GetAllPostQuery(first: 10, commentFirst: "")
     ApolloNetwork.shared.apollo.fetchFuture(query: query, queue: queue)
