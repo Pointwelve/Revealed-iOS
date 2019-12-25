@@ -5,74 +5,61 @@
 //  Created by KokHong on 24/12/19.
 //  Copyright © 2019 Pointwelve. All rights reserved.
 //
-import SwiftUI
 import Apollo
 import Combine
 import Foundation
+import SwiftUI
 
 typealias Topic = GetAllConfigsQuery.Data.GetAllTopic.Edge
 typealias Tag = GetAllConfigsQuery.Data.GetAllTag.Edge
 
-extension Tag: Identifiable {
-  static let `default` = Tag(id: "default", name: "Choose Tag")
-}
+extension Tag: Identifiable {}
 
-extension Topic: Identifiable {
-  static let `default` = Topic(id: "default", name: "Choose Topic")
+extension Topic: Identifiable {}
+
+struct TopicAndTag {
+  let topics: [Topic]
+  let tags: [Tag]
+
+  static let `default` = TopicAndTag(topics: [], tags: [])
 }
 
 class CreatePostViewModel: ObservableObject {
   let createPostSubject = PassthroughSubject<PostInput, Error>()
-  
-  @Published var tags: [Tag]
-  @Published var topics: [Topic]
+
+  @Published var topicAndTag: TopicAndTag = TopicAndTag.default
   @Published var newPost: PostDetail?
 
   private var disposables = Set<AnyCancellable>()
   private let queue = DispatchQueue(label: "com.pointwelve.revealed.createPostQueue")
 
-  init(topics: [Topic] = [], tags: [Tag] = []) {
-    self.topics = topics
-    self.tags = tags
+  init() {
     ApolloNetwork.shared.apollo.fetchFuture(query: GetAllConfigsQuery(),
                                             cachePolicy: .returnCacheDataElseFetch,
                                             queue: queue)
-      .receive(on: DispatchQueue.main)
-      .sink(receiveCompletion: { [weak self] value in
-        guard let self = self else { return }
-        switch value {
-        case .failure:
-          self.tags = []
-          self.topics = []
-        case .finished:
-          break
-        }
-      }, receiveValue: { [weak self] data in
-        guard let self = self else { return }
-        self.tags = data.getAllTags?.edges?.compactMap { $0 } ?? []
-        self.topics = data.getAllTopics?.edges?.compactMap { $0 } ?? []
+      .map { data -> TopicAndTag in
+        let tags = data.getAllTags?.edges?.compactMap { $0 } ?? []
+        let topics = data.getAllTopics?.edges?.compactMap { $0 } ?? []
+        return TopicAndTag(topics: topics, tags: tags)
+      }
+      .eraseToAnyPublisher()
 
-      })
+      .replaceError(with: TopicAndTag.default)
+      .receive(on: DispatchQueue.main)
+      .assign(to: \.topicAndTag, on: self)
       .store(in: &disposables)
 
     createPostSubject.flatMap {
       ApolloNetwork.shared.apollo.mutateFuture(mutation: CreatePostMutation(input: $0), queue: self.queue)
     }
+    .map { $0.createPost?.fragments.postDetail }
+    .eraseToAnyPublisher()
+    .replaceError(with: nil)
     .receive(on: DispatchQueue.main)
-    .sink(receiveCompletion: { [weak self] value in
-      guard let self = self else { return }
-      switch value {
-      case .failure:
-        self.newPost = nil
-      case .finished:
-        break
-      }
-    }, receiveValue: { [weak self] post in
-      guard let self = self else { return }
-      self.newPost = post.createPost?.fragments.postDetail
-    })
+    .assign(to: \.newPost, on: self)
     .store(in: &disposables)
   }
+
   deinit {
     disposables.removeAll()
   }
