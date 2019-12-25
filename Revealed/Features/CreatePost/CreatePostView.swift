@@ -7,14 +7,24 @@
 //
 
 import SwiftUI
+import Combine
 
 struct CreatePostView: View {
   @Binding var isPresented: Bool
   @ObservedObject var viewModel: CreatePostViewModel = CreatePostViewModel()
   @State private var selectedSubject: String = ""
   @State private var selectedContent: String = ""
-  @State private var selectedTopic = Topic.default
-  @State private var selectedTag = Tag.default
+  @State private var selectedTopic: Int = 0
+  @State private var selectedTag: Int = 0
+  
+  private var cancellable: AnyCancellable? = nil
+  
+  init(isPresented: Binding<Bool>) {
+    self._isPresented = isPresented
+    cancellable = viewModel.$newPost.filter { $0 != nil }
+      .map { _ in false }
+      .assign(to: \.isPresented, on: self)
+  }
 
   var body: some View {
     NavigationView {
@@ -34,9 +44,10 @@ struct CreatePostView: View {
 
         Section {
           VStack(alignment: .leading) {
-            Picker(selection: $selectedTopic.name, label: Text("Select Topic")) {
-              ForEach(viewModel.topics) {
-                Text($0.name)
+            
+            Picker(selection: $selectedTopic, label: Text("Select Topic:")) {
+              ForEach(0 ..< viewModel.topics.count, id: \.self) {
+                Text(self.viewModel.topics[$0].name).tag($0)
               }
             }
           }
@@ -44,21 +55,22 @@ struct CreatePostView: View {
 
         Section {
           VStack(alignment: .leading) {
-            Picker(selection: $selectedTag.name, label: Text("Select Tag")) {
-              ForEach(viewModel.tags) {
-                Text($0.name).tag($0.id)
+            
+            Picker(selection: $selectedTag, label: Text("Select Tag")) {
+              ForEach(0 ..< viewModel.tags.count, id: \.self) {
+                Text(self.viewModel.tags[$0].name).tag($0)
               }
             }
           }
         }
 
         Button(action: {
+          
           self.viewModel.createPostSubject.send(PostInput(subject: self.selectedSubject,
                                                           content: self.selectedContent,
-                                                          topicId: self.selectedTopic.id,
-                                                          tagIds: [self.selectedTag.id]))
+                                                          topicId: self.viewModel.topics[self.selectedTopic].id,
+                                                          tagIds: [self.viewModel.tags[self.selectedTag].id]))
           
-          self.isPresented = self.viewModel.newPost == nil
         }) {
           Text("Create Post")
         }
@@ -69,8 +81,8 @@ struct CreatePostView: View {
   }
 }
 
-//struct CreatePostView_Previews: PreviewProvider {
-//  static var previews: some View {
-//    CreatePostView(isPresented: <#Binding<Bool>#>)
-//  }
-//}
+struct CreatePostView_Previews: PreviewProvider {
+  static var previews: some View {
+    return CreatePostView(isPresented: .constant(true))
+  }
+}

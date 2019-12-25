@@ -1,11 +1,12 @@
 //
-import Apollo
 //  CreatePostViewModel.swift
 //  Revealed
 //
 //  Created by KokHong on 24/12/19.
 //  Copyright © 2019 Pointwelve. All rights reserved.
 //
+import SwiftUI
+import Apollo
 import Combine
 import Foundation
 
@@ -22,6 +23,7 @@ extension Topic: Identifiable {
 
 class CreatePostViewModel: ObservableObject {
   let createPostSubject = PassthroughSubject<PostInput, Error>()
+  
   @Published var tags: [Tag]
   @Published var topics: [Topic]
   @Published var newPost: PostDetail?
@@ -63,12 +65,11 @@ class CreatePostViewModel: ObservableObject {
       case .failure:
         self.newPost = nil
       case .finished:
-        self.newPost = nil
+        break
       }
     }, receiveValue: { [weak self] post in
       guard let self = self else { return }
       self.newPost = post.createPost?.fragments.postDetail
-
     })
     .store(in: &disposables)
   }

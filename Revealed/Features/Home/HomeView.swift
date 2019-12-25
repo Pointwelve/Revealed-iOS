@@ -11,7 +11,7 @@ import SwiftUI
 
 struct HomeView: View {
   @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
-  @State private var isCreatePostPresented = false
+  @State var isCreatePostPresented = false
   var body: some View {
     List(viewModel.posts) { post in
       PostRow(post: post.fragments.postDetail)
