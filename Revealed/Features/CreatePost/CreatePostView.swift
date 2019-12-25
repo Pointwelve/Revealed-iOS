@@ -6,8 +6,8 @@
 //  Copyright © 2019 Pointwelve. All rights reserved.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct CreatePostView: View {
   @Binding var isPresented: Bool
@@ -16,11 +16,11 @@ struct CreatePostView: View {
   @State private var selectedContent: String = ""
   @State private var selectedTopic: Int = 0
   @State private var selectedTag: Int = 0
-  
-  private var cancellable: AnyCancellable? = nil
-  
+
+  private var cancellable: AnyCancellable?
+
   init(isPresented: Binding<Bool>) {
-    self._isPresented = isPresented
+    _isPresented = isPresented
     cancellable = viewModel.$newPost.filter { $0 != nil }
       .map { _ in false }
       .assign(to: \.isPresented, on: self)
@@ -44,10 +44,9 @@ struct CreatePostView: View {
 
         Section {
           VStack(alignment: .leading) {
-            
             Picker(selection: $selectedTopic, label: Text("Select Topic:")) {
-              ForEach(0 ..< viewModel.topics.count, id: \.self) {
-                Text(self.viewModel.topics[$0].name).tag($0)
+              ForEach(0..<viewModel.topicAndTag.topics.count, id: \.self) {
+                Text(self.viewModel.topicAndTag.topics[$0].name).tag($0)
               }
             }
           }
@@ -55,28 +54,24 @@ struct CreatePostView: View {
 
         Section {
           VStack(alignment: .leading) {
-            
             Picker(selection: $selectedTag, label: Text("Select Tag")) {
-              ForEach(0 ..< viewModel.tags.count, id: \.self) {
-                Text(self.viewModel.tags[$0].name).tag($0)
+              ForEach(0..<viewModel.topicAndTag.tags.count, id: \.self) {
+                Text(self.viewModel.topicAndTag.tags[$0].name).tag($0)
               }
             }
           }
         }
 
         Button(action: {
-          
           self.viewModel.createPostSubject.send(PostInput(subject: self.selectedSubject,
                                                           content: self.selectedContent,
-                                                          topicId: self.viewModel.topics[self.selectedTopic].id,
-                                                          tagIds: [self.viewModel.tags[self.selectedTag].id]))
-          
+                                                          topicId: self.viewModel.topicAndTag.topics[self.selectedTopic].id,
+                                                          tagIds: [self.viewModel.topicAndTag.tags[self.selectedTag].id]))
+
         }) {
           Text("Create Post")
         }
       }.navigationBarTitle("Create Post")
-      
-      
     }
   }
 }
