@@ -6,6 +6,7 @@ cache:
   - Carthage
 before_install:
 - brew bundle
+- npm install -g apollo
 - carthage bootstrap --platform iOS --cache-builds --new-resolver
 install:
 - bundle install
