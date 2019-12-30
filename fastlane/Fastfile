@@ -57,6 +57,10 @@ platform :ios do
       clean: true,
       devices: ["iPhone 8"]
     )
+    rome(
+      command: "upload",
+      platform: "iOS",
+    )
   end
 
   lane :certificates do
@@ -66,9 +70,11 @@ platform :ios do
   
   desc "⚙️ release"
   lane :release do
-    if !analyze_commits(match: '*') 
+    isReleasable = analyze_commits(match: '*')
+    
+    if !isReleasable 
       UI.message("Release not required.")
-      return
+      next
     else
       decrypt_configurations
       carthage_bootstrap
@@ -89,7 +95,21 @@ platform :ios do
        }
       )
       upload_to_testflight(skip_waiting_for_build_processing: true)
+      tag_master(version)
+      rome(
+        command: "upload",
+        platform: "iOS",
+      )
     end
+  end
+
+  def tag_master(version)
+    reset_git_repo(force: true)
+    add_git_tag(tag: "#{version}")
+    push_to_git_remote(
+      remote_branch: "master",
+      tags: true
+    )
   end
 
   desc "🚀 Download graphql schema"
@@ -98,7 +118,16 @@ platform :ios do
     end_point = options[:end_point] || ENV['GRAPHQL_ENDPOINT']
     Dir.chdir("..") do
       sh("apollo schema:download --endpoint='#{end_point}' --header='Authorization: #{token}'")
-      sh("mv schema.json Revealed/GraphQL/schema.json") 
+      sh("mv schema.json Revealed/GraphQL/schema.json")
+      
+      script_path="Carthage/Checkouts/apollo-ios/scripts"
+      Dir.chdir("Revealed") do
+        # Generate API
+        sh("../#{script_path}/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/GraphQL/*.graphql --localSchemaFile='GraphQL/schema.json' GraphQL/GraphQL.generated.swift")
+      end
+
+      # Run sourcery
+      sh("sourcery")
     end
   end
 

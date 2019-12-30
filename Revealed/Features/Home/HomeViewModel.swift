@@ -26,23 +26,18 @@ class HomeViewModel: ObservableObject, Identifiable {
     refresh()
   }
 
+  deinit {
+    disposables.removeAll()
+  }
+
   func refresh() {
     let query = GetAllPostQuery(first: 10, commentFirst: "")
     ApolloNetwork.shared.apollo.fetchFuture(query: query, queue: queue)
       .map { $0.getAllPosts?.edges?.compactMap { $0 } ?? [] }
+      .eraseToAnyPublisher()
       .receive(on: DispatchQueue.main)
-      .sink(receiveCompletion: { [weak self] value in
-        guard let self = self else { return }
-        switch value {
-        case .failure:
-          self.posts = []
-        case .finished:
-          break
-        }
-      }, receiveValue: { [weak self] posts in
-        guard let self = self else { return }
-        self.posts = posts
-      })
+      .replaceError(with: [])
+      .assign(to: \.posts, on: self)
       .store(in: &disposables)
   }
 }

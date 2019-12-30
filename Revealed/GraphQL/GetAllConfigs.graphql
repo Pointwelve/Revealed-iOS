@@ -1,0 +1,23 @@
+query getAllConfigs {
+  getAllTopics {
+    edges {
+        id
+        name
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+
+  getAllTags {
+    edges {
+        id
+        name
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}

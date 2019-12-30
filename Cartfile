@@ -1,2 +1,2 @@
 github "auth0/Auth0.swift" ~> 1.19
-github "apollographql/apollo-ios" ~> 0.20.0
+github "apollographql/apollo-ios" ~> 0.21

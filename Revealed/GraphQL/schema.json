@@ -84,6 +84,30 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "getAllTopics",
+            "description": "  First is number of posts. after is nullable",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TopicConnection",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "getAllTags",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "TagConnection",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -606,22 +630,6 @@
         "description": null,
         "fields": [
           {
-            "name": "totalCount",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "edges",
             "description": null,
             "args": [],
@@ -816,22 +824,6 @@
         "description": null,
         "fields": [
           {
-            "name": "totalCount",
-            "description": null,
-            "args": [],
-            "type": {
-              "kind": "NON_NULL",
-              "name": null,
-              "ofType": {
-                "kind": "SCALAR",
-                "name": "Int",
-                "ofType": null
-              }
-            },
-            "isDeprecated": false,
-            "deprecationReason": null
-          },
-          {
             "name": "edges",
             "description": null,
             "args": [],
@@ -841,6 +833,84 @@
               "ofType": {
                 "kind": "OBJECT",
                 "name": "Post",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageInfo",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PageInfo",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "TopicConnection",
+        "description": null,
+        "fields": [
+          {
+            "name": "edges",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Topic",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "pageInfo",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "PageInfo",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "inputFields": null,
+        "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "OBJECT",
+        "name": "TagConnection",
+        "description": null,
+        "fields": [
+          {
+            "name": "edges",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "LIST",
+              "name": null,
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "Tag",
                 "ofType": null
               }
             },
@@ -1935,13 +2005,24 @@
         "args": []
       },
       {
-        "name": "aws_api_key",
-        "description": "Tells the service this field/object has access authorized by an API key.",
+        "name": "deprecated",
+        "description": null,
         "locations": [
-          "OBJECT",
-          "FIELD_DEFINITION"
+          "FIELD_DEFINITION",
+          "ENUM_VALUE"
         ],
-        "args": []
+        "args": [
+          {
+            "name": "reason",
+            "description": null,
+            "type": {
+              "kind": "SCALAR",
+              "name": "String",
+              "ofType": null
+            },
+            "defaultValue": "\"No longer supported\""
+          }
+        ]
       },
       {
         "name": "aws_subscribe",
@@ -1991,6 +2072,24 @@
         ]
       },
       {
+        "name": "aws_iam",
+        "description": "Tells the service this field/object has access authorized by sigv4 signing.",
+        "locations": [
+          "OBJECT",
+          "FIELD_DEFINITION"
+        ],
+        "args": []
+      },
+      {
+        "name": "aws_oidc",
+        "description": "Tells the service this field/object has access authorized by an OIDC token.",
+        "locations": [
+          "OBJECT",
+          "FIELD_DEFINITION"
+        ],
+        "args": []
+      },
+      {
         "name": "aws_publish",
         "description": "Tells the service which subscriptions will be published to when this mutation is called. This directive is deprecated use @aws_susbscribe directive instead.",
         "locations": [
@@ -2014,24 +2113,13 @@
         ]
       },
       {
-        "name": "deprecated",
-        "description": null,
+        "name": "aws_api_key",
+        "description": "Tells the service this field/object has access authorized by an API key.",
         "locations": [
-          "FIELD_DEFINITION",
-          "ENUM_VALUE"
+          "OBJECT",
+          "FIELD_DEFINITION"
         ],
-        "args": [
-          {
-            "name": "reason",
-            "description": null,
-            "type": {
-              "kind": "SCALAR",
-              "name": "String",
-              "ofType": null
-            },
-            "defaultValue": "\"No longer supported\""
-          }
-        ]
+        "args": []
       },
       {
         "name": "aws_auth",
@@ -2055,24 +2143,6 @@
             "defaultValue": null
           }
         ]
-      },
-      {
-        "name": "aws_oidc",
-        "description": "Tells the service this field/object has access authorized by an OIDC token.",
-        "locations": [
-          "OBJECT",
-          "FIELD_DEFINITION"
-        ],
-        "args": []
-      },
-      {
-        "name": "aws_iam",
-        "description": "Tells the service this field/object has access authorized by sigv4 signing.",
-        "locations": [
-          "OBJECT",
-          "FIELD_DEFINITION"
-        ],
-        "args": []
       }
     ]
   }

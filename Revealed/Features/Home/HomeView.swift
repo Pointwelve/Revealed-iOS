@@ -11,12 +11,21 @@ import SwiftUI
 
 struct HomeView: View {
   @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
+  @State var isCreatePostPresented = false
   var body: some View {
     NavigationView {
       List(viewModel.posts) { post in
         PostRow(post: post.fragments.postDetail)
       }
       .navigationBarTitle(Text("Home"))
+    .navigationBarItems(trailing: Button(action: {
+      self.isCreatePostPresented = true
+    }) {
+      Image(systemName: "plus")
+        .imageScale(.large)
+    })
+    .sheet(isPresented: $isCreatePostPresented,
+           content: { CreatePostView(isPresented: self.$isCreatePostPresented) })
     }
   }
 }

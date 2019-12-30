@@ -10,6 +10,8 @@
 		1B045F91239555F700EE3333 /* ApolloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B045F90239555F700EE3333 /* ApolloError.swift */; };
 		1B1BB91F23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB91E23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift */; };
 		1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */; };
+		1B1CC38B23B348DC0015CCA3 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */; };
+		1B1CC38E23B35D0D0015CCA3 /* Array+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CC38D23B35D0D0015CCA3 /* Array+ExtTests.swift */; };
 		1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */; };
 		1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */; };
 		1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */; };
@@ -27,6 +29,8 @@
 		1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */; };
 		1B9C716823A4D1E90028016F /* GetAllPostQueryFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */; };
 		1B9CCB6023A2986C00A45A55 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
+		1BB1E16E23B1E91F00833BC8 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1E16D23B1E91F00833BC8 /* CreatePostView.swift */; };
+		1BB1E17023B1E92900833BC8 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1E16F23B1E92900833BC8 /* CreatePostViewModel.swift */; };
 		1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
 		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
@@ -63,6 +67,9 @@
 		1B1BB91B23A9038D00B6EA43 /* CreatePost.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CreatePost.graphql; sourceTree = "<group>"; };
 		1B1BB91E23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostMutationSuccessTests.swift; sourceTree = "<group>"; };
 		1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostMutationFailureTests.swift; sourceTree = "<group>"; };
+		1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
+		1B1CC38D23B35D0D0015CCA3 /* Array+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ExtTests.swift"; sourceTree = "<group>"; };
+		1B1F10F023B109FC0028DB3E /* GetAllConfigs.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAllConfigs.graphql; sourceTree = "<group>"; };
 		1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTest.plist; sourceTree = "<group>"; };
 		1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+FatalError.swift"; sourceTree = "<group>"; };
@@ -86,6 +93,8 @@
 		1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAutoEquatable.generated.swift; sourceTree = "<group>"; };
 		1B9C716623A4D1810028016F /* SourceryTemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SourceryTemplate; sourceTree = "<group>"; };
 		1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPostQueryFailureTests.swift; sourceTree = "<group>"; };
+		1BB1E16D23B1E91F00833BC8 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
+		1BB1E16F23B1E92900833BC8 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		1BC61C8323926D1E006A83D7 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloNetwork.swift; sourceTree = "<group>"; };
 		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
@@ -129,6 +138,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1CC38923B348CC0015CCA3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1B1CC38C23B35CFD0015CCA3 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1B1CC38D23B35D0D0015CCA3 /* Array+ExtTests.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		1B3097F023A2937B004F1DA9 /* Configurations */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +187,8 @@
 		1B6446A7238EA01200422926 /* Revealed */ = {
 			isa = PBXGroup;
 			children = (
+				1B1CC38923B348CC0015CCA3 /* Extension */,
+				4C4C83AC23A3D113007A7D1A /* Auth */,
 				1B9C716623A4D1810028016F /* SourceryTemplate */,
 				1B6446B6238EA01200422926 /* Info.plist */,
 				1B6446A8238EA01200422926 /* AppDelegate.swift */,
@@ -191,6 +218,7 @@
 		1B6446BE238EA01200422926 /* RevealedTests */ = {
 			isa = PBXGroup;
 			children = (
+				1B1CC38C23B35CFD0015CCA3 /* Extension */,
 				1B738C8523A3F7A300124158 /* GraphQL */,
 				1B3097F023A2937B004F1DA9 /* Configurations */,
 				1B6446C1238EA01200422926 /* Info.plist */,
@@ -217,6 +245,7 @@
 			children = (
 				1B1BB91B23A9038D00B6EA43 /* CreatePost.graphql */,
 				1B1BB91A23A9038D00B6EA43 /* Fragments.graphql */,
+				1B1F10F023B109FC0028DB3E /* GetAllConfigs.graphql */,
 				1B8AB2E623926C0500907AF6 /* GetAllPosts.graphql */,
 				1B8AB2E723926C0500907AF6 /* schema.json */,
 				5ABB46C523A12B1D00216BD8 /* GraphQL.generated.swift */,
@@ -230,6 +259,15 @@
 				1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		1BB1E16C23B1E91200833BC8 /* CreatePost */ = {
+			isa = PBXGroup;
+			children = (
+				1BB1E16D23B1E91F00833BC8 /* CreatePostView.swift */,
+				1BB1E16F23B1E92900833BC8 /* CreatePostViewModel.swift */,
+			);
+			path = CreatePost;
 			sourceTree = "<group>";
 		};
 		1BC61C8223926D1E006A83D7 /* Frameworks */ = {
@@ -256,6 +294,7 @@
 		1BF86B03239FDE0600FE9D42 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				1BB1E16C23B1E91200833BC8 /* CreatePost */,
 				A0F9CEDF23ADE27E005E1B5E /* Auth */,
 				1BF86B04239FDE1500FE9D42 /* Home */,
 			);
@@ -348,8 +387,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1B6446CF238EA01200422926 /* Build configuration list for PBXNativeTarget "Revealed" */;
 			buildPhases = (
-				1BC61C8123926CA5006A83D7 /* Generate Apollo GraphQL API */,
-				1B9C716323A4D0C60028016F /* Sourcery */,
 				1B045F922395582A00EE3333 /* Autocorrect lint issues & Lint */,
 				1B6446A1238EA01200422926 /* Sources */,
 				1B6446A2238EA01200422926 /* Frameworks */,
@@ -464,44 +501,6 @@
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n  which swiftlint autocorrect\n  which swiftlint\nelse\n  echo \"error: SwiftLint not installed, do sh setup.sh to install SwiftLint.\"\n  exit 1\nfi\n";
 		};
-		1B9C716323A4D0C60028016F /* Sourcery */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Sourcery;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which sourcery >/dev/null; then\n  sourcery\nelse\n  echo \"error: Sourcery not installed, do sh setup.sh to install Sourcery.\"\n  exit 1\nfi\n";
-		};
-		1BC61C8123926CA5006A83D7 /* Generate Apollo GraphQL API */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Revealed/**/GraphQL/*.graphql",
-			);
-			name = "Generate Apollo GraphQL API";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Revealed/GraphQL/GraphQL.generated.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nSCRIPT_PATH=\"${SRCROOT}/Carthage/Checkouts/apollo-ios/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/GraphQL/*.graphql --localSchemaFile=\"GraphQL/schema.json\" GraphQL/GraphQL.generated.swift\n";
-		};
 		1BC61C8A23927500006A83D7 /* Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -542,10 +541,13 @@
 				A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */,
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
 				5ABB46C623A12B1D00216BD8 /* GraphQL.generated.swift in Sources */,
+				1BB1E16E23B1E91F00833BC8 /* CreatePostView.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
 				1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */,
 				1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */,
+				1BB1E17023B1E92900833BC8 /* CreatePostViewModel.swift in Sources */,
+				1B1CC38B23B348DC0015CCA3 /* Array+Ext.swift in Sources */,
 				1BF86B0A239FECA600FE9D42 /* HomeViewModel.swift in Sources */,
 				1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */,
 				1B6446AD238EA01200422926 /* ContentView.swift in Sources */,
@@ -564,6 +566,7 @@
 				1B3097F223A2953D004F1DA9 /* XCTestCase+Global.swift in Sources */,
 				1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */,
 				1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */,
+				1B1CC38E23B35D0D0015CCA3 /* Array+ExtTests.swift in Sources */,
 				1B1BB91F23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift in Sources */,
 				1B9C716823A4D1E90028016F /* GetAllPostQueryFailureTests.swift in Sources */,
 			);
