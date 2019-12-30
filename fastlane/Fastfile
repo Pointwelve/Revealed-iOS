@@ -57,10 +57,6 @@ platform :ios do
       clean: true,
       devices: ["iPhone 8"]
     )
-    rome(
-      command: "upload",
-      platform: "iOS",
-    )
   end
 
   lane :certificates do
