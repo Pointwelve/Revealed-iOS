@@ -74,7 +74,7 @@ platform :ios do
     
     if !isReleasable 
       UI.message("Release not required.")
-      return
+      next
     else
       decrypt_configurations
       carthage_bootstrap
