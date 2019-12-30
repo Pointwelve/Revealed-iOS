@@ -57,6 +57,10 @@ platform :ios do
       clean: true,
       devices: ["iPhone 8"]
     )
+    rome(
+      command: "upload",
+      platform: "iOS",
+    )
   end
 
   lane :certificates do
@@ -89,9 +93,23 @@ platform :ios do
        }
       )
       upload_to_testflight(skip_waiting_for_build_processing: true)
+      tag_master(version)
+      rome(
+        command: "upload",
+        platform: "iOS",
+      )
     end
   end
 
+  def tag_master(version)
+    reset_git_repo(force: true)
+    add_git_tag(tag: "#{version}")
+    push_to_git_remote(
+      remote_branch: "master",
+      tags: true
+    )
+  end
+  
   desc "🚀 Download graphql schema"
   lane :download_schema do |options|
     token = options[:token] || ENV['GRAPHQL_TOKEN']

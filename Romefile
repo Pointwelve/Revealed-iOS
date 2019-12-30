@@ -1,0 +1,19 @@
+cache: # required
+  s3Bucket: pointwelve-ci-artefacts/iOS/com.pointwelve.app.revealed
+repositoryMap: 
+- apollo-ios: 
+  - name: ApolloSQLite
+    platforms: [iOS]
+  - name: ApolloWebSocket
+    platforms: [iOS]
+  - name: Apollo
+    platforms: [iOS]
+- Auth0.swift: 
+  - name: Auth0 
+    platforms: [iOS]
+- OHHTTPStubs: 
+  - name: OHHTTPStubs 
+    platforms: [iOS]
+- SimpleKeychain: 
+  - name: SimpleKeychain 
+    platforms: [iOS]

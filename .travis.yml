@@ -7,9 +7,7 @@ cache:
 before_install:
 - brew bundle
 - npm install -g apollo
-- carthage bootstrap --platform iOS --cache-builds --new-resolver
-install:
-- bundle install
+- rome download --platform iOS
 script:
 - sh build.sh
 branches:
