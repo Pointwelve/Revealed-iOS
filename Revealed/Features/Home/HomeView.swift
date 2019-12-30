@@ -18,14 +18,14 @@ struct HomeView: View {
         PostRow(post: post.fragments.postDetail)
       }
       .navigationBarTitle(Text("Home"))
-    .navigationBarItems(trailing: Button(action: {
-      self.isCreatePostPresented = true
-    }) {
-      Image(systemName: "plus")
-        .imageScale(.large)
-    })
-    .sheet(isPresented: $isCreatePostPresented,
-           content: { CreatePostView(isPresented: self.$isCreatePostPresented) })
+      .navigationBarItems(trailing: Button(action: {
+        self.isCreatePostPresented = true
+      }) {
+        Image(systemName: "plus")
+          .imageScale(.large)
+      })
+      .sheet(isPresented: $isCreatePostPresented,
+             content: { CreatePostView(isPresented: self.$isCreatePostPresented) })
     }
   }
 }
