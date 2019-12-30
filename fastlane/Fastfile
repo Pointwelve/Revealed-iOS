@@ -70,7 +70,9 @@ platform :ios do
   
   desc "⚙️ release"
   lane :release do
-    if !analyze_commits(match: '*') 
+    isReleasable = analyze_commits(match: '*')
+    
+    if !isReleasable 
       UI.message("Release not required.")
       return
     else
@@ -109,7 +111,7 @@ platform :ios do
       tags: true
     )
   end
-  
+
   desc "🚀 Download graphql schema"
   lane :download_schema do |options|
     token = options[:token] || ENV['GRAPHQL_TOKEN']
