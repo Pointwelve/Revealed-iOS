@@ -34,7 +34,10 @@ final class AuthService: ObservableObject {
     }
 
     credentialsManager.credentials(callback: { [weak self] _, credentials in
-      self?.credentials = credentials
+      // TODO: Ideally, create combine interface for Auth0 SDK and use `receive(on:)`
+      DispatchQueue.main.async {
+        self?.credentials = credentials
+      }
     })
   }
 
@@ -46,7 +49,11 @@ final class AuthService: ObservableObject {
   }
 
   func store(credentials: Credentials) {
-    self.credentials = credentials
+    // TODO: Ideally, create combine interface for Auth0 SDK and use `receive(on:)`
+    DispatchQueue.main.async { [weak self] in
+      self?.credentials = credentials
+    }
+    
     _ = credentialsManager.store(credentials: credentials)
   }
 }
