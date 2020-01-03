@@ -7,16 +7,17 @@
 //
 
 import Auth0
+import Combine
 import Foundation
 
-final class AuthService {
+final class AuthService: ObservableObject {
   static let shared = AuthService()
 
   private let authentication: Authentication
 
   private let credentialsManager: CredentialsManager
 
-  private var credentials: Credentials?
+  @Published private(set) var credentials: Credentials?
 
   var idToken: String? {
     return credentials?.idToken
@@ -27,6 +28,17 @@ final class AuthService {
     credentialsManager = CredentialsManager(authentication: authentication)
 
     _ = authentication.logging(enabled: true) // API Logging
+
+    guard credentialsManager.hasValid() else {
+      return
+    }
+
+    credentialsManager.credentials(callback: { [weak self] _, credentials in
+      // TODO: Ideally, create combine interface for Auth0 SDK and use `receive(on:)`
+      DispatchQueue.main.async {
+        self?.credentials = credentials
+      }
+    })
   }
 
   func logout() {
@@ -37,7 +49,11 @@ final class AuthService {
   }
 
   func store(credentials: Credentials) {
-    self.credentials = credentials
+    // TODO: Ideally, create combine interface for Auth0 SDK and use `receive(on:)`
+    DispatchQueue.main.async { [weak self] in
+      self?.credentials = credentials
+    }
+    
     _ = credentialsManager.store(credentials: credentials)
   }
 }

@@ -10,35 +10,18 @@ import Auth0
 import SwiftUI
 
 struct ContentView: View {
-  @State var goToHome = false
+  @ObservedObject private var auth: AuthService = AuthService.shared
 
   var body: some View {
-    NavigationView {
-      VStack {
-        NavigationLink(destination: HomeView(), isActive: $goToHome) { EmptyView() }.hidden()
-        Button(action: auth) {
-          Text("Auth0")
+    Group {
+      Group {
+        if auth.credentials != nil {
+          HomeView()
+        } else {
+          GetStartedView([PlaceholderView(page: 1), PlaceholderView(page: 2)])
         }
       }
-      .navigationBarTitle(Text("Main"))
     }
-  }
-
-  private func auth() {
-    Auth0
-      .webAuth()
-      .scope("openid profile offline_access")
-      .audience("https://pointwelve.au.auth0.com/userinfo")
-      .start {
-        switch $0 {
-        case let .failure(error):
-          // Handle the error
-          print("Error: \(error)")
-        case let .success(credentials):
-          AuthService.shared.store(credentials: credentials)
-          self.goToHome = true
-        }
-      }
   }
 }
 
