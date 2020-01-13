@@ -26,6 +26,7 @@
 		1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1B6446B3238EA01200422926 /* LaunchScreen.storyboard */; };
 		1B738C8423A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B738C8323A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift */; };
 		1B738C8723A3F7B400124158 /* MockResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B738C8623A3F7B400124158 /* MockResponse.swift */; };
+		1B7512D723CCABFB00B3CF19 /* Post+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B7512D623CCABFB00B3CF19 /* Post+Domain.swift */; };
 		1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */; };
 		1B9C716823A4D1E90028016F /* GetAllPostQueryFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */; };
 		1B9CCB6023A2986C00A45A55 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
@@ -88,6 +89,7 @@
 		1B6446C1238EA01200422926 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1B738C8323A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPostQuerySuccessTests.swift; sourceTree = "<group>"; };
 		1B738C8623A3F7B400124158 /* MockResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockResponse.swift; sourceTree = "<group>"; };
+		1B7512D623CCABFB00B3CF19 /* Post+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+Domain.swift"; sourceTree = "<group>"; };
 		1B8AB2E623926C0500907AF6 /* GetAllPosts.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = GetAllPosts.graphql; sourceTree = "<group>"; };
 		1B8AB2E723926C0500907AF6 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
 		1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAutoEquatable.generated.swift; sourceTree = "<group>"; };
@@ -189,8 +191,6 @@
 		1B6446A7238EA01200422926 /* Revealed */ = {
 			isa = PBXGroup;
 			children = (
-				1B1CC38923B348CC0015CCA3 /* Extension */,
-				4C4C83AC23A3D113007A7D1A /* Auth */,
 				1B9C716623A4D1810028016F /* SourceryTemplate */,
 				1B6446B6238EA01200422926 /* Info.plist */,
 				1B6446A8238EA01200422926 /* AppDelegate.swift */,
@@ -198,10 +198,12 @@
 				1B6446AA238EA01200422926 /* SceneDelegate.swift */,
 				1B6446AE238EA01200422926 /* Assets.xcassets */,
 				4C4C83AC23A3D113007A7D1A /* Auth */,
+				1B1CC38923B348CC0015CCA3 /* Extension */,
 				1BF86B03239FDE0600FE9D42 /* Features */,
 				1B9C716023A4D0790028016F /* Generated */,
 				1B8AB2E523926C0500907AF6 /* GraphQL */,
 				1B6446B3238EA01200422926 /* LaunchScreen.storyboard */,
+				1B7512D523CCAB6F00B3CF19 /* Models */,
 				1BC61C8D2392A990006A83D7 /* Network */,
 				1B6446B0238EA01200422926 /* Preview Content */,
 				1BF9082D239E9DD200D1B9C4 /* Setup */,
@@ -240,6 +242,14 @@
 				1B738C8623A3F7B400124158 /* MockResponse.swift */,
 			);
 			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		1B7512D523CCAB6F00B3CF19 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1B7512D623CCABFB00B3CF19 /* Post+Domain.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1B8AB2E523926C0500907AF6 /* GraphQL */ = {
@@ -546,6 +556,7 @@
 				1BB1E16E23B1E91F00833BC8 /* CreatePostView.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
+				1B7512D723CCABFB00B3CF19 /* Post+Domain.swift in Sources */,
 				1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */,
 				1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */,
 				1BB1E17023B1E92900833BC8 /* CreatePostViewModel.swift in Sources */,

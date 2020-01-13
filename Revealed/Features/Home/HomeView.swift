@@ -25,7 +25,7 @@ struct HomeView: View {
           .imageScale(.large)
       })
       .sheet(isPresented: $isCreatePostPresented,
-             content: { CreatePostView(isPresented: self.$isCreatePostPresented) })
+             content: { CreatePostView(viewModel: CreatePostViewModel(isPresented: self.$isCreatePostPresented)) })
     }
   }
 }

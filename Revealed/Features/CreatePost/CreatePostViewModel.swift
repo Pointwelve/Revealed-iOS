@@ -33,7 +33,8 @@ class CreatePostViewModel: ObservableObject {
   private var disposables = Set<AnyCancellable>()
   private let queue = DispatchQueue(label: "com.pointwelve.revealed.createPostQueue")
 
-  init() {
+  init(isPresented: Binding<Bool>) {
+    // Fetch configs from server
     ApolloNetwork.shared.apollo.fetchFuture(query: GetAllConfigsQuery(),
                                             cachePolicy: .returnCacheDataElseFetch,
                                             queue: queue)
@@ -43,21 +44,30 @@ class CreatePostViewModel: ObservableObject {
         return TopicAndTag(topics: topics, tags: tags)
       }
       .eraseToAnyPublisher()
-
       .replaceError(with: TopicAndTag.default)
       .receive(on: DispatchQueue.main)
       .assign(to: \.topicAndTag, on: self)
       .store(in: &disposables)
 
+    // Create post subscription
     createPostSubject.flatMap {
       ApolloNetwork.shared.apollo.mutateFuture(mutation: CreatePostMutation(input: $0), queue: self.queue)
     }
     .map { $0.createPost?.fragments.postDetail }
     .eraseToAnyPublisher()
-    .replaceError(with: nil)
+    .replaceError(with: PostDetail.shared)
+    .filter { $0 != nil }
     .receive(on: DispatchQueue.main)
     .assign(to: \.newPost, on: self)
     .store(in: &disposables)
+
+    // Modal state management
+    $newPost.filter { $0 != nil }
+      .receive(on: DispatchQueue.main)
+      .sink(receiveValue: { [isPresented] _ in
+        isPresented.wrappedValue.toggle()
+      })
+      .store(in: &disposables)
   }
 
   deinit {

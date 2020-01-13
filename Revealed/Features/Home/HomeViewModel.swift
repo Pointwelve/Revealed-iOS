@@ -9,14 +9,6 @@
 import Combine
 import Foundation
 
-typealias Post = GetAllPostQuery.Data.GetAllPost.Edge
-
-extension Post: Identifiable {
-  public var id: String {
-    return fragments.postDetail.id
-  }
-}
-
 class HomeViewModel: ObservableObject, Identifiable {
   @Published var posts: [Post] = []
   private var disposables = Set<AnyCancellable>()

@@ -56,16 +56,6 @@ struct PostRow: View {
 
 struct PostRow_Previews: PreviewProvider {
   static var previews: some View {
-    PostRow(post: PostDetail(author: .init(id: "author", username: "author name"),
-                             tags: nil,
-                             topic: .init(name: "topic"),
-                             id: "123",
-                             excerpt: "Sample excerpt",
-                             subject: "Sample Subject",
-                             createdAt: 1000,
-                             totalLikesCount: 10,
-                             totalCommentsCount: 20,
-                             postViewCount: 30,
-                             status: .new))
+    PostRow(post: PostDetail.shared)
   }
 }

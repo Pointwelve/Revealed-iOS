@@ -53,7 +53,7 @@ final class AuthService: ObservableObject {
     DispatchQueue.main.async { [weak self] in
       self?.credentials = credentials
     }
-    
+
     _ = credentialsManager.store(credentials: credentials)
   }
 }
