@@ -56,6 +56,6 @@ struct PostRow: View {
 
 struct PostRow_Previews: PreviewProvider {
   static var previews: some View {
-    PostRow(post: PostDetail.shared)
+    PostRow(post: PostDetail.mock)
   }
 }

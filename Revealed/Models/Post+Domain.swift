@@ -17,15 +17,15 @@ extension Post: Identifiable {
 }
 
 extension PostDetail {
-  static let shared = PostDetail(author: .init(id: "author", username: "author name"),
-                                 tags: nil,
-                                 topic: .init(name: "topic"),
-                                 id: "123",
-                                 excerpt: "Sample excerpt",
-                                 subject: "Sample Subject",
-                                 createdAt: 1000,
-                                 totalLikesCount: 10,
-                                 totalCommentsCount: 20,
-                                 postViewCount: 30,
-                                 status: .new)
+  static let mock = PostDetail(author: .init(id: "author", username: "author name"),
+                               tags: nil,
+                               topic: .init(name: "topic"),
+                               id: "123",
+                               excerpt: "Sample excerpt",
+                               subject: "Sample Subject",
+                               createdAt: 1000,
+                               totalLikesCount: 10,
+                               totalCommentsCount: 20,
+                               postViewCount: 30,
+                               status: .new)
 }

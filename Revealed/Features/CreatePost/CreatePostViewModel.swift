@@ -55,7 +55,7 @@ class CreatePostViewModel: ObservableObject {
     }
     .map { $0.createPost?.fragments.postDetail }
     .eraseToAnyPublisher()
-    .replaceError(with: PostDetail.shared)
+    .replaceError(with: nil)
     .filter { $0 != nil }
     .receive(on: DispatchQueue.main)
     .assign(to: \.newPost, on: self)
