@@ -25,7 +25,7 @@ class HomeViewModel: ObservableObject, Identifiable {
   func refresh() {
     let query = GetAllPostQuery(first: 10, commentFirst: "")
     ApolloNetwork.shared.apollo.fetchFuture(query: query, queue: queue)
-      .map { $0.getAllPosts?.edges?.compactMap { $0 } ?? [] }
+      .map { $0.getAllPosts.edges?.compactMap { $0 } ?? [] }
       .eraseToAnyPublisher()
       .receive(on: DispatchQueue.main)
       .replaceError(with: [])

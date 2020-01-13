@@ -27,7 +27,7 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 // MARK: - CreatePostMutation.Data AutoEquatable
 extension CreatePostMutation.Data: Equatable {}
 public func == (lhs: CreatePostMutation.Data, rhs: CreatePostMutation.Data) -> Bool {
-    guard compareOptionals(lhs: lhs.createPost, rhs: rhs.createPost, compare: ==) else { return false }
+    guard lhs.createPost == rhs.createPost else { return false }
     return true
 }
 // MARK: - CreatePostMutation.Data.CreatePost AutoEquatable
@@ -46,8 +46,8 @@ public func == (lhs: CreatePostMutation.Data.CreatePost.Fragments, rhs: CreatePo
 // MARK: - GetAllConfigsQuery.Data AutoEquatable
 extension GetAllConfigsQuery.Data: Equatable {}
 public func == (lhs: GetAllConfigsQuery.Data, rhs: GetAllConfigsQuery.Data) -> Bool {
-    guard compareOptionals(lhs: lhs.getAllTopics, rhs: rhs.getAllTopics, compare: ==) else { return false }
-    guard compareOptionals(lhs: lhs.getAllTags, rhs: rhs.getAllTags, compare: ==) else { return false }
+    guard lhs.getAllTopics == rhs.getAllTopics else { return false }
+    guard lhs.getAllTags == rhs.getAllTags else { return false }
     return true
 }
 // MARK: - GetAllConfigsQuery.Data.GetAllTag AutoEquatable
@@ -55,7 +55,7 @@ extension GetAllConfigsQuery.Data.GetAllTag: Equatable {}
 public func == (lhs: GetAllConfigsQuery.Data.GetAllTag, rhs: GetAllConfigsQuery.Data.GetAllTag) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
-    guard compareOptionals(lhs: lhs.pageInfo, rhs: rhs.pageInfo, compare: ==) else { return false }
+    guard lhs.pageInfo == rhs.pageInfo else { return false }
     return true
 }
 // MARK: - GetAllConfigsQuery.Data.GetAllTag.Edge AutoEquatable
@@ -79,7 +79,7 @@ extension GetAllConfigsQuery.Data.GetAllTopic: Equatable {}
 public func == (lhs: GetAllConfigsQuery.Data.GetAllTopic, rhs: GetAllConfigsQuery.Data.GetAllTopic) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
-    guard compareOptionals(lhs: lhs.pageInfo, rhs: rhs.pageInfo, compare: ==) else { return false }
+    guard lhs.pageInfo == rhs.pageInfo else { return false }
     return true
 }
 // MARK: - GetAllConfigsQuery.Data.GetAllTopic.Edge AutoEquatable
@@ -101,7 +101,7 @@ public func == (lhs: GetAllConfigsQuery.Data.GetAllTopic.PageInfo, rhs: GetAllCo
 // MARK: - GetAllPostQuery.Data AutoEquatable
 extension GetAllPostQuery.Data: Equatable {}
 public func == (lhs: GetAllPostQuery.Data, rhs: GetAllPostQuery.Data) -> Bool {
-    guard compareOptionals(lhs: lhs.getAllPosts, rhs: rhs.getAllPosts, compare: ==) else { return false }
+    guard lhs.getAllPosts == rhs.getAllPosts else { return false }
     return true
 }
 // MARK: - GetAllPostQuery.Data.GetAllPost AutoEquatable
@@ -109,7 +109,7 @@ extension GetAllPostQuery.Data.GetAllPost: Equatable {}
 public func == (lhs: GetAllPostQuery.Data.GetAllPost, rhs: GetAllPostQuery.Data.GetAllPost) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
-    guard compareOptionals(lhs: lhs.pageInfo, rhs: rhs.pageInfo, compare: ==) else { return false }
+    guard lhs.pageInfo == rhs.pageInfo else { return false }
     return true
 }
 // MARK: - GetAllPostQuery.Data.GetAllPost.Edge AutoEquatable

@@ -39,8 +39,8 @@ class CreatePostViewModel: ObservableObject {
                                             cachePolicy: .returnCacheDataElseFetch,
                                             queue: queue)
       .map { data -> TopicAndTag in
-        let tags = data.getAllTags?.edges?.compactMap { $0 } ?? []
-        let topics = data.getAllTopics?.edges?.compactMap { $0 } ?? []
+        let tags = data.getAllTags.edges?.compactMap { $0 } ?? []
+        let topics = data.getAllTopics.edges?.compactMap { $0 } ?? []
         return TopicAndTag(topics: topics, tags: tags)
       }
       .eraseToAnyPublisher()
@@ -53,7 +53,7 @@ class CreatePostViewModel: ObservableObject {
     createPostSubject.flatMap {
       ApolloNetwork.shared.apollo.mutateFuture(mutation: CreatePostMutation(input: $0), queue: self.queue)
     }
-    .map { $0.createPost?.fragments.postDetail }
+    .map { $0.createPost.fragments.postDetail }
     .eraseToAnyPublisher()
     .replaceError(with: nil)
     .filter { $0 != nil }
