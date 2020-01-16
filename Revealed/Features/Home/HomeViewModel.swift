@@ -16,6 +16,20 @@ class HomeViewModel: ObservableObject, Identifiable {
 
   init() {
     refresh()
+
+    let mutation = PostSignupMutation(input: .init(username: "AlvinChoo"))
+    ApolloNetwork.shared.apollo.mutateFuture(mutation: mutation)
+      .receive(on: DispatchQueue.main)
+      .sink(receiveCompletion: { completion in
+        switch completion {
+        case let .failure(error):
+          debugPrint(error)
+        case .finished:
+          debugPrint("finish")
+        }
+      }) { (data) in
+        debugPrint(data)
+    }.store(in: &disposables)
   }
 
   deinit {
