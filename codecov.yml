@@ -3,3 +3,4 @@ ignore:
   - Revealed/Generated/**/*
   - Revelaed/GraphQL/**/*
   - RevealedTests/**/*
+  - "**/*.generated.swift" 
