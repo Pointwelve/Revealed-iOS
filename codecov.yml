@@ -1,0 +1,4 @@
+ignore:
+  - Carthage
+  - Revealed/Generated
+  - Revelaed/GraphQL
