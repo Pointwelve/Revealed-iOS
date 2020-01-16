@@ -1,4 +1,5 @@
 ignore:
-  - Carthage
-  - Revealed/Generated
-  - Revelaed/GraphQL
+  - Carthage/**/*
+  - Revealed/Generated/**/*
+  - Revelaed/GraphQL/**/*
+  - RevealedTests/**/*
