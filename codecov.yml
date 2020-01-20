@@ -1,0 +1,6 @@
+ignore:
+  - Carthage/**/*
+  - Revealed/Generated/**/*
+  - Revelaed/GraphQL/**/*
+  - RevealedTests/**/*
+  - "**/*.generated.swift" 

@@ -10,8 +10,7 @@ import Combine
 import SwiftUI
 
 struct CreatePostView: View {
-  @Binding var isPresented: Bool
-  @ObservedObject var viewModel: CreatePostViewModel = CreatePostViewModel()
+  @ObservedObject var viewModel: CreatePostViewModel
   @State private var selectedSubject: String = ""
   @State private var selectedContent: String = ""
   @State private var selectedTopic: Int = 0
@@ -19,11 +18,8 @@ struct CreatePostView: View {
 
   private var cancellable: AnyCancellable?
 
-  init(isPresented: Binding<Bool>) {
-    _isPresented = isPresented
-    cancellable = viewModel.$newPost.filter { $0 != nil }
-      .map { _ in false }
-      .assign(to: \.isPresented, on: self)
+  init(viewModel: CreatePostViewModel) {
+    self.viewModel = viewModel
   }
 
   var body: some View {
@@ -78,6 +74,6 @@ struct CreatePostView: View {
 
 struct CreatePostView_Previews: PreviewProvider {
   static var previews: some View {
-    return CreatePostView(isPresented: .constant(true))
+    return CreatePostView(viewModel: CreatePostViewModel(isPresented: .constant(true)))
   }
 }
