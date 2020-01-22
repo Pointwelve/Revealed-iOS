@@ -15,7 +15,7 @@ struct HomeView: View {
   var body: some View {
     NavigationView {
       List(viewModel.posts) { post in
-        PostRow(post: post.fragments.postDetail)
+        PostRow(post: post)
       }
       .navigationBarTitle(Text("Home"))
       .navigationBarItems(trailing: Button(action: {
@@ -25,7 +25,7 @@ struct HomeView: View {
           .imageScale(.large)
       })
       .sheet(isPresented: $isCreatePostPresented,
-             content: { CreatePostView(viewModel: CreatePostViewModel(isPresented: self.$isCreatePostPresented)) })
+             content: { CreatePostView(viewModel: CreatePostViewModel(isPresented: self.$isCreatePostPresented, posts: self.$viewModel.posts)) })
     }
   }
 }
