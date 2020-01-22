@@ -8,14 +8,22 @@
 
 import Combine
 import SwiftUI
+import SwiftUIRefresh
 
 struct HomeView: View {
   @ObservedObject var viewModel: HomeViewModel = HomeViewModel()
   @State var isCreatePostPresented = false
+  @State private var isShowing = false
   var body: some View {
     NavigationView {
       List(viewModel.posts) { post in
         PostRow(post: post)
+      }
+      .pullToRefresh(isShowing: $isShowing) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+          self.viewModel.refresh()
+          self.isShowing = false
+        }
       }
       .navigationBarTitle(Text("Home"))
       .navigationBarItems(trailing: Button(action: {

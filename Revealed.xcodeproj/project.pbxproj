@@ -43,6 +43,7 @@
 		1BF9082C239E95C600D1B9C4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9082B239E95C600D1B9C4 /* Configuration.swift */; };
 		1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF9082E239E9E0200D1B9C4 /* RevealedError.swift */; };
 		4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C83AD23A3D148007A7D1A /* AuthService.swift */; };
+		5A41114D23D8AA8E00EA83CE /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 5A41114C23D8AA8E00EA83CE /* SwiftUIRefresh */; };
 		5ABB46C623A12B1D00216BD8 /* GraphQL.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABB46C523A12B1D00216BD8 /* GraphQL.generated.swift */; };
 		A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE123ADE29B005E1B5E /* GetStartedView.swift */; };
 		A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */; };
@@ -122,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A41114D23D8AA8E00EA83CE /* SwiftUIRefresh in Frameworks */,
 				1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */,
 				F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */,
 				F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */,
@@ -410,6 +412,9 @@
 			dependencies = (
 			);
 			name = Revealed;
+			packageProductDependencies = (
+				5A41114C23D8AA8E00EA83CE /* SwiftUIRefresh */,
+			);
 			productName = Revealed;
 			productReference = 1B6446A5238EA01200422926 /* Revealed.app */;
 			productType = "com.apple.product-type.application";
@@ -460,6 +465,9 @@
 				Base,
 			);
 			mainGroup = 1B64469C238EA01200422926;
+			packageReferences = (
+				5A41114B23D8AA8E00EA83CE /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */,
+			);
 			productRefGroup = 1B6446A6238EA01200422926 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -858,6 +866,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A41114B23D8AA8E00EA83CE /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUIRefresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A41114C23D8AA8E00EA83CE /* SwiftUIRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A41114B23D8AA8E00EA83CE /* XCRemoteSwiftPackageReference "SwiftUIRefresh" */;
+			productName = SwiftUIRefresh;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1B64469D238EA01200422926 /* Project object */;
 }
