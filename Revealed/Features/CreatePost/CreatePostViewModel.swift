@@ -33,7 +33,7 @@ class CreatePostViewModel: ObservableObject {
   private var disposables = Set<AnyCancellable>()
   private let queue = DispatchQueue(label: "com.pointwelve.revealed.createPostQueue")
 
-  init(isPresented: Binding<Bool>) {
+  init(isPresented: Binding<Bool>, posts: Binding<[PostDetail]>) {
     // Fetch configs from server
     ApolloNetwork.shared.apollo.fetchFuture(query: GetAllConfigsQuery(),
                                             cachePolicy: .returnCacheDataElseFetch,
@@ -63,8 +63,10 @@ class CreatePostViewModel: ObservableObject {
 
     // Modal state management
     $newPost.filter { $0 != nil }
+      .map { $0! }
       .receive(on: DispatchQueue.main)
-      .sink(receiveValue: { [isPresented] _ in
+      .sink(receiveValue: { [isPresented] post in
+        posts.wrappedValue.insert(post, at: 0)
         isPresented.wrappedValue.toggle()
       })
       .store(in: &disposables)

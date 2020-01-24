@@ -8,13 +8,7 @@
 
 import Foundation
 
-typealias Post = GetAllPostQuery.Data.GetAllPost.Edge
-
-extension Post: Identifiable {
-  public var id: String {
-    return fragments.postDetail.id
-  }
-}
+extension PostDetail: Identifiable {}
 
 extension PostDetail {
   static let mock = PostDetail(author: .init(id: "author", username: "author name"),

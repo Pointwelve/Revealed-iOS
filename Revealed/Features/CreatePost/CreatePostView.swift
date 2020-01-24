@@ -74,6 +74,7 @@ struct CreatePostView: View {
 
 struct CreatePostView_Previews: PreviewProvider {
   static var previews: some View {
-    return CreatePostView(viewModel: CreatePostViewModel(isPresented: .constant(true)))
+    return CreatePostView(viewModel: CreatePostViewModel(isPresented: .constant(true),
+                                                         posts: .constant([])))
   }
 }
