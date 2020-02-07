@@ -10,17 +10,30 @@ import Auth0
 import SwiftUI
 
 struct ContentView: View {
-  @ObservedObject private var auth: AuthService = AuthService.shared
+  @ObservedObject var viewModel: ContentViewModel = ContentViewModel()
+
+  enum State {
+    case home
+    case getStarted
+    case postSignUp
+  }
 
   var body: some View {
     Group {
       Group {
-        if auth.credentials != nil {
-          HomeView()
-        } else {
-          GetStartedView([PlaceholderView(page: 1), PlaceholderView(page: 2)])
-        }
+        contentView()
       }
+    }
+  }
+
+  private func contentView() -> AnyView {
+    switch viewModel.viewState {
+    case .home:
+      return AnyView(HomeView())
+    case .getStarted, .none:
+      return AnyView(GetStartedView([PlaceholderView(page: 1), PlaceholderView(page: 2)]))
+    case .postSignUp:
+      return AnyView(CreateUserView())
     }
   }
 }

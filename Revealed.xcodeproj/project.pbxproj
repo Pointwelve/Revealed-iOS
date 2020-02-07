@@ -30,8 +30,6 @@
 		1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */; };
 		1B9C716823A4D1E90028016F /* GetAllPostQueryFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */; };
 		1B9CCB6023A2986C00A45A55 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
-		1BB1E16E23B1E91F00833BC8 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1E16D23B1E91F00833BC8 /* CreatePostView.swift */; };
-		1BB1E17023B1E92900833BC8 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB1E16F23B1E92900833BC8 /* CreatePostViewModel.swift */; };
 		1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC61C8323926D1E006A83D7 /* Apollo.framework */; };
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
 		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
@@ -49,6 +47,10 @@
 		A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */; };
 		A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */; };
 		A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */; };
+		F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D523EB045600FECB26 /* CreateUserView.swift */; };
+		F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D723EB048500FECB26 /* CreatePostView.swift */; };
+		F66030DA23EB048500FECB26 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D823EB048500FECB26 /* CreatePostViewModel.swift */; };
+		F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */; };
 		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
 		F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944C23954E5000EEEE2E /* Auth0.framework */; };
 /* End PBXBuildFile section */
@@ -96,8 +98,6 @@
 		1B9C716123A4D0790028016F /* GraphQLAutoEquatable.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQLAutoEquatable.generated.swift; sourceTree = "<group>"; };
 		1B9C716623A4D1810028016F /* SourceryTemplate */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SourceryTemplate; sourceTree = "<group>"; };
 		1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAllPostQueryFailureTests.swift; sourceTree = "<group>"; };
-		1BB1E16D23B1E91F00833BC8 /* CreatePostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostView.swift; sourceTree = "<group>"; };
-		1BB1E16F23B1E92900833BC8 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostViewModel.swift; sourceTree = "<group>"; };
 		1BC61C8323926D1E006A83D7 /* Apollo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Apollo.framework; path = Carthage/Build/iOS/Apollo.framework; sourceTree = "<group>"; };
 		1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloNetwork.swift; sourceTree = "<group>"; };
 		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
@@ -114,6 +114,10 @@
 		A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageViewController.swift; sourceTree = "<group>"; };
 		A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageControl.swift; sourceTree = "<group>"; };
+		F66030D523EB045600FECB26 /* CreateUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
+		F66030D723EB048500FECB26 /* CreatePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostView.swift; path = "Revealed/Features/Create Post/CreatePostView.swift"; sourceTree = SOURCE_ROOT; };
+		F66030D823EB048500FECB26 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewModel.swift; path = "Revealed/Features/Create Post/CreatePostViewModel.swift"; sourceTree = SOURCE_ROOT; };
+		F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
 		F69D944C23954E5000EEEE2E /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +201,7 @@
 				1B6446B6238EA01200422926 /* Info.plist */,
 				1B6446A8238EA01200422926 /* AppDelegate.swift */,
 				1B6446AC238EA01200422926 /* ContentView.swift */,
+				F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */,
 				1B6446AA238EA01200422926 /* SceneDelegate.swift */,
 				1B6446AE238EA01200422926 /* Assets.xcassets */,
 				4C4C83AC23A3D113007A7D1A /* Auth */,
@@ -278,8 +283,8 @@
 		1BB1E16C23B1E91200833BC8 /* CreatePost */ = {
 			isa = PBXGroup;
 			children = (
-				1BB1E16D23B1E91F00833BC8 /* CreatePostView.swift */,
-				1BB1E16F23B1E92900833BC8 /* CreatePostViewModel.swift */,
+				F66030D723EB048500FECB26 /* CreatePostView.swift */,
+				F66030D823EB048500FECB26 /* CreatePostViewModel.swift */,
 			);
 			path = CreatePost;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 		1BF86B03239FDE0600FE9D42 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F66030D423EB045600FECB26 /* Create User */,
 				1BB1E16C23B1E91200833BC8 /* CreatePost */,
 				A0F9CEDF23ADE27E005E1B5E /* Auth */,
 				1BF86B04239FDE1500FE9D42 /* Home */,
@@ -392,6 +398,14 @@
 				A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */,
 			);
 			path = "Get Started";
+			sourceTree = "<group>";
+		};
+		F66030D423EB045600FECB26 /* Create User */ = {
+			isa = PBXGroup;
+			children = (
+				F66030D523EB045600FECB26 /* CreateUserView.swift */,
+			);
+			path = "Create User";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -560,17 +574,19 @@
 				1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */,
 				A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */,
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
+				F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */,
 				5ABB46C623A12B1D00216BD8 /* GraphQL.generated.swift in Sources */,
-				1BB1E16E23B1E91F00833BC8 /* CreatePostView.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
+				F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */,
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
+				F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */,
 				1B7512D723CCABFB00B3CF19 /* Post+Domain.swift in Sources */,
 				1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */,
 				1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */,
-				1BB1E17023B1E92900833BC8 /* CreatePostViewModel.swift in Sources */,
 				1B1CC38B23B348DC0015CCA3 /* Array+Ext.swift in Sources */,
 				1BF86B0A239FECA600FE9D42 /* HomeViewModel.swift in Sources */,
 				1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */,
+				F66030DA23EB048500FECB26 /* CreatePostViewModel.swift in Sources */,
 				1B6446AD238EA01200422926 /* ContentView.swift in Sources */,
 				1BF9082C239E95C600D1B9C4 /* Configuration.swift in Sources */,
 				1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */,
