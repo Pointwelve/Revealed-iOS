@@ -172,5 +172,27 @@ public func == (lhs: PostDetail.Topic, rhs: PostDetail.Topic) -> Bool {
     guard lhs.name == rhs.name else { return false }
     return true
 }
+// MARK: - PostSignupMutation.Data AutoEquatable
+extension PostSignupMutation.Data: Equatable {}
+public func == (lhs: PostSignupMutation.Data, rhs: PostSignupMutation.Data) -> Bool {
+    guard lhs.postSignup == rhs.postSignup else { return false }
+    return true
+}
+// MARK: - PostSignupMutation.Data.PostSignup AutoEquatable
+extension PostSignupMutation.Data.PostSignup: Equatable {}
+public func == (lhs: PostSignupMutation.Data.PostSignup, rhs: PostSignupMutation.Data.PostSignup) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.user == rhs.user else { return false }
+    return true
+}
+// MARK: - PostSignupMutation.Data.PostSignup.User AutoEquatable
+extension PostSignupMutation.Data.PostSignup.User: Equatable {}
+public func == (lhs: PostSignupMutation.Data.PostSignup.User, rhs: PostSignupMutation.Data.PostSignup.User) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.id == rhs.id else { return false }
+    guard lhs.email == rhs.email else { return false }
+    guard lhs.username == rhs.username else { return false }
+    return true
+}
 
 // MARK: - AutoEquatable for Enums
