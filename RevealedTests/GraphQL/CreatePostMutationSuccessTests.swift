@@ -59,7 +59,7 @@ class CreatePostMutationSuccessTests: XCTestCase {
                                    totalCommentsCount: 25,
                                    postViewCount: 60,
                                    status: .approved)
-        XCTAssertEqual(actual.createPost?.fragments.postDetail, expeceted)
+        XCTAssertEqual(actual.createPost.fragments.postDetail, expeceted)
         expec.fulfill()
       })
 

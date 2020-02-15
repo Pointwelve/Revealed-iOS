@@ -37,3 +37,18 @@ extension ApolloNetwork: HTTPNetworkTransportPreflightDelegate {
     request.addValue(idToken, forHTTPHeaderField: "Authorization")
   }
 }
+
+extension ApolloNetwork: HTTPNetworkTransportTaskCompletedDelegate {
+  func networkTransport(_ networkTransport: HTTPNetworkTransport, didCompleteRawTaskForRequest request: URLRequest, withData data: Data?, response: URLResponse?, error: Error?) {
+    guard let data = data,
+      let object = try? JSONSerialization.jsonObject(with: data, options: .allowFragments),
+      let body = request.httpBody,
+      let requestBody = try? JSONSerialization.jsonObject(with: body, options: .allowFragments) else {
+      return
+    }
+
+    // To debug server response and request
+    debugPrint("Request Body \(requestBody)")
+    debugPrint("Response \(object)")
+  }
+}

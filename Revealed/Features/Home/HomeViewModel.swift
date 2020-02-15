@@ -9,16 +9,8 @@
 import Combine
 import Foundation
 
-typealias Post = GetAllPostQuery.Data.GetAllPost.Edge
-
-extension Post: Identifiable {
-  public var id: String {
-    return fragments.postDetail.id
-  }
-}
-
 class HomeViewModel: ObservableObject, Identifiable {
-  @Published var posts: [Post] = []
+  @Published var posts: [PostDetail] = []
   private var disposables = Set<AnyCancellable>()
   private let queue = DispatchQueue(label: "com.pointwelve.revealed.postQueue")
 
@@ -33,7 +25,7 @@ class HomeViewModel: ObservableObject, Identifiable {
   func refresh() {
     let query = GetAllPostQuery(first: 10, commentFirst: "")
     ApolloNetwork.shared.apollo.fetchFuture(query: query, queue: queue)
-      .map { $0.getAllPosts?.edges?.compactMap { $0 } ?? [] }
+      .map { $0.getAllPosts.edges?.compactMap { $0.fragments.postDetail } ?? [] }
       .eraseToAnyPublisher()
       .receive(on: DispatchQueue.main)
       .replaceError(with: [])

@@ -9,4 +9,5 @@ if [[ "$TRAVIS_BRANCH" != "master" ]]; then
   echo "Testing on a branch other than master. No deployment will be done."
   exit 0
 fi
+fastlane ios build
 fastlane ios release

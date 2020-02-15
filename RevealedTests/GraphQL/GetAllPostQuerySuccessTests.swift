@@ -57,7 +57,7 @@ class GetAllPostQuerySuccessTests: XCTestCase {
                               totalCommentsCount: 25,
                               postViewCount: 60,
                               status: .approved)
-        XCTAssertEqual(posts.getAllPosts?.edges?.first??.fragments.postDetail, post)
+        XCTAssertEqual(posts.getAllPosts.edges?.first?.fragments.postDetail, post)
         expec.fulfill()
       })
 
