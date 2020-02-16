@@ -17,7 +17,13 @@ final class AuthService: ObservableObject {
 
   private let credentialsManager: CredentialsManager
 
-  @Published private(set) var credentials: Credentials?
+  private var credentials: Credentials? {
+    didSet {
+      credentialSubject.send(credentials)
+    }
+  }
+
+  let credentialSubject = PassthroughSubject<Credentials?, Never>()
 
   var idToken: String? {
     return credentials?.idToken
@@ -28,8 +34,11 @@ final class AuthService: ObservableObject {
     credentialsManager = CredentialsManager(authentication: authentication)
 
     _ = authentication.logging(enabled: true) // API Logging
+  }
 
+  func reAuth() {
     guard credentialsManager.hasValid() else {
+      credentials = nil
       return
     }
 

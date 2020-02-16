@@ -27,9 +27,9 @@ class HomeViewModel: ObservableObject, Identifiable {
         case .finished:
           debugPrint("finish")
         }
-      }) { (data) in
+      }) { data in
         debugPrint(data)
-    }.store(in: &disposables)
+      }.store(in: &disposables)
   }
 
   deinit {

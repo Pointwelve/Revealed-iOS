@@ -43,6 +43,7 @@
 		4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C83AD23A3D148007A7D1A /* AuthService.swift */; };
 		5A41114D23D8AA8E00EA83CE /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 5A41114C23D8AA8E00EA83CE /* SwiftUIRefresh */; };
 		5ABB46C623A12B1D00216BD8 /* GraphQL.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ABB46C523A12B1D00216BD8 /* GraphQL.generated.swift */; };
+		A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08CA67923F7E37300258F44 /* SplashView.swift */; };
 		A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE123ADE29B005E1B5E /* GetStartedView.swift */; };
 		A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */; };
 		A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */; };
@@ -110,6 +111,7 @@
 		1BF9082E239E9E0200D1B9C4 /* RevealedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealedError.swift; sourceTree = "<group>"; };
 		4C4C83AD23A3D148007A7D1A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		5ABB46C523A12B1D00216BD8 /* GraphQL.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.generated.swift; sourceTree = "<group>"; };
+		A08CA67923F7E37300258F44 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		A0F9CEE123ADE29B005E1B5E /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
 		A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageViewController.swift; sourceTree = "<group>"; };
 		A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
@@ -200,8 +202,6 @@
 				1B9C716623A4D1810028016F /* SourceryTemplate */,
 				1B6446B6238EA01200422926 /* Info.plist */,
 				1B6446A8238EA01200422926 /* AppDelegate.swift */,
-				1B6446AC238EA01200422926 /* ContentView.swift */,
-				F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */,
 				1B6446AA238EA01200422926 /* SceneDelegate.swift */,
 				1B6446AE238EA01200422926 /* Assets.xcassets */,
 				4C4C83AC23A3D113007A7D1A /* Auth */,
@@ -313,6 +313,8 @@
 		1BF86B03239FDE0600FE9D42 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A08CA67D23F7EB8A00258F44 /* Content View */,
+				A08CA67823F7E36100258F44 /* Splash */,
 				F66030D423EB045600FECB26 /* Create User */,
 				1BB1E16C23B1E91200833BC8 /* CreatePost */,
 				A0F9CEDF23ADE27E005E1B5E /* Auth */,
@@ -379,6 +381,23 @@
 				1BC61C942393D946006A83D7 /* Auth0.plist */,
 			);
 			path = Auth0;
+			sourceTree = "<group>";
+		};
+		A08CA67823F7E36100258F44 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A08CA67923F7E37300258F44 /* SplashView.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		A08CA67D23F7EB8A00258F44 /* Content View */ = {
+			isa = PBXGroup;
+			children = (
+				1B6446AC238EA01200422926 /* ContentView.swift */,
+				F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */,
+			);
+			path = "Content View";
 			sourceTree = "<group>";
 		};
 		A0F9CEDF23ADE27E005E1B5E /* Auth */ = {
@@ -568,6 +587,7 @@
 			files = (
 				A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */,
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
+				A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */,
 				1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */,
 				A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */,
 				1B045F91239555F700EE3333 /* ApolloError.swift in Sources */,
