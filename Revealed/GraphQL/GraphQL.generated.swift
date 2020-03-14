@@ -51,7 +51,7 @@ public struct PostInput: GraphQLMapConvertible {
 public struct PostSignupInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(username: String, device: DeviceInput?? = nil) {
+  public init(username: String, device: Swift.Optional<DeviceInput?> = nil) {
     graphQLMap = ["username": username, "device": device]
   }
 
@@ -64,9 +64,9 @@ public struct PostSignupInput: GraphQLMapConvertible {
     }
   }
 
-  public var device: DeviceInput?? {
+  public var device: Swift.Optional<DeviceInput?> {
     get {
-      return graphQLMap["device"] as? DeviceInput?? ?? Swift.Optional<DeviceInput?>.none
+      return graphQLMap["device"] as? Swift.Optional<DeviceInput?> ?? Swift.Optional<DeviceInput?>.none
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "device")
@@ -871,15 +871,15 @@ public final class PostSignupMutation: GraphQLMutation {
         __typename
         user {
           __typename
-          id
-          email
-          username
+          ...UserDetail
         }
       }
     }
     """
 
   public let operationName = "PostSignup"
+
+  public var queryDocument: String { return operationDefinition.appending(UserDetail.fragmentDefinition) }
 
   public var input: PostSignupInput
 
@@ -958,9 +958,7 @@ public final class PostSignupMutation: GraphQLMutation {
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
-          GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
-          GraphQLField("email", type: .nonNull(.scalar(String.self))),
-          GraphQLField("username", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(UserDetail.self),
         ]
 
         public private(set) var resultMap: ResultMap
@@ -982,30 +980,29 @@ public final class PostSignupMutation: GraphQLMutation {
           }
         }
 
-        public var id: GraphQLID {
+        public var fragments: Fragments {
           get {
-            return resultMap["id"]! as! GraphQLID
+            return Fragments(unsafeResultMap: resultMap)
           }
           set {
-            resultMap.updateValue(newValue, forKey: "id")
+            resultMap += newValue.resultMap
           }
         }
 
-        public var email: String {
-          get {
-            return resultMap["email"]! as! String
-          }
-          set {
-            resultMap.updateValue(newValue, forKey: "email")
-          }
-        }
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
 
-        public var username: String {
-          get {
-            return resultMap["username"]! as! String
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
           }
-          set {
-            resultMap.updateValue(newValue, forKey: "username")
+
+          public var userDetail: UserDetail {
+            get {
+              return UserDetail(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
           }
         }
       }
@@ -1134,7 +1131,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  // MARK: only and unicode (emoji)
+  /// MARKDOWN only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int
@@ -1299,6 +1296,74 @@ public struct PostDetail: GraphQLFragment {
       set {
         resultMap.updateValue(newValue, forKey: "name")
       }
+    }
+  }
+}
+
+public struct UserDetail: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition =
+    """
+    fragment UserDetail on User {
+      __typename
+      id
+      email
+      username
+    }
+    """
+
+  public static let possibleTypes = ["User"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+    GraphQLField("email", type: .nonNull(.scalar(String.self))),
+    GraphQLField("username", type: .nonNull(.scalar(String.self))),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, email: String, username: String) {
+    self.init(unsafeResultMap: ["__typename": "User", "id": id, "email": email, "username": username])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var email: String {
+    get {
+      return resultMap["email"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "email")
+    }
+  }
+
+  public var username: String {
+    get {
+      return resultMap["username"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "username")
     }
   }
 }
