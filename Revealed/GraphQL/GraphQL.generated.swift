@@ -51,7 +51,7 @@ public struct PostInput: GraphQLMapConvertible {
 public struct PostSignupInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(username: String, device: Swift.Optional<DeviceInput?> = nil) {
+  public init(username: String, device: DeviceInput?? = nil) {
     graphQLMap = ["username": username, "device": device]
   }
 
@@ -64,9 +64,9 @@ public struct PostSignupInput: GraphQLMapConvertible {
     }
   }
 
-  public var device: Swift.Optional<DeviceInput?> {
+  public var device: DeviceInput?? {
     get {
-      return graphQLMap["device"] as? Swift.Optional<DeviceInput?> ?? Swift.Optional<DeviceInput?>.none
+      return graphQLMap["device"] as? DeviceInput?? ?? Swift.Optional<DeviceInput?>.none
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "device")
@@ -1131,7 +1131,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  /// MARKDOWN only and unicode (emoji)
+  // MARK: only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int

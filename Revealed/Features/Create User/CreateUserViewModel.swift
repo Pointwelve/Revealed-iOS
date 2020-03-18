@@ -7,8 +7,8 @@
 //
 
 import Apollo
-import Foundation
 import Combine
+import Foundation
 import SwiftUI
 
 class CreateUserViewModel: ObservableObject {

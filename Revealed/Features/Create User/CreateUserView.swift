@@ -6,8 +6,8 @@
 //  Copyright © 2020 Pointwelve. All rights reserved.
 //
 
-import SwiftUI
 import Combine
+import SwiftUI
 
 struct CreateUserView: View {
   @ObservedObject var viewModel: CreateUserViewModel
