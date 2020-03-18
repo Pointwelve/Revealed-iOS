@@ -31,7 +31,7 @@ struct ContentView: View {
     case .getStarted:
       return AnyView(GetStartedView([PlaceholderView(page: 1), PlaceholderView(page: 2)]))
     case .postSignUp:
-      return AnyView(CreateUserView())
+      return AnyView(CreateUserView(viewModel: CreateUserViewModel()))
     case .none:
       return AnyView(SplashView())
     }

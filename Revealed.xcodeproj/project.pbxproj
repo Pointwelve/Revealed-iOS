@@ -49,6 +49,7 @@
 		A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */; };
 		F62F21EB241CAF8A00BE463B /* PostSignup.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F62F21EA241CAF8900BE463B /* PostSignup.graphql */; };
 		F62F21ED241CC1E500BE463B /* GraphQL.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F21EC241CC1E400BE463B /* GraphQL.generated.swift */; };
+		F62F21EF241DFDA400BE463B /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F21EE241DFDA400BE463B /* CreateUserViewModel.swift */; };
 		F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D523EB045600FECB26 /* CreateUserView.swift */; };
 		F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D723EB048500FECB26 /* CreatePostView.swift */; };
 		F66030DA23EB048500FECB26 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D823EB048500FECB26 /* CreatePostViewModel.swift */; };
@@ -118,6 +119,7 @@
 		A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageControl.swift; sourceTree = "<group>"; };
 		F62F21EA241CAF8900BE463B /* PostSignup.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PostSignup.graphql; sourceTree = "<group>"; };
 		F62F21EC241CC1E400BE463B /* GraphQL.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.generated.swift; sourceTree = "<group>"; };
+		F62F21EE241DFDA400BE463B /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
 		F66030D523EB045600FECB26 /* CreateUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		F66030D723EB048500FECB26 /* CreatePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostView.swift; path = "Revealed/Features/Create Post/CreatePostView.swift"; sourceTree = SOURCE_ROOT; };
 		F66030D823EB048500FECB26 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewModel.swift; path = "Revealed/Features/Create Post/CreatePostViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -426,6 +428,7 @@
 			isa = PBXGroup;
 			children = (
 				F66030D523EB045600FECB26 /* CreateUserView.swift */,
+				F62F21EE241DFDA400BE463B /* CreateUserViewModel.swift */,
 			);
 			path = "Create User";
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
 				F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */,
 				1B7512D723CCABFB00B3CF19 /* Post+Domain.swift in Sources */,
+				F62F21EF241DFDA400BE463B /* CreateUserViewModel.swift in Sources */,
 				1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */,
 				F62F21ED241CC1E500BE463B /* GraphQL.generated.swift in Sources */,
 				1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */,
