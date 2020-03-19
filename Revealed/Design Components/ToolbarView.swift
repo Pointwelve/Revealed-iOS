@@ -51,12 +51,16 @@ extension ToolbarView {
     var body: some View {
       HStack(alignment: .center, spacing: spacing) {
         Image(systemName: model.iconName)
+          .foregroundColor(model.foregroundColor)
         
         if model.action != nil {
           Button(model.title, action: model.action!)
             .foregroundColor(model.isSelected ? model.selectedColor : model.foregroundColor)
+            .font(.system(.caption, design: .rounded))
         } else {
           Text(model.title)
+            .foregroundColor(model.foregroundColor)
+            .font(.system(.caption, design: .rounded))
         }
       }
     }
