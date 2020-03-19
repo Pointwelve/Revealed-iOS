@@ -11,45 +11,68 @@ import SwiftUI
 struct PostRow: View {
   let post: PostDetail
   var body: some View {
-    VStack(alignment: .leading, spacing: 20.0) {
-      Text(post.topic.name)
-        .padding()
-        .background(Color(UIColor.lightGray))
-        .cornerRadius(25)
+    VStack(alignment: .leading) {
+//      Text(post.topic.name)
+//        .padding()
+//        .background(Color(UIColor.lightGray))
+//        .cornerRadius(25)
 
       Text(post.subject)
-        .font(.title)
+        .font(.headline)
+        .padding(.bottom, 5)
 
       Text(post.excerpt)
-        .font(.body)
+        .font(.subheadline)
         .foregroundColor(Color(UIColor.lightGray))
+        .padding(.bottom, 10)
 
-      HStack(alignment: .top, spacing: 15.0) {
+      HStack(alignment: .top, spacing: 4.0) {
         Text(post.author.username)
-          .font(.footnote)
-        Text("•")
-          .font(.footnote)
+          .font(.caption)
+        Text("・")
+          .font(.caption)
         Text(post.author.id)
-          .font(.footnote)
+          .font(.caption)
       }
+      .padding(.top, 3)
+      .padding(.bottom, 8)
+
       Divider()
+        .padding(.bottom, 8)
 
-      HStack(alignment: .top, spacing: 15.0) {
-        HStack(alignment: .center, spacing: 5.0) {
-          Image(systemName: "eye.fill")
+      HStack(alignment: .center, spacing: 8.0) {
+        HStack(alignment: .center, spacing: 4.0) {
+          Image(systemName: "arrow.up")
+             .font(.system(size: 12.0))
+
           Text("\(post.postViewCount)")
+            .font(.caption)
         }
 
-        HStack(alignment: .center, spacing: 5.0) {
-          Image(systemName: "hand.thumbsup")
+        HStack(alignment: .center, spacing: 4.0) {
+          Image(systemName: "clock.fill")
+            .font(.system(size: 12.0))
+
           Text("\(post.totalLikesCount)")
+            .font(.caption)
         }
 
-        HStack(alignment: .center, spacing: 5.0) {
-          Image(systemName: "text.bubble")
+        HStack(alignment: .center, spacing: 4.0) {
+          Image(systemName: "text.bubble.fill")
+            .font(.system(size: 12.0))
+
           Text("\(post.totalCommentsCount)")
+            .font(.caption)
         }
+
+        Spacer()
+
+        Image(systemName: "bookmark.fill")
+          .font(.system(size: 12.0))
       }
+
+      Divider()
+        .padding(.top, 5)
     }
   }
 }
