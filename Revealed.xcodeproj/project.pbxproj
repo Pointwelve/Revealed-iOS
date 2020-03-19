@@ -47,6 +47,8 @@
 		A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */; };
 		A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */; };
 		A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */; };
+		BF73EB9C24231B3E00E17742 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73EB9B24231B3E00E17742 /* ToolbarView.swift */; };
+		BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73EB9D24231BA800E17742 /* Spacing.swift */; };
 		F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D523EB045600FECB26 /* CreateUserView.swift */; };
 		F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D723EB048500FECB26 /* CreatePostView.swift */; };
 		F66030DA23EB048500FECB26 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D823EB048500FECB26 /* CreatePostViewModel.swift */; };
@@ -114,6 +116,8 @@
 		A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageViewController.swift; sourceTree = "<group>"; };
 		A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageControl.swift; sourceTree = "<group>"; };
+		BF73EB9B24231B3E00E17742 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		BF73EB9D24231BA800E17742 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		F66030D523EB045600FECB26 /* CreateUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		F66030D723EB048500FECB26 /* CreatePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostView.swift; path = "Revealed/Features/Create Post/CreatePostView.swift"; sourceTree = SOURCE_ROOT; };
 		F66030D823EB048500FECB26 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewModel.swift; path = "Revealed/Features/Create Post/CreatePostViewModel.swift"; sourceTree = SOURCE_ROOT; };
@@ -197,6 +201,7 @@
 		1B6446A7238EA01200422926 /* Revealed */ = {
 			isa = PBXGroup;
 			children = (
+				BF73EB9A24231B2600E17742 /* Design Components */,
 				1B9C716623A4D1810028016F /* SourceryTemplate */,
 				1B6446B6238EA01200422926 /* Info.plist */,
 				1B6446A8238EA01200422926 /* AppDelegate.swift */,
@@ -400,6 +405,15 @@
 			path = "Get Started";
 			sourceTree = "<group>";
 		};
+		BF73EB9A24231B2600E17742 /* Design Components */ = {
+			isa = PBXGroup;
+			children = (
+				BF73EB9D24231BA800E17742 /* Spacing.swift */,
+				BF73EB9B24231B3E00E17742 /* ToolbarView.swift */,
+			);
+			path = "Design Components";
+			sourceTree = "<group>";
+		};
 		F66030D423EB045600FECB26 /* Create User */ = {
 			isa = PBXGroup;
 			children = (
@@ -568,6 +582,7 @@
 			files = (
 				A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */,
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
+				BF73EB9C24231B3E00E17742 /* ToolbarView.swift in Sources */,
 				1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */,
 				A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */,
 				1B045F91239555F700EE3333 /* ApolloError.swift in Sources */,
@@ -576,6 +591,7 @@
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
 				F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */,
 				5ABB46C623A12B1D00216BD8 /* GraphQL.generated.swift in Sources */,
+				BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */,
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
