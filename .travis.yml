@@ -1,17 +1,29 @@
 os: osx
 language: objective-c
 osx_image: xcode11.3
+addons:
+  homebrew:
+    packages:
+      - carthage
+      - swiftformat
+      - swiftlint
+      - xcodegen
+      - gpg
+      - sourcery
+      - blender/tap/rome
+    taps:
+      - blender/tap
+    update: true
 cache:
   directories:
-  - Carthage
+    - Carthage
 before_install:
-- brew bundle
-- npm install -g apollo
-- rome download --platform iOS
+  - bundle
+  - rome download --platform iOS
 script:
-- sh build.sh
+  - sh build.sh
 branches:
   only:
-  - master
+    - master
 after_success:
   - bash <(curl -s https://codecov.io/bash)
