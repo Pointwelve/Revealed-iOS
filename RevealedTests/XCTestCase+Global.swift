@@ -10,6 +10,6 @@ import XCTest
 
 extension XCTestCase {
   var timeout: Double {
-    return 10.0
+    return 60.0
   }
 }
