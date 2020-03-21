@@ -4,3 +4,8 @@ ignore:
   - Revelaed/GraphQL/**/*
   - RevealedTests/**/*
   - "**/*.generated.swift" 
+  - "Revealed/Features/Create Post/CreatePostView.swift"
+  - "Revealed/Features/Create User/CreateUserView.swift"
+  - "Revealed/Design Components/ToolbarView.swift"
+  - Revealed/Features/Home/PostRow.swift
+  - Revealed/Features/Home/HomeView.swift
