@@ -133,4 +133,20 @@ enum MockResponse {
       }
   }
   """
+
+  static let PostSignup = """
+  {
+    "data": {
+      "postSignup": {
+        "__typename": "PostSignupResponse",
+        "user": {
+          "__typename": "User",
+          "email": "kokhong@pointwelve.com",
+          "id": "b623b7fa-075c-4432-b235-81c6e64590fa",
+          "username": "Alvin"
+        }
+      }
+    }
+  }
+  """
 }
