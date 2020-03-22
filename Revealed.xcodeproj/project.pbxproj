@@ -47,6 +47,8 @@
 		A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */; };
 		A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */; };
 		A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */; };
+		BF73EB9C24231B3E00E17742 /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73EB9B24231B3E00E17742 /* ToolbarView.swift */; };
+		BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF73EB9D24231BA800E17742 /* Spacing.swift */; };
 		F62F21EB241CAF8A00BE463B /* PostSignup.graphql in Resources */ = {isa = PBXBuildFile; fileRef = F62F21EA241CAF8900BE463B /* PostSignup.graphql */; };
 		F62F21ED241CC1E500BE463B /* GraphQL.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F21EC241CC1E400BE463B /* GraphQL.generated.swift */; };
 		F62F21EF241DFDA400BE463B /* CreateUserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62F21EE241DFDA400BE463B /* CreateUserViewModel.swift */; };
@@ -56,6 +58,7 @@
 		F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */; };
 		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
 		F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944C23954E5000EEEE2E /* Auth0.framework */; };
+		F6E94C452426434C00F6A6EF /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E94C442426434C00F6A6EF /* JWTDecode.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +120,8 @@
 		A0F9CEE323ADE454005E1B5E /* GetStartedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageViewController.swift; sourceTree = "<group>"; };
 		A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		A0F9CEE723ADF2E9005E1B5E /* GetStartedPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedPageControl.swift; sourceTree = "<group>"; };
+		BF73EB9B24231B3E00E17742 /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		BF73EB9D24231BA800E17742 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		F62F21EA241CAF8900BE463B /* PostSignup.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = PostSignup.graphql; sourceTree = "<group>"; };
 		F62F21EC241CC1E400BE463B /* GraphQL.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphQL.generated.swift; sourceTree = "<group>"; };
 		F62F21EE241DFDA400BE463B /* CreateUserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserViewModel.swift; sourceTree = "<group>"; };
@@ -126,6 +131,7 @@
 		F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
 		F69D944C23954E5000EEEE2E /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
+		F6E94C442426434C00F6A6EF /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +143,7 @@
 				1BC61C8423926D1E006A83D7 /* Apollo.framework in Frameworks */,
 				F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */,
 				F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */,
+				F6E94C452426434C00F6A6EF /* JWTDecode.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +210,7 @@
 		1B6446A7238EA01200422926 /* Revealed */ = {
 			isa = PBXGroup;
 			children = (
+				BF73EB9A24231B2600E17742 /* Design Components */,
 				1B9C716623A4D1810028016F /* SourceryTemplate */,
 				1B6446B6238EA01200422926 /* Info.plist */,
 				1B6446A8238EA01200422926 /* AppDelegate.swift */,
@@ -297,6 +305,7 @@
 		1BC61C8223926D1E006A83D7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6E94C442426434C00F6A6EF /* JWTDecode.framework */,
 				1B3D072223A29DB00041D479 /* OHHTTPStubs.framework */,
 				F69D944C23954E5000EEEE2E /* Auth0.framework */,
 				F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */,
@@ -422,6 +431,15 @@
 				A0F9CEE523ADE82B005E1B5E /* PlaceholderView.swift */,
 			);
 			path = "Get Started";
+			sourceTree = "<group>";
+		};
+		BF73EB9A24231B2600E17742 /* Design Components */ = {
+			isa = PBXGroup;
+			children = (
+				BF73EB9D24231BA800E17742 /* Spacing.swift */,
+				BF73EB9B24231B3E00E17742 /* ToolbarView.swift */,
+			);
+			path = "Design Components";
 			sourceTree = "<group>";
 		};
 		F66030D423EB045600FECB26 /* Create User */ = {
@@ -572,6 +590,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/Apollo.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SimpleKeychain.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Auth0.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/JWTDecode.framework",
 			);
 			name = Carthage;
 			outputFileListPaths = (
@@ -580,6 +599,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Apollo.framework\n",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SimpleKeychain.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Auth0.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/JWTDecode.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -594,6 +614,7 @@
 			files = (
 				A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */,
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
+				BF73EB9C24231B3E00E17742 /* ToolbarView.swift in Sources */,
 				A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */,
 				1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */,
 				A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */,
@@ -602,6 +623,7 @@
 				A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */,
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
 				F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */,
+				BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */,
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
