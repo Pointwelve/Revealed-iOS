@@ -43,7 +43,7 @@ struct PostRow: View {
       HStack(alignment: .center, spacing: 8.0) {
         HStack(alignment: .center, spacing: 4.0) {
           Image(systemName: "arrow.up")
-             .font(.system(size: 12.0))
+            .font(.system(size: 12.0))
 
           Text("\(post.postViewCount)")
             .font(.caption)

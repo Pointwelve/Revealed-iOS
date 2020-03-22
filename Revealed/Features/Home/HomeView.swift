@@ -34,6 +34,8 @@ struct HomeView: View {
       })
       .sheet(isPresented: $isCreatePostPresented,
              content: { CreatePostView(viewModel: CreatePostViewModel(isPresented: self.$isCreatePostPresented, posts: self.$viewModel.posts)) })
+    }.onAppear {
+      UITableView.appearance().separatorStyle = .none
     }
   }
 }
