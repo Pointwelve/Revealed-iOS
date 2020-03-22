@@ -1,6 +1,16 @@
+coverage:
+  precision: 2
+  round: up
+  range: "10...100"
+
 ignore:
   - Carthage/**/*
   - Revealed/Generated/**/*
   - Revelaed/GraphQL/**/*
   - RevealedTests/**/*
   - "**/*.generated.swift" 
+  - "Revealed/Features/Create Post/CreatePostView.swift"
+  - "Revealed/Features/Create User/CreateUserView.swift"
+  - "Revealed/Design Components/ToolbarView.swift"
+  - Revealed/Features/Home/PostRow.swift
+  - Revealed/Features/Home/HomeView.swift

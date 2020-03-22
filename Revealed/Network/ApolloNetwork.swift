@@ -16,9 +16,10 @@ final class ApolloNetwork {
   private let session = URLSession(configuration: .default)
   private(set) lazy var apollo: ApolloClient = {
     let url = URL(string: Config.shared.configuration.host)!
-    return ApolloClient(networkTransport: HTTPNetworkTransport(url: url,
-                                                               session: session,
-                                                               delegate: self))
+    let httpTransport = HTTPNetworkTransport(url: url,
+                                             session: session)
+    httpTransport.delegate = self
+    return ApolloClient(networkTransport: httpTransport)
   }()
 }
 
