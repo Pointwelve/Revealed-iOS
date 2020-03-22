@@ -35,6 +35,8 @@ extension ApolloNetwork: HTTPNetworkTransportPreflightDelegate {
       return
     }
 
+    debugPrint("ID Token: \(idToken)")
+
     request.addValue(idToken, forHTTPHeaderField: "Authorization")
   }
 }
@@ -49,7 +51,9 @@ extension ApolloNetwork: HTTPNetworkTransportTaskCompletedDelegate {
     }
 
     // To debug server response and request
-    debugPrint("Request Body \(requestBody)")
-    debugPrint("Response \(object)")
+    debugPrint("Request Body: ")
+    debugPrint(requestBody)
+    debugPrint("Response: ")
+    debugPrint(object)
   }
 }
