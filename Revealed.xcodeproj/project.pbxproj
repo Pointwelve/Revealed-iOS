@@ -59,6 +59,8 @@
 		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
 		F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944C23954E5000EEEE2E /* Auth0.framework */; };
 		F6E94C452426434C00F6A6EF /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E94C442426434C00F6A6EF /* JWTDecode.framework */; };
+		F6E94C4724279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E94C4624279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift */; };
+		F6E94C492427A86D00F6A6EF /* CreateUserMutationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E94C482427A86D00F6A6EF /* CreateUserMutationFailureTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +134,8 @@
 		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
 		F69D944C23954E5000EEEE2E /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
 		F6E94C442426434C00F6A6EF /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
+		F6E94C4624279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserMutationSuccessTests.swift; sourceTree = "<group>"; };
+		F6E94C482427A86D00F6A6EF /* CreateUserMutationFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserMutationFailureTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +263,8 @@
 				1B9C716723A4D1E90028016F /* GetAllPostQueryFailureTests.swift */,
 				1B738C8323A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift */,
 				1B738C8623A3F7B400124158 /* MockResponse.swift */,
+				F6E94C4624279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift */,
+				F6E94C482427A86D00F6A6EF /* CreateUserMutationFailureTests.swift */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -647,6 +653,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6E94C492427A86D00F6A6EF /* CreateUserMutationFailureTests.swift in Sources */,
 				1B738C8723A3F7B400124158 /* MockResponse.swift in Sources */,
 				1B738C8423A3EF9F00124158 /* GetAllPostQuerySuccessTests.swift in Sources */,
 				1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */,
@@ -654,6 +661,7 @@
 				1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */,
 				1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */,
 				1B1CC38E23B35D0D0015CCA3 /* Array+ExtTests.swift in Sources */,
+				F6E94C4724279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift in Sources */,
 				1B1BB91F23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift in Sources */,
 				1B9C716823A4D1E90028016F /* GetAllPostQueryFailureTests.swift in Sources */,
 			);
