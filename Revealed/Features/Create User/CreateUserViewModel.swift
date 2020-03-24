@@ -19,7 +19,7 @@ class CreateUserViewModel: ObservableObject {
 
   init(appState: AppState) {
     // Create user subscription
-    createUserSubject.print().flatMap {
+    createUserSubject.flatMap {
       ApolloNetwork.shared.apollo.mutateFuture(mutation: PostSignupMutation(input: $0), queue: self.queue)
     }
     .map {
