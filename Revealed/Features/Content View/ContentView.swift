@@ -10,13 +10,7 @@ import Auth0
 import SwiftUI
 
 struct ContentView: View {
-  @ObservedObject var viewModel: ContentViewModel = ContentViewModel()
-
-  enum State {
-    case home
-    case getStarted
-    case postSignUp
-  }
+  @EnvironmentObject var appState: AppState
 
   var body: some View {
     Group {
@@ -25,14 +19,14 @@ struct ContentView: View {
   }
 
   private func contentView() -> AnyView {
-    switch viewModel.viewState {
+    switch appState.userState {
     case .home:
       return AnyView(HomeView())
     case .getStarted:
       return AnyView(GetStartedView([PlaceholderView(page: 1), PlaceholderView(page: 2)]))
     case .postSignUp:
-      return AnyView(CreateUserView(viewModel: CreateUserViewModel()))
-    case .none:
+      return AnyView(CreateUserView(viewModel: CreateUserViewModel(appState: appState)))
+    case .new:
       return AnyView(SplashView())
     }
   }

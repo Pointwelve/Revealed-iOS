@@ -37,6 +37,7 @@
 		1BCBFC8D242A461600D56E6B /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC8C242A461600D56E6B /* PostDetailView.swift */; };
 		1BCBFC8F242A465200D56E6B /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */; };
 		1BCBFC91242A487C00D56E6B /* CreateComment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 1BCBFC90242A487C00D56E6B /* CreateComment.graphql */; };
+		1BCBFC93242A514A00D56E6B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC92242A514A00D56E6B /* AppState.swift */; };
 		1BF86B00239EA23600FE9D42 /* GraphQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BF86AFF239EA23600FE9D42 /* GraphQL.plist */; };
 		1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B05239FDE2700FE9D42 /* HomeView.swift */; };
 		1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B07239FE88200FE9D42 /* PostRow.swift */; };
@@ -58,7 +59,6 @@
 		F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D523EB045600FECB26 /* CreateUserView.swift */; };
 		F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D723EB048500FECB26 /* CreatePostView.swift */; };
 		F66030DA23EB048500FECB26 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D823EB048500FECB26 /* CreatePostViewModel.swift */; };
-		F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */; };
 		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
 		F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944C23954E5000EEEE2E /* Auth0.framework */; };
 		F6E94C452426434C00F6A6EF /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E94C442426434C00F6A6EF /* JWTDecode.framework */; };
@@ -116,6 +116,7 @@
 		1BCBFC8C242A461600D56E6B /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
 		1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
 		1BCBFC90242A487C00D56E6B /* CreateComment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateComment.graphql; sourceTree = "<group>"; };
+		1BCBFC92242A514A00D56E6B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1BF86AFF239EA23600FE9D42 /* GraphQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQL.plist; sourceTree = "<group>"; };
 		1BF86B05239FDE2700FE9D42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1BF86B07239FE88200FE9D42 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 		F66030D523EB045600FECB26 /* CreateUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		F66030D723EB048500FECB26 /* CreatePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostView.swift; path = "Revealed/Features/Create Post/CreatePostView.swift"; sourceTree = SOURCE_ROOT; };
 		F66030D823EB048500FECB26 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewModel.swift; path = "Revealed/Features/Create Post/CreatePostViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
 		F69D944C23954E5000EEEE2E /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
 		F6E94C442426434C00F6A6EF /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
@@ -391,6 +391,7 @@
 			isa = PBXGroup;
 			children = (
 				4C4C83AD23A3D148007A7D1A /* AuthService.swift */,
+				1BCBFC92242A514A00D56E6B /* AppState.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -432,7 +433,6 @@
 			isa = PBXGroup;
 			children = (
 				1B6446AC238EA01200422926 /* ContentView.swift */,
-				F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */,
 			);
 			path = "Content View";
 			sourceTree = "<group>";
@@ -648,7 +648,7 @@
 				A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */,
 				1BCBFC8F242A465200D56E6B /* PostDetailViewModel.swift in Sources */,
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
-				F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */,
+				1BCBFC93242A514A00D56E6B /* AppState.swift in Sources */,
 				BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */,

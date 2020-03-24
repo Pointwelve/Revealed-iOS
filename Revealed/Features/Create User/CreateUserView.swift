@@ -43,9 +43,10 @@ struct CreateUserView: View {
     .padding(EdgeInsets(top: 32, leading: 32, bottom: 0, trailing: 32))
   }
 }
-
+#if DEBUG
 struct CreateUserView_Previews: PreviewProvider {
   static var previews: some View {
-    CreateUserView(viewModel: CreateUserViewModel())
+    CreateUserView(viewModel: CreateUserViewModel(appState: AppState()))
   }
 }
+#endif

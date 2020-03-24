@@ -6,14 +6,13 @@
 //  Copyright © 2020 Pointwelve. All rights reserved.
 //
 
-import Foundation
 import Combine
+import Foundation
 
 class PostDetailViewModel: ObservableObject, Identifiable {
   private var disposables = Set<AnyCancellable>()
 
-  init() {
-  }
+  init() {}
 
   deinit {
     disposables.removeAll()

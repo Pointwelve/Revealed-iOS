@@ -26,7 +26,12 @@ struct HomeView: View {
         }
       }
       .navigationBarTitle(Text("Home"))
-      .navigationBarItems(trailing: Button(action: {
+      .navigationBarItems(leading: Button(action: {
+        AuthService.shared.logout()
+      }) {
+        Text("Logout")
+      },
+                          trailing: Button(action: {
         self.isCreatePostPresented = true
       }) {
         Image(systemName: "plus")
