@@ -1,0 +1,7 @@
+mutation PostSignup($input: PostSignupInput!) {
+    postSignup(input: $input) {
+        user {
+            ...UserDetail
+        }
+    }
+}

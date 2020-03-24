@@ -18,3 +18,9 @@ fragment PostDetail on Post {
     postViewCount
     status
 }
+
+fragment UserDetail on User {
+    id
+    email
+    username
+}

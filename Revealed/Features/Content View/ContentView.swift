@@ -20,9 +20,7 @@ struct ContentView: View {
 
   var body: some View {
     Group {
-      Group {
-        contentView()
-      }
+      contentView()
     }
   }
 
@@ -30,10 +28,12 @@ struct ContentView: View {
     switch viewModel.viewState {
     case .home:
       return AnyView(HomeView())
-    case .getStarted, .none:
+    case .getStarted:
       return AnyView(GetStartedView([PlaceholderView(page: 1), PlaceholderView(page: 2)]))
     case .postSignUp:
-      return AnyView(CreateUserView())
+      return AnyView(CreateUserView(viewModel: CreateUserViewModel()))
+    case .none:
+      return AnyView(SplashView())
     }
   }
 }

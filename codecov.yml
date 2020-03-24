@@ -12,5 +12,7 @@ ignore:
   - "Revealed/Features/Create Post/CreatePostView.swift"
   - "Revealed/Features/Create User/CreateUserView.swift"
   - "Revealed/Design Components/ToolbarView.swift"
+  - "Revealed/Features/Content View/ContentView.swift"
   - Revealed/Features/Home/PostRow.swift
   - Revealed/Features/Home/HomeView.swift
+  - Revealed/Features/Splash/SplashView.swift

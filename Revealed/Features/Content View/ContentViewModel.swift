@@ -18,15 +18,20 @@ class ContentViewModel: ObservableObject {
   @ObservedObject private var auth: AuthService = AuthService.shared
 
   init() {
-    auth.$credentials.dropFirst().sink { [weak self] credential in
-      if credential != nil {
-        if self?.viewState == .getStarted {
-          self?.viewState = .postSignUp
+    auth.credentialSubject
+      .sink { [weak self] credential in
+        if credential != nil {
+          if self?.viewState == .getStarted {
+            self?.viewState = .postSignUp
+          } else {
+            self?.viewState = .home
+          }
         } else {
-          self?.viewState = .home
+          self?.viewState = .getStarted
         }
-      }
-    }.store(in: &disposables)
+      }.store(in: &disposables)
+
+    auth.reAuth()
   }
 
   deinit {

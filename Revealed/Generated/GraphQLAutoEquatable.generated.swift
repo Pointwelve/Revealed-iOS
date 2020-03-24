@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.17.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.16.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 // swiftlint:disable file_length
@@ -170,6 +170,41 @@ extension PostDetail.Topic: Equatable {}
 public func == (lhs: PostDetail.Topic, rhs: PostDetail.Topic) -> Bool {
     guard lhs.__typename == rhs.__typename else { return false }
     guard lhs.name == rhs.name else { return false }
+    return true
+}
+// MARK: - PostSignupMutation.Data AutoEquatable
+extension PostSignupMutation.Data: Equatable {}
+public func == (lhs: PostSignupMutation.Data, rhs: PostSignupMutation.Data) -> Bool {
+    guard lhs.postSignup == rhs.postSignup else { return false }
+    return true
+}
+// MARK: - PostSignupMutation.Data.PostSignup AutoEquatable
+extension PostSignupMutation.Data.PostSignup: Equatable {}
+public func == (lhs: PostSignupMutation.Data.PostSignup, rhs: PostSignupMutation.Data.PostSignup) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.user == rhs.user else { return false }
+    return true
+}
+// MARK: - PostSignupMutation.Data.PostSignup.User AutoEquatable
+extension PostSignupMutation.Data.PostSignup.User: Equatable {}
+public func == (lhs: PostSignupMutation.Data.PostSignup.User, rhs: PostSignupMutation.Data.PostSignup.User) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.fragments == rhs.fragments else { return false }
+    return true
+}
+// MARK: - PostSignupMutation.Data.PostSignup.User.Fragments AutoEquatable
+extension PostSignupMutation.Data.PostSignup.User.Fragments: Equatable {}
+public func == (lhs: PostSignupMutation.Data.PostSignup.User.Fragments, rhs: PostSignupMutation.Data.PostSignup.User.Fragments) -> Bool {
+    guard lhs.userDetail == rhs.userDetail else { return false }
+    return true
+}
+// MARK: - UserDetail AutoEquatable
+extension UserDetail: Equatable {}
+public func == (lhs: UserDetail, rhs: UserDetail) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.id == rhs.id else { return false }
+    guard lhs.email == rhs.email else { return false }
+    guard lhs.username == rhs.username else { return false }
     return true
 }
 

@@ -6,11 +6,19 @@
 //  Copyright © 2020 Pointwelve. All rights reserved.
 //
 
+import Combine
 import SwiftUI
 
 struct CreateUserView: View {
+  @ObservedObject var viewModel: CreateUserViewModel
   @State private var username: String = ""
   @State private var companyName: String = ""
+
+  private var cancellable: AnyCancellable?
+
+  init(viewModel: CreateUserViewModel) {
+    self.viewModel = viewModel
+  }
 
   var body: some View {
     VStack(alignment: .leading) {
@@ -22,7 +30,9 @@ struct CreateUserView: View {
       TextField("Company name", text: $companyName)
         .padding(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
 
-      Button(action: {}) {
+      Button(action: {
+        self.viewModel.createUserSubject.send(PostSignupInput(username: self.username))
+      }) {
         Text("Join Reveald")
           .frame(minWidth: 0, maxWidth: .infinity, minHeight: 56, idealHeight: 56, maxHeight: 56)
           .foregroundColor(.white)
@@ -35,7 +45,7 @@ struct CreateUserView: View {
 }
 
 struct CreateUserView_Previews: PreviewProvider {
-    static var previews: some View {
-        CreateUserView()
-    }
+  static var previews: some View {
+    CreateUserView(viewModel: CreateUserViewModel())
+  }
 }

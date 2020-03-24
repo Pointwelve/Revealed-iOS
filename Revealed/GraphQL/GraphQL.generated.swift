@@ -48,6 +48,98 @@ public struct PostInput: GraphQLMapConvertible {
   }
 }
 
+public struct PostSignupInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(username: String, device: DeviceInput?? = nil) {
+    graphQLMap = ["username": username, "device": device]
+  }
+
+  public var username: String {
+    get {
+      return graphQLMap["username"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "username")
+    }
+  }
+
+  public var device: DeviceInput?? {
+    get {
+      return graphQLMap["device"] as? DeviceInput?? ?? Swift.Optional<DeviceInput?>.none
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "device")
+    }
+  }
+}
+
+public struct DeviceInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  public init(token: String, platform: Platform) {
+    graphQLMap = ["token": token, "platform": platform]
+  }
+
+  public var token: String {
+    get {
+      return graphQLMap["token"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "token")
+    }
+  }
+
+  public var platform: Platform {
+    get {
+      return graphQLMap["platform"] as! Platform
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "platform")
+    }
+  }
+}
+
+public enum Platform: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case ios
+  case android
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "IOS": self = .ios
+      case "ANDROID": self = .android
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .ios: return "IOS"
+      case .android: return "ANDROID"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: Platform, rhs: Platform) -> Bool {
+    switch (lhs, rhs) {
+      case (.ios, .ios): return true
+      case (.android, .android): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [Platform] {
+    return [
+      .ios,
+      .android,
+    ]
+  }
+}
+
 public enum PostStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
   public typealias RawValue = String
   case new
@@ -770,6 +862,154 @@ public final class GetAllPostQuery: GraphQLQuery {
   }
 }
 
+public final class PostSignupMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition =
+    """
+    mutation PostSignup($input: PostSignupInput!) {
+      postSignup(input: $input) {
+        __typename
+        user {
+          __typename
+          ...UserDetail
+        }
+      }
+    }
+    """
+
+  public let operationName = "PostSignup"
+
+  public var queryDocument: String { return operationDefinition.appending(UserDetail.fragmentDefinition) }
+
+  public var input: PostSignupInput
+
+  public init(input: PostSignupInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("postSignup", arguments: ["input": GraphQLVariable("input")], type: .nonNull(.object(PostSignup.selections))),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(postSignup: PostSignup) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "postSignup": postSignup.resultMap])
+    }
+
+    public var postSignup: PostSignup {
+      get {
+        return PostSignup(unsafeResultMap: resultMap["postSignup"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "postSignup")
+      }
+    }
+
+    public struct PostSignup: GraphQLSelectionSet {
+      public static let possibleTypes = ["PostSignupResponse"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("user", type: .nonNull(.object(User.selections))),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(user: User) {
+        self.init(unsafeResultMap: ["__typename": "PostSignupResponse", "user": user.resultMap])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var user: User {
+        get {
+          return User(unsafeResultMap: resultMap["user"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "user")
+        }
+      }
+
+      public struct User: GraphQLSelectionSet {
+        public static let possibleTypes = ["User"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(UserDetail.self),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, email: String, username: String) {
+          self.init(unsafeResultMap: ["__typename": "User", "id": id, "email": email, "username": username])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var userDetail: UserDetail {
+            get {
+              return UserDetail(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 public struct PostDetail: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
   public static let fragmentDefinition =
@@ -891,7 +1131,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  /// MARKDOWN only and unicode (emoji)
+  // MARK: only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int
@@ -1056,6 +1296,74 @@ public struct PostDetail: GraphQLFragment {
       set {
         resultMap.updateValue(newValue, forKey: "name")
       }
+    }
+  }
+}
+
+public struct UserDetail: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition =
+    """
+    fragment UserDetail on User {
+      __typename
+      id
+      email
+      username
+    }
+    """
+
+  public static let possibleTypes = ["User"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+    GraphQLField("email", type: .nonNull(.scalar(String.self))),
+    GraphQLField("username", type: .nonNull(.scalar(String.self))),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, email: String, username: String) {
+    self.init(unsafeResultMap: ["__typename": "User", "id": id, "email": email, "username": username])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var email: String {
+    get {
+      return resultMap["email"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "email")
+    }
+  }
+
+  public var username: String {
+    get {
+      return resultMap["username"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "username")
     }
   }
 }
