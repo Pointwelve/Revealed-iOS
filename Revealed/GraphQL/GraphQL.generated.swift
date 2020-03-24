@@ -1,12 +1,47 @@
+// @generated
 //  This file was automatically generated and should not be edited.
 
 import Apollo
 import Foundation
 
+public struct CommentInput: GraphQLMapConvertible {
+  public var graphQLMap: GraphQLMap
+
+  /// - Parameters:
+  ///   - postId
+  ///   - content
+  public init(postId: String, content: String) {
+    graphQLMap = ["postId": postId, "content": content]
+  }
+
+  public var postId: String {
+    get {
+      return graphQLMap["postId"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "postId")
+    }
+  }
+
+  public var content: String {
+    get {
+      return graphQLMap["content"] as! String
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "content")
+    }
+  }
+}
+
 /// Inputs
 public struct PostInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
+  /// - Parameters:
+  ///   - subject
+  ///   - content
+  ///   - topicId
+  ///   - tagIds
   public init(subject: String, content: String, topicId: String, tagIds: [String]) {
     graphQLMap = ["subject": subject, "content": content, "topicId": topicId, "tagIds": tagIds]
   }
@@ -51,7 +86,10 @@ public struct PostInput: GraphQLMapConvertible {
 public struct PostSignupInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
-  public init(username: String, device: DeviceInput?? = nil) {
+  /// - Parameters:
+  ///   - username
+  ///   - device
+  public init(username: String, device: Swift.Optional<DeviceInput?> = nil) {
     graphQLMap = ["username": username, "device": device]
   }
 
@@ -64,9 +102,9 @@ public struct PostSignupInput: GraphQLMapConvertible {
     }
   }
 
-  public var device: DeviceInput?? {
+  public var device: Swift.Optional<DeviceInput?> {
     get {
-      return graphQLMap["device"] as? DeviceInput?? ?? Swift.Optional<DeviceInput?>.none
+      return graphQLMap["device"] as? Swift.Optional<DeviceInput?> ?? Swift.Optional<DeviceInput?>.none
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "device")
@@ -77,6 +115,9 @@ public struct PostSignupInput: GraphQLMapConvertible {
 public struct DeviceInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
+  /// - Parameters:
+  ///   - token
+  ///   - platform
   public init(token: String, platform: Platform) {
     graphQLMap = ["token": token, "platform": platform]
   }
@@ -190,9 +231,113 @@ public enum PostStatus: RawRepresentable, Equatable, Hashable, CaseIterable, Apo
   }
 }
 
+public final class CreateCommentMutation: GraphQLMutation {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    mutation CreateComment($input: CommentInput!) {
+      createComment(input: $input) {
+        __typename
+        ...CommentDetail
+      }
+    }
+    """
+
+  public let operationName: String = "CreateComment"
+
+  public var queryDocument: String { return operationDefinition.appending(CommentDetail.fragmentDefinition).appending(UserDetail.fragmentDefinition) }
+
+  public var input: CommentInput
+
+  public init(input: CommentInput) {
+    self.input = input
+  }
+
+  public var variables: GraphQLMap? {
+    return ["input": input]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Mutation"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("createComment", arguments: ["input": GraphQLVariable("input")], type: .nonNull(.object(CreateComment.selections))),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(createComment: CreateComment) {
+      self.init(unsafeResultMap: ["__typename": "Mutation", "createComment": createComment.resultMap])
+    }
+
+    public var createComment: CreateComment {
+      get {
+        return CreateComment(unsafeResultMap: resultMap["createComment"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "createComment")
+      }
+    }
+
+    public struct CreateComment: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["Comment"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLFragmentSpread(CommentDetail.self),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var fragments: Fragments {
+        get {
+          return Fragments(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
+
+      public struct Fragments {
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var commentDetail: CommentDetail {
+          get {
+            return CommentDetail(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class CreatePostMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
-  public let operationDefinition =
+  public let operationDefinition: String =
     """
     mutation CreatePost($input: PostInput!) {
       createPost(input: $input) {
@@ -202,7 +347,7 @@ public final class CreatePostMutation: GraphQLMutation {
     }
     """
 
-  public let operationName = "CreatePost"
+  public let operationName: String = "CreatePost"
 
   public var queryDocument: String { return operationDefinition.appending(PostDetail.fragmentDefinition) }
 
@@ -217,7 +362,7 @@ public final class CreatePostMutation: GraphQLMutation {
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Mutation"]
+    public static let possibleTypes: [String] = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("createPost", arguments: ["input": GraphQLVariable("input")], type: .nonNull(.object(CreatePost.selections))),
@@ -243,7 +388,7 @@ public final class CreatePostMutation: GraphQLMutation {
     }
 
     public struct CreatePost: GraphQLSelectionSet {
-      public static let possibleTypes = ["Post"]
+      public static let possibleTypes: [String] = ["Post"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -296,7 +441,7 @@ public final class CreatePostMutation: GraphQLMutation {
 
 public final class GetAllConfigsQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
-  public let operationDefinition =
+  public let operationDefinition: String =
     """
     query getAllConfigs {
       getAllTopics {
@@ -328,13 +473,13 @@ public final class GetAllConfigsQuery: GraphQLQuery {
     }
     """
 
-  public let operationName = "getAllConfigs"
+  public let operationName: String = "getAllConfigs"
 
   public init() {
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Query"]
+    public static let possibleTypes: [String] = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("getAllTopics", type: .nonNull(.object(GetAllTopic.selections))),
@@ -371,7 +516,7 @@ public final class GetAllConfigsQuery: GraphQLQuery {
     }
 
     public struct GetAllTopic: GraphQLSelectionSet {
-      public static let possibleTypes = ["TopicConnection"]
+      public static let possibleTypes: [String] = ["TopicConnection"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -417,7 +562,7 @@ public final class GetAllConfigsQuery: GraphQLQuery {
       }
 
       public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes = ["Topic"]
+        public static let possibleTypes: [String] = ["Topic"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -464,7 +609,7 @@ public final class GetAllConfigsQuery: GraphQLQuery {
       }
 
       public struct PageInfo: GraphQLSelectionSet {
-        public static let possibleTypes = ["PageInfo"]
+        public static let possibleTypes: [String] = ["PageInfo"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -512,7 +657,7 @@ public final class GetAllConfigsQuery: GraphQLQuery {
     }
 
     public struct GetAllTag: GraphQLSelectionSet {
-      public static let possibleTypes = ["TagConnection"]
+      public static let possibleTypes: [String] = ["TagConnection"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -558,7 +703,7 @@ public final class GetAllConfigsQuery: GraphQLQuery {
       }
 
       public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes = ["Tag"]
+        public static let possibleTypes: [String] = ["Tag"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -605,7 +750,7 @@ public final class GetAllConfigsQuery: GraphQLQuery {
       }
 
       public struct PageInfo: GraphQLSelectionSet {
-        public static let possibleTypes = ["PageInfo"]
+        public static let possibleTypes: [String] = ["PageInfo"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -656,7 +801,7 @@ public final class GetAllConfigsQuery: GraphQLQuery {
 
 public final class GetAllPostQuery: GraphQLQuery {
   /// The raw GraphQL definition of this operation.
-  public let operationDefinition =
+  public let operationDefinition: String =
     """
     query getAllPost($first: Int, $commentFirst: String) {
       getAllPosts(first: $first, after: $commentFirst) {
@@ -674,7 +819,7 @@ public final class GetAllPostQuery: GraphQLQuery {
     }
     """
 
-  public let operationName = "getAllPost"
+  public let operationName: String = "getAllPost"
 
   public var queryDocument: String { return operationDefinition.appending(PostDetail.fragmentDefinition) }
 
@@ -691,7 +836,7 @@ public final class GetAllPostQuery: GraphQLQuery {
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Query"]
+    public static let possibleTypes: [String] = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("getAllPosts", arguments: ["first": GraphQLVariable("first"), "after": GraphQLVariable("commentFirst")], type: .nonNull(.object(GetAllPost.selections))),
@@ -717,7 +862,7 @@ public final class GetAllPostQuery: GraphQLQuery {
     }
 
     public struct GetAllPost: GraphQLSelectionSet {
-      public static let possibleTypes = ["PostConnection"]
+      public static let possibleTypes: [String] = ["PostConnection"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -763,7 +908,7 @@ public final class GetAllPostQuery: GraphQLQuery {
       }
 
       public struct Edge: GraphQLSelectionSet {
-        public static let possibleTypes = ["Post"]
+        public static let possibleTypes: [String] = ["Post"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -813,7 +958,7 @@ public final class GetAllPostQuery: GraphQLQuery {
       }
 
       public struct PageInfo: GraphQLSelectionSet {
-        public static let possibleTypes = ["PageInfo"]
+        public static let possibleTypes: [String] = ["PageInfo"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -864,7 +1009,7 @@ public final class GetAllPostQuery: GraphQLQuery {
 
 public final class PostSignupMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
-  public let operationDefinition =
+  public let operationDefinition: String =
     """
     mutation PostSignup($input: PostSignupInput!) {
       postSignup(input: $input) {
@@ -877,7 +1022,7 @@ public final class PostSignupMutation: GraphQLMutation {
     }
     """
 
-  public let operationName = "PostSignup"
+  public let operationName: String = "PostSignup"
 
   public var queryDocument: String { return operationDefinition.appending(UserDetail.fragmentDefinition) }
 
@@ -892,7 +1037,7 @@ public final class PostSignupMutation: GraphQLMutation {
   }
 
   public struct Data: GraphQLSelectionSet {
-    public static let possibleTypes = ["Mutation"]
+    public static let possibleTypes: [String] = ["Mutation"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("postSignup", arguments: ["input": GraphQLVariable("input")], type: .nonNull(.object(PostSignup.selections))),
@@ -918,7 +1063,7 @@ public final class PostSignupMutation: GraphQLMutation {
     }
 
     public struct PostSignup: GraphQLSelectionSet {
-      public static let possibleTypes = ["PostSignupResponse"]
+      public static let possibleTypes: [String] = ["PostSignupResponse"]
 
       public static let selections: [GraphQLSelection] = [
         GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -954,7 +1099,7 @@ public final class PostSignupMutation: GraphQLMutation {
       }
 
       public struct User: GraphQLSelectionSet {
-        public static let possibleTypes = ["User"]
+        public static let possibleTypes: [String] = ["User"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1012,7 +1157,7 @@ public final class PostSignupMutation: GraphQLMutation {
 
 public struct PostDetail: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
-  public static let fragmentDefinition =
+  public static let fragmentDefinition: String =
     """
     fragment PostDetail on Post {
       __typename
@@ -1040,7 +1185,7 @@ public struct PostDetail: GraphQLFragment {
     }
     """
 
-  public static let possibleTypes = ["Post"]
+  public static let possibleTypes: [String] = ["Post"]
 
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1131,7 +1276,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  // MARK: only and unicode (emoji)
+  /// MARKDOWN only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int
@@ -1179,7 +1324,7 @@ public struct PostDetail: GraphQLFragment {
   }
 
   public struct Author: GraphQLSelectionSet {
-    public static let possibleTypes = ["User"]
+    public static let possibleTypes: [String] = ["User"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1226,7 +1371,7 @@ public struct PostDetail: GraphQLFragment {
   }
 
   public struct Tag: GraphQLSelectionSet {
-    public static let possibleTypes = ["Tag"]
+    public static let possibleTypes: [String] = ["Tag"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1263,7 +1408,7 @@ public struct PostDetail: GraphQLFragment {
   }
 
   public struct Topic: GraphQLSelectionSet {
-    public static let possibleTypes = ["Topic"]
+    public static let possibleTypes: [String] = ["Topic"]
 
     public static let selections: [GraphQLSelection] = [
       GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1302,7 +1447,7 @@ public struct PostDetail: GraphQLFragment {
 
 public struct UserDetail: GraphQLFragment {
   /// The raw GraphQL definition of this fragment.
-  public static let fragmentDefinition =
+  public static let fragmentDefinition: String =
     """
     fragment UserDetail on User {
       __typename
@@ -1312,7 +1457,7 @@ public struct UserDetail: GraphQLFragment {
     }
     """
 
-  public static let possibleTypes = ["User"]
+  public static let possibleTypes: [String] = ["User"]
 
   public static let selections: [GraphQLSelection] = [
     GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
@@ -1364,6 +1509,142 @@ public struct UserDetail: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "username")
+    }
+  }
+}
+
+public struct CommentDetail: GraphQLFragment {
+  /// The raw GraphQL definition of this fragment.
+  public static let fragmentDefinition: String =
+    """
+    fragment CommentDetail on Comment {
+      __typename
+      id
+      author {
+        __typename
+        ...UserDetail
+      }
+      content
+      createdAt
+    }
+    """
+
+  public static let possibleTypes: [String] = ["Comment"]
+
+  public static let selections: [GraphQLSelection] = [
+    GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+    GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+    GraphQLField("author", type: .nonNull(.object(Author.selections))),
+    GraphQLField("content", type: .nonNull(.scalar(String.self))),
+    GraphQLField("createdAt", type: .nonNull(.scalar(Int.self))),
+  ]
+
+  public private(set) var resultMap: ResultMap
+
+  public init(unsafeResultMap: ResultMap) {
+    self.resultMap = unsafeResultMap
+  }
+
+  public init(id: GraphQLID, author: Author, content: String, createdAt: Int) {
+    self.init(unsafeResultMap: ["__typename": "Comment", "id": id, "author": author.resultMap, "content": content, "createdAt": createdAt])
+  }
+
+  public var __typename: String {
+    get {
+      return resultMap["__typename"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "__typename")
+    }
+  }
+
+  public var id: GraphQLID {
+    get {
+      return resultMap["id"]! as! GraphQLID
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var author: Author {
+    get {
+      return Author(unsafeResultMap: resultMap["author"]! as! ResultMap)
+    }
+    set {
+      resultMap.updateValue(newValue.resultMap, forKey: "author")
+    }
+  }
+
+  public var content: String {
+    get {
+      return resultMap["content"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "content")
+    }
+  }
+
+  public var createdAt: Int {
+    get {
+      return resultMap["createdAt"]! as! Int
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "createdAt")
+    }
+  }
+
+  public struct Author: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["User"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+      GraphQLFragmentSpread(UserDetail.self),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(id: GraphQLID, email: String, username: String) {
+      self.init(unsafeResultMap: ["__typename": "User", "id": id, "email": email, "username": username])
+    }
+
+    public var __typename: String {
+      get {
+        return resultMap["__typename"]! as! String
+      }
+      set {
+        resultMap.updateValue(newValue, forKey: "__typename")
+      }
+    }
+
+    public var fragments: Fragments {
+      get {
+        return Fragments(unsafeResultMap: resultMap)
+      }
+      set {
+        resultMap += newValue.resultMap
+      }
+    }
+
+    public struct Fragments {
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public var userDetail: UserDetail {
+        get {
+          return UserDetail(unsafeResultMap: resultMap)
+        }
+        set {
+          resultMap += newValue.resultMap
+        }
+      }
     }
   }
 }

@@ -34,6 +34,9 @@
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
 		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
 		1BC61C952393D946006A83D7 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BC61C942393D946006A83D7 /* Auth0.plist */; };
+		1BCBFC8D242A461600D56E6B /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC8C242A461600D56E6B /* PostDetailView.swift */; };
+		1BCBFC8F242A465200D56E6B /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */; };
+		1BCBFC91242A487C00D56E6B /* CreateComment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 1BCBFC90242A487C00D56E6B /* CreateComment.graphql */; };
 		1BF86B00239EA23600FE9D42 /* GraphQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BF86AFF239EA23600FE9D42 /* GraphQL.plist */; };
 		1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B05239FDE2700FE9D42 /* HomeView.swift */; };
 		1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B07239FE88200FE9D42 /* PostRow.swift */; };
@@ -110,6 +113,9 @@
 		1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloNetwork.swift; sourceTree = "<group>"; };
 		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
 		1BC61C942393D946006A83D7 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		1BCBFC8C242A461600D56E6B /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
+		1BCBFC90242A487C00D56E6B /* CreateComment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateComment.graphql; sourceTree = "<group>"; };
 		1BF86AFF239EA23600FE9D42 /* GraphQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQL.plist; sourceTree = "<group>"; };
 		1BF86B05239FDE2700FE9D42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1BF86B07239FE88200FE9D42 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
@@ -287,6 +293,7 @@
 				1B8AB2E623926C0500907AF6 /* GetAllPosts.graphql */,
 				1B8AB2E723926C0500907AF6 /* schema.json */,
 				F62F21EC241CC1E400BE463B /* GraphQL.generated.swift */,
+				1BCBFC90242A487C00D56E6B /* CreateComment.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -330,11 +337,21 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		1BCBFC8B242A460100D56E6B /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1BCBFC8C242A461600D56E6B /* PostDetailView.swift */,
+				1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
 		1BF86B03239FDE0600FE9D42 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				A08CA67D23F7EB8A00258F44 /* Content View */,
 				A08CA67823F7E36100258F44 /* Splash */,
+				1BCBFC8B242A460100D56E6B /* PostDetail */,
 				F66030D423EB045600FECB26 /* Create User */,
 				1BB1E16C23B1E91200833BC8 /* CreatePost */,
 				A0F9CEDF23ADE27E005E1B5E /* Auth */,
@@ -547,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF86B00239EA23600FE9D42 /* GraphQL.plist in Resources */,
+				1BCBFC91242A487C00D56E6B /* CreateComment.graphql in Resources */,
 				1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */,
 				1B6446B2238EA01200422926 /* Preview Assets.xcassets in Resources */,
 				1B6446AF238EA01200422926 /* Assets.xcassets in Resources */,
@@ -619,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */,
+				1BCBFC8D242A461600D56E6B /* PostDetailView.swift in Sources */,
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
 				BF73EB9C24231B3E00E17742 /* ToolbarView.swift in Sources */,
 				A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */,
@@ -627,6 +646,7 @@
 				1B045F91239555F700EE3333 /* ApolloError.swift in Sources */,
 				1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */,
 				A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */,
+				1BCBFC8F242A465200D56E6B /* PostDetailViewModel.swift in Sources */,
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
 				F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */,
 				BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */,

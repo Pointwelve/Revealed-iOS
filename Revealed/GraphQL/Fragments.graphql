@@ -24,3 +24,12 @@ fragment UserDetail on User {
     email
     username
 }
+
+fragment CommentDetail on Comment {
+  id
+  author {
+  ... UserDetail
+  }
+  content
+  createdAt
+}
