@@ -15,12 +15,11 @@ class CreateUserViewModel: ObservableObject {
   let createUserSubject = PassthroughSubject<PostSignupInput, Error>()
 
   private var disposables = Set<AnyCancellable>()
-  private let queue = DispatchQueue(label: "com.pointwelve.revealed.createUserQueue")
 
   init(appState: AppState) {
     // Create user subscription
     createUserSubject.flatMap {
-      ApolloNetwork.shared.apollo.mutateFuture(mutation: PostSignupMutation(input: $0), queue: self.queue)
+      ApolloNetwork.shared.apollo.mutateFuture(mutation: PostSignupMutation(input: $0))
     }
     .map {
       $0.postSignup.user.fragments.userDetail

@@ -31,13 +31,11 @@ class CreatePostViewModel: ObservableObject {
   @Published var newPost: PostDetail?
 
   private var disposables = Set<AnyCancellable>()
-  private let queue = DispatchQueue(label: "com.pointwelve.revealed.createPostQueue")
 
   init(isPresented: Binding<Bool>, posts: Binding<[PostDetail]>) {
     // Fetch configs from server
     ApolloNetwork.shared.apollo.fetchFuture(query: GetAllConfigsQuery(),
-                                            cachePolicy: .returnCacheDataElseFetch,
-                                            queue: queue)
+                                            cachePolicy: .returnCacheDataElseFetch)
       .map { data -> TopicAndTag in
         let tags = data.getAllTags.edges?.compactMap { $0 } ?? []
         let topics = data.getAllTopics.edges?.compactMap { $0 } ?? []
@@ -51,7 +49,7 @@ class CreatePostViewModel: ObservableObject {
 
     // Create post subscription
     createPostSubject.flatMap {
-      ApolloNetwork.shared.apollo.mutateFuture(mutation: CreatePostMutation(input: $0), queue: self.queue)
+      ApolloNetwork.shared.apollo.mutateFuture(mutation: CreatePostMutation(input: $0))
     }
     .map { $0.createPost.fragments.postDetail }
     .eraseToAnyPublisher()
