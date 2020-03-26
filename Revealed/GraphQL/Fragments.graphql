@@ -10,6 +10,7 @@ fragment PostDetail on Post {
       name
     }
     id
+    content
     excerpt
     subject
     createdAt

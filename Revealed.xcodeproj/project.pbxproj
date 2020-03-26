@@ -12,6 +12,8 @@
 		1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */; };
 		1B1CC38B23B348DC0015CCA3 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */; };
 		1B1CC38E23B35D0D0015CCA3 /* Array+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CC38D23B35D0D0015CCA3 /* Array+ExtTests.swift */; };
+		1B1E9C35242CE8E7003916AF /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E9C34242CE8E7003916AF /* Date+Ext.swift */; };
+		1B1E9C37242CEFEE003916AF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E9C36242CEFEE003916AF /* Color.swift */; };
 		1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */; };
 		1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */; };
 		1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */; };
@@ -84,6 +86,8 @@
 		1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostMutationFailureTests.swift; sourceTree = "<group>"; };
 		1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		1B1CC38D23B35D0D0015CCA3 /* Array+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ExtTests.swift"; sourceTree = "<group>"; };
+		1B1E9C34242CE8E7003916AF /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		1B1E9C36242CEFEE003916AF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1B1F10F023B109FC0028DB3E /* GetAllConfigs.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAllConfigs.graphql; sourceTree = "<group>"; };
 		1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTest.plist; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */,
+				1B1E9C34242CE8E7003916AF /* Date+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -461,6 +466,7 @@
 			children = (
 				BF73EB9D24231BA800E17742 /* Spacing.swift */,
 				BF73EB9B24231B3E00E17742 /* ToolbarView.swift */,
+				1B1E9C36242CEFEE003916AF /* Color.swift */,
 			);
 			path = "Design Components";
 			sourceTree = "<group>";
@@ -638,8 +644,10 @@
 			files = (
 				A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */,
 				1BCBFC8D242A461600D56E6B /* PostDetailView.swift in Sources */,
+				1B1E9C35242CE8E7003916AF /* Date+Ext.swift in Sources */,
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
 				BF73EB9C24231B3E00E17742 /* ToolbarView.swift in Sources */,
+				1B1E9C37242CEFEE003916AF /* Color.swift in Sources */,
 				A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */,
 				1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */,
 				A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */,

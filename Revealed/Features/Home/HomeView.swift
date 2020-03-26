@@ -17,7 +17,9 @@ struct HomeView: View {
   var body: some View {
     NavigationView {
       List(viewModel.posts) { post in
-        PostRow(post: post)
+        NavigationLink(destination: PostDetailView(post: post)) {
+          PostRow(post: post)
+        }
       }
       .pullToRefresh(isShowing: $isShowing) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {

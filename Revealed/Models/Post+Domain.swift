@@ -15,6 +15,7 @@ extension PostDetail {
                                tags: nil,
                                topic: .init(name: "topic"),
                                id: "123",
+                               content: "Sample Content",
                                excerpt: "Sample excerpt",
                                subject: "Sample Subject",
                                createdAt: 1000,

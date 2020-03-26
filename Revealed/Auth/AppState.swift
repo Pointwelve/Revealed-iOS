@@ -6,25 +6,23 @@
 //  Copyright © 2020 Pointwelve. All rights reserved.
 //
 
-import Foundation
-import Combine
 import Auth0
+import Combine
+import Foundation
 
 class AppState: ObservableObject {
-  
   enum UserState {
     case home
     case getStarted
     case postSignUp
     case new
   }
-  
+
   private var disposables = Set<AnyCancellable>()
-  
+
   @Published var userState = UserState.new
-  
+
   init(auth: AuthService = AuthService.shared) {
-    
     auth.credentialSubject
       .sink { [weak self] credential in
         if credential != nil {
@@ -40,7 +38,7 @@ class AppState: ObservableObject {
 
     auth.reAuth()
   }
-  
+
   deinit {
     disposables.removeAll()
   }

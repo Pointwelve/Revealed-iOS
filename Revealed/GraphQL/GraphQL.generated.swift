@@ -1175,6 +1175,7 @@ public struct PostDetail: GraphQLFragment {
         name
       }
       id
+      content
       excerpt
       subject
       createdAt
@@ -1193,6 +1194,7 @@ public struct PostDetail: GraphQLFragment {
     GraphQLField("tags", type: .list(.nonNull(.object(Tag.selections)))),
     GraphQLField("topic", type: .nonNull(.object(Topic.selections))),
     GraphQLField("id", type: .nonNull(.scalar(GraphQLID.self))),
+    GraphQLField("content", type: .nonNull(.scalar(String.self))),
     GraphQLField("excerpt", type: .nonNull(.scalar(String.self))),
     GraphQLField("subject", type: .nonNull(.scalar(String.self))),
     GraphQLField("createdAt", type: .nonNull(.scalar(Int.self))),
@@ -1208,8 +1210,8 @@ public struct PostDetail: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(author: Author, tags: [Tag]? = nil, topic: Topic, id: GraphQLID, excerpt: String, subject: String, createdAt: Int, totalLikesCount: Int, totalCommentsCount: Int, postViewCount: Int, status: PostStatus) {
-    self.init(unsafeResultMap: ["__typename": "Post", "author": author.resultMap, "tags": tags.flatMap { (value: [Tag]) -> [ResultMap] in value.map { (value: Tag) -> ResultMap in value.resultMap } }, "topic": topic.resultMap, "id": id, "excerpt": excerpt, "subject": subject, "createdAt": createdAt, "totalLikesCount": totalLikesCount, "totalCommentsCount": totalCommentsCount, "postViewCount": postViewCount, "status": status])
+  public init(author: Author, tags: [Tag]? = nil, topic: Topic, id: GraphQLID, content: String, excerpt: String, subject: String, createdAt: Int, totalLikesCount: Int, totalCommentsCount: Int, postViewCount: Int, status: PostStatus) {
+    self.init(unsafeResultMap: ["__typename": "Post", "author": author.resultMap, "tags": tags.flatMap { (value: [Tag]) -> [ResultMap] in value.map { (value: Tag) -> ResultMap in value.resultMap } }, "topic": topic.resultMap, "id": id, "content": content, "excerpt": excerpt, "subject": subject, "createdAt": createdAt, "totalLikesCount": totalLikesCount, "totalCommentsCount": totalCommentsCount, "postViewCount": postViewCount, "status": status])
   }
 
   public var __typename: String {
@@ -1255,6 +1257,15 @@ public struct PostDetail: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var content: String {
+    get {
+      return resultMap["content"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "content")
     }
   }
 

@@ -183,6 +183,7 @@ public func == (lhs: PostDetail, rhs: PostDetail) -> Bool {
     guard compareOptionals(lhs: lhs.tags, rhs: rhs.tags, compare: ==) else { return false }
     guard lhs.topic == rhs.topic else { return false }
     guard lhs.id == rhs.id else { return false }
+    guard lhs.content == rhs.content else { return false }
     guard lhs.excerpt == rhs.excerpt else { return false }
     guard lhs.subject == rhs.subject else { return false }
     guard lhs.createdAt == rhs.createdAt else { return false }

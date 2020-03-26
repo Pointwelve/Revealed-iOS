@@ -45,7 +45,7 @@ extension ApolloClient {
   func mutateFuture<Mutation>(mutation: Mutation,
                               cachePolicy: Apollo.CachePolicy = .returnCacheDataElseFetch,
                               context: UnsafeMutableRawPointer? = nil,
-                              queue: DispatchQueue =  DispatchQueue(label: "com.pointwelve.revealed.mutate"))
+                              queue: DispatchQueue = DispatchQueue(label: "com.pointwelve.revealed.mutate"))
     -> Future<Mutation.Data, Error> where Mutation: Apollo.GraphQLMutation {
     return Future<Mutation.Data, Error> { [weak self] promise in
       self?.perform(mutation: mutation,
