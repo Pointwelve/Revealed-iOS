@@ -9,30 +9,26 @@
 import SwiftUI
 
 struct PostDetailView: View {
-  let post: PostDetail
   let padding = CGFloat.padding
-  let leadTrailingEdges: Edge.Set = [.leading, .trailing]
-
-  init(post: PostDetail) {
-    self.post = post
-  }
+  let viewModel: PostDetailViewModel
 
   var body: some View {
-    VStack(alignment: HorizontalAlignment.leading, spacing: padding) {
+    VStack(alignment: .leading, spacing: padding) {
       // Header Text
-      //TODO: Change NTUC to organisation
-      Text("""
-      NTUC・\(post.author.username)\
-      ・\(Date(timeIntervalSince1970: Double(post.createdAt)).relativeDateString)
-      """).font(.caption).padding(leadTrailingEdges, padding)
+      // TODO: Change NTUC to organisation
+      Group {
+        Text(viewModel.postDetailOutput.header).font(.caption)
 
-      // Subject
-      Text(post.subject).font(.title).lineLimit(2).padding(leadTrailingEdges, padding)
+        // Subject
+        Text(viewModel.postDetailOutput.subject).font(.title).lineLimit(2)
 
-      // Content
-      Text(post.content).font(.body).foregroundColor(.charcoalGrey60).padding(leadTrailingEdges, padding)
+        // Content
+        Text(viewModel.postDetailOutput.content).font(.body)
+          .foregroundColor(.secondary)
+      }.padding([.leading, .trailing], padding)
 
-      CommentCountView(count: post.totalCommentsCount)
+      CommentCountView(count: viewModel.postDetailOutput.totalCommentCount,
+                       commentText: viewModel.postDetailOutput.totalCommentString)
 
       Spacer()
     }.padding([.top, .bottom], padding)
@@ -46,9 +42,10 @@ struct PostDetailView: View {
 extension PostDetailView {
   struct CommentCountView: View {
     let count: Int
+    let commentText: String
     var body: some View {
       (Text("\(count) ").font(.system(size: 12, weight: .bold, design: .default))
-        + Text("\(count > 1 ? "Comments" : "Comment")").font(.caption))
+        + Text(commentText).font(.caption))
         .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         .padding(CGFloat.padding)
         .background(Color.battleshipGrey5)
@@ -58,6 +55,6 @@ extension PostDetailView {
 
 struct PostDetail_Previews: PreviewProvider {
   static var previews: some View {
-    PostDetailView(post: .mock)
+    PostDetailView(viewModel: .init(post: .mock))
   }
 }

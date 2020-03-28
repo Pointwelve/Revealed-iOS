@@ -17,7 +17,7 @@ struct HomeView: View {
   var body: some View {
     NavigationView {
       List(viewModel.posts) { post in
-        NavigationLink(destination: PostDetailView(post: post)) {
+        NavigationLink(destination: PostDetailView(viewModel: .init(post: post))) {
           PostRow(post: post)
         }
       }

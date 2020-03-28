@@ -9,12 +9,28 @@
 import Combine
 import Foundation
 
-class PostDetailViewModel: ObservableObject, Identifiable {
-  private var disposables = Set<AnyCancellable>()
+struct PostDetailViewModel {
 
-  init() {}
+  let postDetailOutput: PostDetailOutput
 
-  deinit {
-    disposables.removeAll()
+  init(post: PostDetail) {
+    let createdAt = Date(timeIntervalSince1970: Double(post.createdAt)).relativeDateString()
+    // TODO: Change NTUC to organisation
+    let header = "NTUC・\(post.author.username)・\(createdAt)"
+    let totalCommentString = "\(post.totalCommentsCount > 1 ? "Comments" : "Comment")"
+    self.postDetailOutput = PostDetailOutput(header: header,
+                                             subject: post.subject,
+                                             content: post.content,
+                                             totalCommentCount: post.totalCommentsCount,
+                                             totalCommentString: totalCommentString)
+  }
+}
+extension PostDetailViewModel {
+  struct PostDetailOutput {
+    let header: String
+    let subject: String
+    let content: String
+    let totalCommentCount: Int
+    let totalCommentString: String
   }
 }
