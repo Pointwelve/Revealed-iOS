@@ -27,7 +27,7 @@ class AppState: ObservableObject {
       .sink { [weak self] credential in
         if credential != nil {
           if self?.userState == .getStarted {
-            self?.userState = .postSignUp
+            self?.userState = .home
           } else {
             self?.userState = .home
           }

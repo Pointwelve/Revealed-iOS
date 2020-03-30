@@ -22,7 +22,8 @@ struct PostDetailViewModel {
                                              subject: post.subject,
                                              content: post.content,
                                              totalCommentCount: post.totalCommentsCount,
-                                             totalCommentString: totalCommentString)
+                                             totalCommentString: totalCommentString,
+                                             replyPostText: "Reply to \(post.author.username)")
   }
 }
 extension PostDetailViewModel {
@@ -32,5 +33,6 @@ extension PostDetailViewModel {
     let content: String
     let totalCommentCount: Int
     let totalCommentString: String
+    let replyPostText: String
   }
 }
