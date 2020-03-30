@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B045F91239555F700EE3333 /* ApolloError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B045F90239555F700EE3333 /* ApolloError.swift */; };
+		1B09418D243226C5002458B4 /* VisualEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B09418C243226C5002458B4 /* VisualEffectView.swift */; };
 		1B1BB91F23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB91E23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift */; };
 		1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */; };
 		1B1CC38B23B348DC0015CCA3 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		1B045F90239555F700EE3333 /* ApolloError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloError.swift; sourceTree = "<group>"; };
+		1B09418C243226C5002458B4 /* VisualEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffectView.swift; sourceTree = "<group>"; };
 		1B1BB91A23A9038D00B6EA43 /* Fragments.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Fragments.graphql; sourceTree = "<group>"; };
 		1B1BB91B23A9038D00B6EA43 /* CreatePost.graphql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CreatePost.graphql; sourceTree = "<group>"; };
 		1B1BB91E23A913A300B6EA43 /* CreatePostMutationSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostMutationSuccessTests.swift; sourceTree = "<group>"; };
@@ -467,6 +469,7 @@
 				BF73EB9D24231BA800E17742 /* Spacing.swift */,
 				BF73EB9B24231B3E00E17742 /* ToolbarView.swift */,
 				1B1E9C36242CEFEE003916AF /* Color.swift */,
+				1B09418C243226C5002458B4 /* VisualEffectView.swift */,
 			);
 			path = "Design Components";
 			sourceTree = "<group>";
@@ -659,6 +662,7 @@
 				1BCBFC93242A514A00D56E6B /* AppState.swift in Sources */,
 				BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
+				1B09418D243226C5002458B4 /* VisualEffectView.swift in Sources */,
 				F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */,
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
 				F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */,

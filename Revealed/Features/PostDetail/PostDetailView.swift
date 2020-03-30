@@ -35,26 +35,24 @@ struct PostDetailView: View {
 
       Spacer()
 
-      VisualEffect(.systemBlur) {
-        Button(viewModel.postDetailOutput.replyPostText) {
-          self.createCommentPresented.toggle()
-        }
-        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 83.0 ,
-                 alignment: .leading)
-          .background(Color.black30).shadow(color: Color.black30, radius: -0.5, x: 0, y: 0)
-          .font(.body)
-          .foregroundColor(.secondary)
-          .sheet(isPresented: $createCommentPresented) {
-            TextField(self.viewModel.postDetailOutput.replyPostText, text: self.$commentText)
-        }
+      Button(viewModel.postDetailOutput.replyPostText) {
+        self.createCommentPresented.toggle()
       }
-
+      .frame(minWidth: 0, maxWidth: .infinity, minHeight: 51.0,
+             alignment: .topLeading)
+      .padding(padding)
+        .background(Color.white94).shadow(color: Color.black30, radius: -0.5, x: 0, y: 0)
+      .font(.body)
+      .foregroundColor(.secondary)
+      .sheet(isPresented: $createCommentPresented) {
+        TextField(self.viewModel.postDetailOutput.replyPostText, text: self.$commentText)
+      }.visualEffect(.system)
     }
-      .padding(.top, padding)
-      .edgesIgnoringSafeArea(.bottom)
-      .navigationBarTitle("", displayMode: .inline)
-      .navigationBarItems(trailing: Button(action: {}) {
-        Image(systemName: "bookmark.fill").foregroundColor(.black)
+    .padding(.top, padding)
+    .edgesIgnoringSafeArea(.bottom)
+    .navigationBarTitle("", displayMode: .inline)
+    .navigationBarItems(trailing: Button(action: {}) {
+      Image(systemName: "bookmark.fill").foregroundColor(.black)
     })
   }
 }
@@ -77,9 +75,4 @@ struct PostDetail_Previews: PreviewProvider {
   static var previews: some View {
     PostDetailView(viewModel: .init(post: .mock))
   }
-}
-extension View {
-    public func visualEffect(effect: VisualEffect) -> some View {
-        background(VisualEffectView(effect: effect))
-    }
 }
