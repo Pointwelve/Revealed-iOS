@@ -15,6 +15,10 @@
 3. Or you can supply as options in fastlane. See `download_schema` lane in Fastfile
 4. run `bundle exec fastlane ios download_schema`.
 
+## GraphQL Generate API ONLY
+1. Install Apollo CLI `npm install -g apollo`
+2. run `bundle exec fastlane ios generate_graphql`.
+
 
 ## GraphQL query structure
 - All .graphql files should in `Revealed/GraphQL`.

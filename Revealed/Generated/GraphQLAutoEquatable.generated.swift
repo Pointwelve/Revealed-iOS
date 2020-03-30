@@ -1,4 +1,4 @@
-// Generated using Sourcery 0.16.0 — https://github.com/krzysztofzablocki/Sourcery
+// Generated using Sourcery 0.17.0 — https://github.com/krzysztofzablocki/Sourcery
 // DO NOT EDIT
 
 // swiftlint:disable file_length
@@ -24,6 +24,48 @@ fileprivate func compareArrays<T>(lhs: [T], rhs: [T], compare: (_ lhs: T, _ rhs:
 
 
 // MARK: - AutoEquatable for classes, protocols, structs
+// MARK: - CommentDetail AutoEquatable
+extension CommentDetail: Equatable {}
+public func == (lhs: CommentDetail, rhs: CommentDetail) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.id == rhs.id else { return false }
+    guard lhs.author == rhs.author else { return false }
+    guard lhs.content == rhs.content else { return false }
+    guard lhs.createdAt == rhs.createdAt else { return false }
+    return true
+}
+// MARK: - CommentDetail.Author AutoEquatable
+extension CommentDetail.Author: Equatable {}
+public func == (lhs: CommentDetail.Author, rhs: CommentDetail.Author) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.fragments == rhs.fragments else { return false }
+    return true
+}
+// MARK: - CommentDetail.Author.Fragments AutoEquatable
+extension CommentDetail.Author.Fragments: Equatable {}
+public func == (lhs: CommentDetail.Author.Fragments, rhs: CommentDetail.Author.Fragments) -> Bool {
+    guard lhs.userDetail == rhs.userDetail else { return false }
+    return true
+}
+// MARK: - CreateCommentMutation.Data AutoEquatable
+extension CreateCommentMutation.Data: Equatable {}
+public func == (lhs: CreateCommentMutation.Data, rhs: CreateCommentMutation.Data) -> Bool {
+    guard lhs.createComment == rhs.createComment else { return false }
+    return true
+}
+// MARK: - CreateCommentMutation.Data.CreateComment AutoEquatable
+extension CreateCommentMutation.Data.CreateComment: Equatable {}
+public func == (lhs: CreateCommentMutation.Data.CreateComment, rhs: CreateCommentMutation.Data.CreateComment) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.fragments == rhs.fragments else { return false }
+    return true
+}
+// MARK: - CreateCommentMutation.Data.CreateComment.Fragments AutoEquatable
+extension CreateCommentMutation.Data.CreateComment.Fragments: Equatable {}
+public func == (lhs: CreateCommentMutation.Data.CreateComment.Fragments, rhs: CreateCommentMutation.Data.CreateComment.Fragments) -> Bool {
+    guard lhs.commentDetail == rhs.commentDetail else { return false }
+    return true
+}
 // MARK: - CreatePostMutation.Data AutoEquatable
 extension CreatePostMutation.Data: Equatable {}
 public func == (lhs: CreatePostMutation.Data, rhs: CreatePostMutation.Data) -> Bool {
@@ -141,6 +183,7 @@ public func == (lhs: PostDetail, rhs: PostDetail) -> Bool {
     guard compareOptionals(lhs: lhs.tags, rhs: rhs.tags, compare: ==) else { return false }
     guard lhs.topic == rhs.topic else { return false }
     guard lhs.id == rhs.id else { return false }
+    guard lhs.content == rhs.content else { return false }
     guard lhs.excerpt == rhs.excerpt else { return false }
     guard lhs.subject == rhs.subject else { return false }
     guard lhs.createdAt == rhs.createdAt else { return false }

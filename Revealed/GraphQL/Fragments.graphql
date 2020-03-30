@@ -10,6 +10,7 @@ fragment PostDetail on Post {
       name
     }
     id
+    content
     excerpt
     subject
     createdAt
@@ -23,4 +24,13 @@ fragment UserDetail on User {
     id
     email
     username
+}
+
+fragment CommentDetail on Comment {
+  id
+  author {
+  ... UserDetail
+  }
+  content
+  createdAt
 }

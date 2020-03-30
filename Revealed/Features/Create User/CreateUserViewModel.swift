@@ -14,15 +14,12 @@ import SwiftUI
 class CreateUserViewModel: ObservableObject {
   let createUserSubject = PassthroughSubject<PostSignupInput, Error>()
 
-  @Published var userDetail: UserDetail?
-
   private var disposables = Set<AnyCancellable>()
-  private let queue = DispatchQueue(label: "com.pointwelve.revealed.createUserQueue")
 
-  init() {
+  init(appState: AppState) {
     // Create user subscription
     createUserSubject.flatMap {
-      ApolloNetwork.shared.apollo.mutateFuture(mutation: PostSignupMutation(input: $0), queue: self.queue)
+      ApolloNetwork.shared.apollo.mutateFuture(mutation: PostSignupMutation(input: $0))
     }
     .map {
       $0.postSignup.user.fragments.userDetail
@@ -31,7 +28,9 @@ class CreateUserViewModel: ObservableObject {
     .replaceError(with: nil)
     .filter { $0 != nil }
     .receive(on: DispatchQueue.main)
-    .assign(to: \.userDetail, on: self)
+    .sink(receiveValue: { _ in
+      appState.userState = .home
+    })
     .store(in: &disposables)
   }
 }
