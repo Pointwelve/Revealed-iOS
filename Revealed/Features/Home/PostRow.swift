@@ -10,13 +10,9 @@ import SwiftUI
 
 struct PostRow: View {
   let post: PostDetail
+
   var body: some View {
     VStack(alignment: .leading) {
-//      Text(post.topic.name)
-//        .padding()
-//        .background(Color(UIColor.lightGray))
-//        .cornerRadius(25)
-
       Text(post.subject)
         .font(.headline)
         .padding(.bottom, 5)
@@ -31,7 +27,7 @@ struct PostRow: View {
           .font(.caption)
         Text("・")
           .font(.caption)
-        Text(post.author.id)
+        Text("-") // TODO: replace with organisation name
           .font(.caption)
       }
       .padding(.top, 3)
@@ -40,41 +36,25 @@ struct PostRow: View {
       Divider()
         .padding(.bottom, 8)
 
-      HStack(alignment: .center, spacing: 8.0) {
-        HStack(alignment: .center, spacing: 4.0) {
-          Image(systemName: "arrow.up")
-            .font(.system(size: 12.0))
-
-          Text("\(post.postViewCount)")
-            .font(.caption)
-        }
-
-        HStack(alignment: .center, spacing: 4.0) {
-          Image(systemName: "clock.fill")
-            .font(.system(size: 12.0))
-
-          Text("\(post.totalLikesCount)")
-            .font(.caption)
-        }
-
-        HStack(alignment: .center, spacing: 4.0) {
-          Image(systemName: "text.bubble.fill")
-            .font(.system(size: 12.0))
-
-          Text("\(post.totalCommentsCount)")
-            .font(.caption)
-        }
-
-        Spacer()
-
-        Image(systemName: "bookmark.fill")
-          .font(.system(size: 12.0))
-      }
-
-      Divider()
-        .padding(.top, 5)
-    }
+      ToolbarView(leftItems: [
+        ToolBarItem(iconName: "arrow.up", title: "\(post.totalLikesCount)", isSelected: false, action: {}),
+        ToolBarItem(iconName: "clock.fill", title: "\(post.postViewCount)", isSelected: false, action: {}),
+        ToolBarItem(iconName: "text.bubble.fill", title: "\(post.totalCommentsCount)", isSelected: false, action: {})
+      ], rightItems: [
+        ToolBarItem(iconName: "bookmark.fill", title: "", isSelected: false, action: {})
+      ])
+    }.buttonStyle(PlainButtonStyle())
   }
+}
+
+struct ToolBarItem: ToolbarItemModel {
+  var iconName: String
+
+  var title: String
+
+  var isSelected: Bool
+
+  var action: Action?
 }
 
 struct PostRow_Previews: PreviewProvider {
