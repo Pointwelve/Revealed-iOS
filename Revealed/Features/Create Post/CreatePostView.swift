@@ -51,14 +51,14 @@ struct CreatePostView: View {
 
         OrganisationSelectionView()
 
-        TextView(text: $selectedSubject)
-
-        TextField("Your subject", text: $selectedSubject)
+        TextView(placeholder: "Your subject", text: $selectedSubject)
+          .frame(numLines: 2)
 
         Divider()
 
-        TextField("Your content", text: $selectedContent)
-          .foregroundColor(Color.gray)
+        TextView(placeholder: "Your content", text: $selectedContent)
+
+        TagsBarView()
       }
       .padding()
       .navigationBarTitle("Create Post", displayMode: .inline)
@@ -87,7 +87,7 @@ struct OrganisationSelectionView: View {
   var body: some View {
     HStack {
       Image("Icon")
-        .padding()
+        .padding(10)
 
       VStack(alignment: .leading) {
         Text("NTUC")
@@ -105,5 +105,58 @@ struct OrganisationSelectionView: View {
 //        .scaledToFill()
 //        .blur(radius: 20.0)
     ).cornerRadius(16.0)
+  }
+}
+
+struct TagsBarView: View {
+  var brown = Color(red: 87 / 255,
+                    green: 71 / 255,
+                    blue: 49 / 255,
+                    opacity: 1.0)
+
+  var lightBrown = Color(red: 251 / 255,
+                         green: 246 / 255,
+                         blue: 239 / 255,
+                         opacity: 1.0)
+
+  var borderBrown = Color(red: 182 / 255,
+                          green: 157 / 255,
+                          blue: 122 / 255,
+                          opacity: 1.0)
+
+  var body: some View {
+    VStack {
+      Divider()
+        .padding(.bottom, 10)
+
+      HStack {
+        Image(systemName: "tag")
+          .foregroundColor(brown)
+
+        Button(action: {}) {
+          Text("+ tag")
+            .font(.system(size: 15))
+            .foregroundColor(brown)
+            .padding(.top, 3)
+            .padding(.leading, 10)
+            .padding(.trailing, 10)
+            .padding(.bottom, 3)
+        }.background(lightBrown)
+          .cornerRadius(13)
+          .overlay(
+            RoundedRectangle(cornerRadius: 13)
+              .strokeBorder(
+                style: StrokeStyle(lineWidth: 1,
+                                   dash: [5])
+              )
+              .foregroundColor(borderBrown)
+          )
+
+        Spacer()
+      }
+
+      Divider()
+        .padding(.top, 10)
+    }
   }
 }

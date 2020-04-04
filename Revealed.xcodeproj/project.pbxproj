@@ -58,7 +58,7 @@
 		F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */; };
 		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
 		F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944C23954E5000EEEE2E /* Auth0.framework */; };
-		F6E93F39243226500048F122 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E93F38243226500048F122 /* MultilineTextView.swift */; };
+		F6E93F39243226500048F122 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E93F38243226500048F122 /* TextView.swift */; };
 		F6E94C452426434C00F6A6EF /* JWTDecode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6E94C442426434C00F6A6EF /* JWTDecode.framework */; };
 		F6E94C4724279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E94C4624279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift */; };
 		F6E94C492427A86D00F6A6EF /* CreateUserMutationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E94C482427A86D00F6A6EF /* CreateUserMutationFailureTests.swift */; };
@@ -134,7 +134,7 @@
 		F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
 		F69D944C23954E5000EEEE2E /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
-		F6E93F38243226500048F122 /* MultilineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
+		F6E93F38243226500048F122 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		F6E94C442426434C00F6A6EF /* JWTDecode.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWTDecode.framework; path = Carthage/Build/iOS/JWTDecode.framework; sourceTree = "<group>"; };
 		F6E94C4624279C1F00F6A6EF /* CreateUserMutationSuccessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserMutationSuccessTests.swift; sourceTree = "<group>"; };
 		F6E94C482427A86D00F6A6EF /* CreateUserMutationFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateUserMutationFailureTests.swift; sourceTree = "<group>"; };
@@ -446,7 +446,7 @@
 			children = (
 				BF73EB9D24231BA800E17742 /* Spacing.swift */,
 				BF73EB9B24231B3E00E17742 /* ToolbarView.swift */,
-				F6E93F38243226500048F122 /* MultilineTextView.swift */,
+				F6E93F38243226500048F122 /* TextView.swift */,
 			);
 			path = "Design Components";
 			sourceTree = "<group>";
@@ -642,7 +642,7 @@
 				1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */,
 				F62F21ED241CC1E500BE463B /* GraphQL.generated.swift in Sources */,
 				1B9C716223A4D0790028016F /* GraphQLAutoEquatable.generated.swift in Sources */,
-				F6E93F39243226500048F122 /* MultilineTextView.swift in Sources */,
+				F6E93F39243226500048F122 /* TextView.swift in Sources */,
 				1B1CC38B23B348DC0015CCA3 /* Array+Ext.swift in Sources */,
 				1BF86B0A239FECA600FE9D42 /* HomeViewModel.swift in Sources */,
 				1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */,

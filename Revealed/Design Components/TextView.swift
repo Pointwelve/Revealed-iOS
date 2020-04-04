@@ -1,5 +1,5 @@
 //
-//  MultileTextField.swift
+//  TextField.swift
 //  Revealed
 //
 //  Created by Li Hao Lai on 30/3/20.
@@ -27,7 +27,7 @@ struct TextView: UIViewRepresentable {
   }
 
   func updateUIView(_ uiView: UIViewType, context: Context) {
-    if !uiView.text.isEmpty || uiView.textColor == .label {
+    if !text.isEmpty || uiView.textColor == .label {
       uiView.text = text
       uiView.textColor = .label
     }
@@ -36,7 +36,7 @@ struct TextView: UIViewRepresentable {
   }
 
   func frame(numLines: CGFloat) -> some View {
-    let height = UIFont.systemFont(ofSize: 17).lineHeight
+    let height = UIFont.systemFont(ofSize: 17).lineHeight * numLines
     return frame(height: height)
   }
 
