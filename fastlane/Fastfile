@@ -115,13 +115,20 @@ platform :ios do
     Dir.chdir("..") do
       sh("apollo schema:download --endpoint='#{end_point}' --header='Authorization: #{token}'")
       sh("mv schema.json Revealed/GraphQL/schema.json")
-      
-      script_path="Carthage/Checkouts/apollo-ios/scripts"
-      Dir.chdir("Revealed") do
-        # Generate API
-        sh("../#{script_path}/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/GraphQL/*.graphql --localSchemaFile='GraphQL/schema.json' GraphQL/GraphQL.generated.swift")
-      end
+    end
 
+    generate_graphql
+  end
+
+  desc "🚀 Generate GraphQL API"
+  lane :generate_graphql do |options|
+    Dir.chdir("../Revealed") do
+      script_path="Carthage/Checkouts/apollo-ios/scripts"
+      # Generate API
+      sh("../#{script_path}/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/GraphQL/*.graphql --localSchemaFile='GraphQL/schema.json' GraphQL/GraphQL.generated.swift")
+    end
+
+    Dir.chdir("..") do
       # Run sourcery
       sh("sourcery")
     end

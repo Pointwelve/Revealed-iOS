@@ -12,6 +12,8 @@
 		1B1BB92123A914B600B6EA43 /* CreatePostMutationFailureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */; };
 		1B1CC38B23B348DC0015CCA3 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */; };
 		1B1CC38E23B35D0D0015CCA3 /* Array+ExtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1CC38D23B35D0D0015CCA3 /* Array+ExtTests.swift */; };
+		1B1E9C35242CE8E7003916AF /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E9C34242CE8E7003916AF /* Date+Ext.swift */; };
+		1B1E9C37242CEFEE003916AF /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1E9C36242CEFEE003916AF /* Color.swift */; };
 		1B3097E723A28F7C004F1DA9 /* ConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */; };
 		1B3097E923A2911C004F1DA9 /* GraphQLTest.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */; };
 		1B3097EB23A291EC004F1DA9 /* XCTestCase+FatalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B3097EA23A291EC004F1DA9 /* XCTestCase+FatalError.swift */; };
@@ -34,6 +36,10 @@
 		1BC61C8C2392A50B006A83D7 /* ApolloNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */; };
 		1BC61C912392ACF6006A83D7 /* ApolloClient+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */; };
 		1BC61C952393D946006A83D7 /* Auth0.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BC61C942393D946006A83D7 /* Auth0.plist */; };
+		1BCBFC8D242A461600D56E6B /* PostDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC8C242A461600D56E6B /* PostDetailView.swift */; };
+		1BCBFC8F242A465200D56E6B /* PostDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */; };
+		1BCBFC91242A487C00D56E6B /* CreateComment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 1BCBFC90242A487C00D56E6B /* CreateComment.graphql */; };
+		1BCBFC93242A514A00D56E6B /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BCBFC92242A514A00D56E6B /* AppState.swift */; };
 		1BF86B00239EA23600FE9D42 /* GraphQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BF86AFF239EA23600FE9D42 /* GraphQL.plist */; };
 		1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B05239FDE2700FE9D42 /* HomeView.swift */; };
 		1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF86B07239FE88200FE9D42 /* PostRow.swift */; };
@@ -55,7 +61,6 @@
 		F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D523EB045600FECB26 /* CreateUserView.swift */; };
 		F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D723EB048500FECB26 /* CreatePostView.swift */; };
 		F66030DA23EB048500FECB26 /* CreatePostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030D823EB048500FECB26 /* CreatePostViewModel.swift */; };
-		F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */; };
 		F69D944D23954E5000EEEE2E /* SimpleKeychain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */; };
 		F69D944E23954E5000EEEE2E /* Auth0.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F69D944C23954E5000EEEE2E /* Auth0.framework */; };
 		F6E93F39243226500048F122 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E93F38243226500048F122 /* TextView.swift */; };
@@ -82,6 +87,8 @@
 		1B1BB92023A914B600B6EA43 /* CreatePostMutationFailureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePostMutationFailureTests.swift; sourceTree = "<group>"; };
 		1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		1B1CC38D23B35D0D0015CCA3 /* Array+ExtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+ExtTests.swift"; sourceTree = "<group>"; };
+		1B1E9C34242CE8E7003916AF /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		1B1E9C36242CEFEE003916AF /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		1B1F10F023B109FC0028DB3E /* GetAllConfigs.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetAllConfigs.graphql; sourceTree = "<group>"; };
 		1B3097E623A28F7C004F1DA9 /* ConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationTests.swift; sourceTree = "<group>"; };
 		1B3097E823A2911C004F1DA9 /* GraphQLTest.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQLTest.plist; sourceTree = "<group>"; };
@@ -111,6 +118,10 @@
 		1BC61C8B2392A50B006A83D7 /* ApolloNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloNetwork.swift; sourceTree = "<group>"; };
 		1BC61C902392ACF6006A83D7 /* ApolloClient+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ApolloClient+Future.swift"; sourceTree = "<group>"; };
 		1BC61C942393D946006A83D7 /* Auth0.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Auth0.plist; sourceTree = "<group>"; };
+		1BCBFC8C242A461600D56E6B /* PostDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailView.swift; sourceTree = "<group>"; };
+		1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewModel.swift; sourceTree = "<group>"; };
+		1BCBFC90242A487C00D56E6B /* CreateComment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = CreateComment.graphql; sourceTree = "<group>"; };
+		1BCBFC92242A514A00D56E6B /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		1BF86AFF239EA23600FE9D42 /* GraphQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = GraphQL.plist; sourceTree = "<group>"; };
 		1BF86B05239FDE2700FE9D42 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		1BF86B07239FE88200FE9D42 /* PostRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRow.swift; sourceTree = "<group>"; };
@@ -131,7 +142,6 @@
 		F66030D523EB045600FECB26 /* CreateUserView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateUserView.swift; sourceTree = "<group>"; };
 		F66030D723EB048500FECB26 /* CreatePostView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostView.swift; path = "Revealed/Features/Create Post/CreatePostView.swift"; sourceTree = SOURCE_ROOT; };
 		F66030D823EB048500FECB26 /* CreatePostViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CreatePostViewModel.swift; path = "Revealed/Features/Create Post/CreatePostViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		F69D944B23954E5000EEEE2E /* SimpleKeychain.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SimpleKeychain.framework; path = Carthage/Build/iOS/SimpleKeychain.framework; sourceTree = "<group>"; };
 		F69D944C23954E5000EEEE2E /* Auth0.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Auth0.framework; path = Carthage/Build/iOS/Auth0.framework; sourceTree = "<group>"; };
 		F6E93F38243226500048F122 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
@@ -169,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				1B1CC38A23B348DC0015CCA3 /* Array+Ext.swift */,
+				1B1E9C34242CE8E7003916AF /* Date+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 				1B8AB2E623926C0500907AF6 /* GetAllPosts.graphql */,
 				1B8AB2E723926C0500907AF6 /* schema.json */,
 				F62F21EC241CC1E400BE463B /* GraphQL.generated.swift */,
+				1BCBFC90242A487C00D56E6B /* CreateComment.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -332,11 +344,21 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		1BCBFC8B242A460100D56E6B /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				1BCBFC8C242A461600D56E6B /* PostDetailView.swift */,
+				1BCBFC8E242A465200D56E6B /* PostDetailViewModel.swift */,
+			);
+			path = PostDetail;
+			sourceTree = "<group>";
+		};
 		1BF86B03239FDE0600FE9D42 /* Features */ = {
 			isa = PBXGroup;
 			children = (
 				A08CA67D23F7EB8A00258F44 /* Content View */,
 				A08CA67823F7E36100258F44 /* Splash */,
+				1BCBFC8B242A460100D56E6B /* PostDetail */,
 				F66030D423EB045600FECB26 /* Create User */,
 				1BB1E16C23B1E91200833BC8 /* CreatePost */,
 				A0F9CEDF23ADE27E005E1B5E /* Auth */,
@@ -376,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				4C4C83AD23A3D148007A7D1A /* AuthService.swift */,
+				1BCBFC92242A514A00D56E6B /* AppState.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -417,7 +440,6 @@
 			isa = PBXGroup;
 			children = (
 				1B6446AC238EA01200422926 /* ContentView.swift */,
-				F66030DB23EC4EF400FECB26 /* ContentViewModel.swift */,
 			);
 			path = "Content View";
 			sourceTree = "<group>";
@@ -447,6 +469,7 @@
 				BF73EB9D24231BA800E17742 /* Spacing.swift */,
 				BF73EB9B24231B3E00E17742 /* ToolbarView.swift */,
 				F6E93F38243226500048F122 /* TextView.swift */,
+				1B1E9C36242CEFEE003916AF /* Color.swift */,
 			);
 			path = "Design Components";
 			sourceTree = "<group>";
@@ -550,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BF86B00239EA23600FE9D42 /* GraphQL.plist in Resources */,
+				1BCBFC91242A487C00D56E6B /* CreateComment.graphql in Resources */,
 				1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */,
 				1B6446B2238EA01200422926 /* Preview Assets.xcassets in Resources */,
 				1B6446AF238EA01200422926 /* Assets.xcassets in Resources */,
@@ -622,16 +646,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0F9CEE423ADE454005E1B5E /* GetStartedPageViewController.swift in Sources */,
+				1BCBFC8D242A461600D56E6B /* PostDetailView.swift in Sources */,
+				1B1E9C35242CE8E7003916AF /* Date+Ext.swift in Sources */,
 				1B6446A9238EA01200422926 /* AppDelegate.swift in Sources */,
 				BF73EB9C24231B3E00E17742 /* ToolbarView.swift in Sources */,
+				1B1E9C37242CEFEE003916AF /* Color.swift in Sources */,
 				A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */,
 				1B6446AB238EA01200422926 /* SceneDelegate.swift in Sources */,
 				A0F9CEE823ADF2E9005E1B5E /* GetStartedPageControl.swift in Sources */,
 				1B045F91239555F700EE3333 /* ApolloError.swift in Sources */,
 				1BF86B06239FDE2700FE9D42 /* HomeView.swift in Sources */,
 				A0F9CEE223ADE29B005E1B5E /* GetStartedView.swift in Sources */,
+				1BCBFC8F242A465200D56E6B /* PostDetailViewModel.swift in Sources */,
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
-				F66030DC23EC4EF400FECB26 /* ContentViewModel.swift in Sources */,
+				1BCBFC93242A514A00D56E6B /* AppState.swift in Sources */,
 				BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				F66030D923EB048500FECB26 /* CreatePostView.swift in Sources */,

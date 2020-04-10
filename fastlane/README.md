@@ -56,6 +56,11 @@ fastlane ios release
 fastlane ios download_schema
 ```
 🚀 Download graphql schema
+### ios generate_graphql
+```
+fastlane ios generate_graphql
+```
+🚀 Generate GraphQL API
 
 ----
 

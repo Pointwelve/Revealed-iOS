@@ -44,8 +44,10 @@ struct CreateUserView: View {
   }
 }
 
-struct CreateUserView_Previews: PreviewProvider {
-  static var previews: some View {
-    CreateUserView(viewModel: CreateUserViewModel())
+#if DEBUG
+  struct CreateUserView_Previews: PreviewProvider {
+    static var previews: some View {
+      CreateUserView(viewModel: CreateUserViewModel(appState: AppState()))
+    }
   }
-}
+#endif

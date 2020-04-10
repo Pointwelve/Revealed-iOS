@@ -17,7 +17,9 @@ struct HomeView: View {
   var body: some View {
     NavigationView {
       List(viewModel.posts) { post in
-        PostRow(post: post)
+        NavigationLink(destination: PostDetailView(viewModel: .init(post: post))) {
+          PostRow(post: post)
+        }
       }
       .pullToRefresh(isShowing: $isShowing) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -26,7 +28,12 @@ struct HomeView: View {
         }
       }
       .navigationBarTitle(Text("Home"))
-      .navigationBarItems(trailing: Button(action: {
+      .navigationBarItems(leading: Button(action: {
+        AuthService.shared.logout()
+      }) {
+        Text("Logout")
+      },
+                          trailing: Button(action: {
         self.isCreatePostPresented = true
       }) {
         Image(systemName: "plus")

@@ -1,0 +1,7 @@
+mutation CreateComment($input: CommentInput!) {
+  createComment(input: $input) {
+      ...CommentDetail
+  }
+}
+
+
