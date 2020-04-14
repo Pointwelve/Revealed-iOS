@@ -16,6 +16,8 @@ struct CreatePostView: View {
   @State private var selectedTopic: Int = 0
   @State private var selectedTag: Int = 0
 
+  @State private var selectedTagList: [String] = []
+
   private var cancellable: AnyCancellable?
 
   init(viewModel: CreatePostViewModel) {
@@ -24,32 +26,22 @@ struct CreatePostView: View {
 
   var body: some View {
     NavigationView {
-//      Form {
-//        Section {
-//          VStack(alignment: .leading) {
-//            Picker(selection: $selectedTopic, label: Text("Select Topic:")) {
-//              ForEach(0..<viewModel.topicAndTag.topics.count, id: \.self) {
-//                Text(self.viewModel.topicAndTag.topics[$0].name).tag($0)
-//              }
-//            }
-//          }
-//        }
-//
-//        Section {
-//          VStack(alignment: .leading) {
-//            Picker(selection: $selectedTag, label: Text("Select Tag")) {
-//              ForEach(0..<viewModel.topicAndTag.tags.count, id: \.self) {
-//                Text(self.viewModel.topicAndTag.tags[$0].name).tag($0)
-//              }
-//            }
-//          }
-//        }
-//      }
       VStack(alignment: .leading) {
         Text("Create post in NTUC")
           .foregroundColor(Color.gray)
 
-        OrganisationSelectionView()
+//        OrganisationSelectionView()
+        Form {
+          Section {
+            VStack(alignment: .leading) {
+              Picker(selection: $selectedTopic, label: Text("Select Topic:")) {
+                ForEach(0..<viewModel.topicAndTag.topics.count, id: \.self) {
+                  Text(self.viewModel.topicAndTag.topics[$0].name).tag($0)
+                }
+              }
+            }
+          }
+        }
 
         TextView(placeholder: "Your subject", text: $selectedSubject)
           .frame(numLines: 2)
@@ -58,7 +50,19 @@ struct CreatePostView: View {
 
         TextView(placeholder: "Your content", text: $selectedContent)
 
-        TagsBarView()
+        Form {
+          Section {
+            VStack(alignment: .leading) {
+              Picker(selection: $selectedTag, label: Text("Select Tag")) {
+                ForEach(0..<viewModel.topicAndTag.tags.count, id: \.self) {
+                  Text(self.viewModel.topicAndTag.tags[$0].name).tag($0)
+                }
+              }
+            }
+          }
+        }
+
+//        TagsBarView(selectedTag: $selectedTag, selectedTagList: $selectedTagList, tags: viewModel.topicAndTag.tags)
       }
       .padding()
       .navigationBarTitle("Create Post", displayMode: .inline)
@@ -124,6 +128,12 @@ struct TagsBarView: View {
                           blue: 122 / 255,
                           opacity: 1.0)
 
+  @Binding var selectedTag: Int
+
+  @Binding var selectedTagList: [String]
+
+  @State var tags: [Tag]
+
   var body: some View {
     VStack {
       Divider()
@@ -133,7 +143,9 @@ struct TagsBarView: View {
         Image(systemName: "tag")
           .foregroundColor(brown)
 
-        Button(action: {}) {
+        Button(action: {
+          self.selectedTagList.append("")
+        }) {
           Text("+ tag")
             .font(.system(size: 15))
             .foregroundColor(brown)
@@ -151,6 +163,21 @@ struct TagsBarView: View {
               )
               .foregroundColor(borderBrown)
           )
+
+        ForEach(0..<selectedTagList.count, id: \.self) {
+          TextField("", text: self.$selectedTagList[$0])
+            .font(.system(size: 15))
+            .foregroundColor(self.brown)
+            .background(self.lightBrown)
+            .cornerRadius(13)
+            .overlay(
+              RoundedRectangle(cornerRadius: 13)
+                .strokeBorder(
+                  style: StrokeStyle(lineWidth: 1)
+                )
+                .foregroundColor(self.borderBrown)
+            )
+        }
 
         Spacer()
       }
