@@ -175,6 +175,41 @@ public func == (lhs: GetAllPostQuery.Data.GetAllPost.PageInfo, rhs: GetAllPostQu
     guard compareOptionals(lhs: lhs.endCursor, rhs: rhs.endCursor, compare: ==) else { return false }
     return true
 }
+// MARK: - GetCommentsQuery.Data AutoEquatable
+extension GetCommentsQuery.Data: Equatable {}
+public func == (lhs: GetCommentsQuery.Data, rhs: GetCommentsQuery.Data) -> Bool {
+    guard lhs.getComments == rhs.getComments else { return false }
+    return true
+}
+// MARK: - GetCommentsQuery.Data.GetComment AutoEquatable
+extension GetCommentsQuery.Data.GetComment: Equatable {}
+public func == (lhs: GetCommentsQuery.Data.GetComment, rhs: GetCommentsQuery.Data.GetComment) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard compareOptionals(lhs: lhs.edges, rhs: rhs.edges, compare: ==) else { return false }
+    guard lhs.pageInfo == rhs.pageInfo else { return false }
+    return true
+}
+// MARK: - GetCommentsQuery.Data.GetComment.Edge AutoEquatable
+extension GetCommentsQuery.Data.GetComment.Edge: Equatable {}
+public func == (lhs: GetCommentsQuery.Data.GetComment.Edge, rhs: GetCommentsQuery.Data.GetComment.Edge) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.fragments == rhs.fragments else { return false }
+    return true
+}
+// MARK: - GetCommentsQuery.Data.GetComment.Edge.Fragments AutoEquatable
+extension GetCommentsQuery.Data.GetComment.Edge.Fragments: Equatable {}
+public func == (lhs: GetCommentsQuery.Data.GetComment.Edge.Fragments, rhs: GetCommentsQuery.Data.GetComment.Edge.Fragments) -> Bool {
+    guard lhs.commentDetail == rhs.commentDetail else { return false }
+    return true
+}
+// MARK: - GetCommentsQuery.Data.GetComment.PageInfo AutoEquatable
+extension GetCommentsQuery.Data.GetComment.PageInfo: Equatable {}
+public func == (lhs: GetCommentsQuery.Data.GetComment.PageInfo, rhs: GetCommentsQuery.Data.GetComment.PageInfo) -> Bool {
+    guard lhs.__typename == rhs.__typename else { return false }
+    guard lhs.hasNextPage == rhs.hasNextPage else { return false }
+    guard compareOptionals(lhs: lhs.endCursor, rhs: rhs.endCursor, compare: ==) else { return false }
+    return true
+}
 // MARK: - PostDetail AutoEquatable
 extension PostDetail: Equatable {}
 public func == (lhs: PostDetail, rhs: PostDetail) -> Bool {

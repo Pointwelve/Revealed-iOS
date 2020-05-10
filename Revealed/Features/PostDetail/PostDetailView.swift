@@ -9,8 +9,11 @@
 import SwiftUI
 
 struct PostDetailView: View {
+  @State var createCommentPresented = false
+  @State var commentText = ""
   let padding = CGFloat.padding
   let viewModel: PostDetailViewModel
+  let horizontalPadding: Edge.Set = [.leading, .trailing]
 
   var body: some View {
     VStack(alignment: .leading, spacing: padding) {
@@ -25,16 +28,35 @@ struct PostDetailView: View {
         // Content
         Text(viewModel.postDetailOutput.content).font(.body)
           .foregroundColor(.secondary)
-      }.padding([.leading, .trailing], padding)
+      }.padding(horizontalPadding, padding)
 
       CommentCountView(count: viewModel.postDetailOutput.totalCommentCount,
                        commentText: viewModel.postDetailOutput.totalCommentString)
+      
+      CommentListViewControllerRepresentable(commentList: self.viewModel.$commentList)
 
-      Spacer()
-    }.padding([.top, .bottom], padding)
-      .navigationBarTitle("", displayMode: .inline)
-      .navigationBarItems(trailing: Button(action: {}) {
-        Image(systemName: "bookmark.fill").foregroundColor(.black)
+      Button(viewModel.postDetailOutput.replyPostText) {
+        self.createCommentPresented.toggle()
+      }
+      .frame(minWidth: 0, maxWidth: .infinity, minHeight: 51.0,
+             alignment: .topLeading)
+      .padding(padding)
+      .background(Color.white94).shadow(color: Color.black30, radius: -0.5, x: 0, y: 0)
+      .font(.body)
+      .foregroundColor(.secondary)
+      .sheet(isPresented: $createCommentPresented) {
+        CreateCommentView(replyText: self.viewModel.postDetailOutput.replyPostText) { comment in
+          self.createCommentPresented.toggle()
+          guard let comment = comment else { return }
+          self.viewModel.createCommentTrigger.send(comment)
+        }
+      }.visualEffect(.system)
+    }
+    .padding(.top, padding)
+    .edgesIgnoringSafeArea(.bottom)
+    .navigationBarTitle("", displayMode: .inline)
+    .navigationBarItems(trailing: Button(action: {}) {
+      Image(systemName: "bookmark.fill").foregroundColor(.black)
     })
   }
 }

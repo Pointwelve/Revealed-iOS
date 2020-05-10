@@ -2,6 +2,24 @@
   "object": {
     "pins": [
       {
+        "package": "CombineDataSources",
+        "repositoryURL": "https://github.com/CombineCommunity/CombineDataSources",
+        "state": {
+          "branch": null,
+          "revision": "362795e0336f2c1637036f692a3b5d05806302b4",
+          "version": "0.2.5"
+        }
+      },
+      {
+        "package": "SnapKit",
+        "repositoryURL": "https://github.com/SnapKit/SnapKit",
+        "state": {
+          "branch": null,
+          "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
+          "version": "5.0.1"
+        }
+      },
+      {
         "package": "Introspect",
         "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
         "state": {
