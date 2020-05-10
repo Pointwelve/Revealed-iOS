@@ -53,6 +53,8 @@
 		1BFFD1DF2467F2F8001CFE22 /* CombineDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFD1DE2467F2F8001CFE22 /* CombineDataSources */; };
 		1BFFD1E12467F38B001CFE22 /* Comment+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFD1E02467F38B001CFE22 /* Comment+Domain.swift */; };
 		1BFFD1E32467F52B001CFE22 /* GetPostComment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFD1E22467F52B001CFE22 /* GetPostComment.graphql */; };
+		1BFFD1E52467F638001CFE22 /* CreateCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFD1E42467F638001CFE22 /* CreateCommentView.swift */; };
+		1BFFD1E72467F74B001CFE22 /* MultilineTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFD1E62467F74B001CFE22 /* MultilineTextView.swift */; };
 		4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C83AD23A3D148007A7D1A /* AuthService.swift */; };
 		5A41114D23D8AA8E00EA83CE /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 5A41114C23D8AA8E00EA83CE /* SwiftUIRefresh */; };
 		A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08CA67923F7E37300258F44 /* SplashView.swift */; };
@@ -138,6 +140,8 @@
 		1BF9082E239E9E0200D1B9C4 /* RevealedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealedError.swift; sourceTree = "<group>"; };
 		1BFFD1E02467F38B001CFE22 /* Comment+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+Domain.swift"; sourceTree = "<group>"; };
 		1BFFD1E22467F52B001CFE22 /* GetPostComment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetPostComment.graphql; sourceTree = "<group>"; };
+		1BFFD1E42467F638001CFE22 /* CreateCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCommentView.swift; sourceTree = "<group>"; };
+		1BFFD1E62467F74B001CFE22 /* MultilineTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultilineTextView.swift; sourceTree = "<group>"; };
 		4C4C83AD23A3D148007A7D1A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A08CA67923F7E37300258F44 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		A0F9CEE123ADE29B005E1B5E /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
@@ -306,6 +310,7 @@
 			children = (
 				1B8632372467BF2100C3FD3A /* CommentListViewController.swift */,
 				1B86323A2467C3D700C3FD3A /* CommentListTableViewCell.swift */,
+				1BFFD1E42467F638001CFE22 /* CreateCommentView.swift */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -492,6 +497,7 @@
 				BF73EB9B24231B3E00E17742 /* ToolbarView.swift */,
 				1B1E9C36242CEFEE003916AF /* Color.swift */,
 				1B09418C243226C5002458B4 /* VisualEffectView.swift */,
+				1BFFD1E62467F74B001CFE22 /* MultilineTextView.swift */,
 			);
 			path = "Design Components";
 			sourceTree = "<group>";
@@ -689,6 +695,7 @@
 				1BCBFC8F242A465200D56E6B /* PostDetailViewModel.swift in Sources */,
 				A0F9CEE623ADE82B005E1B5E /* PlaceholderView.swift in Sources */,
 				1BCBFC93242A514A00D56E6B /* AppState.swift in Sources */,
+				1BFFD1E52467F638001CFE22 /* CreateCommentView.swift in Sources */,
 				BF73EB9E24231BA800E17742 /* Spacing.swift in Sources */,
 				1BF9082F239E9E0200D1B9C4 /* RevealedError.swift in Sources */,
 				1B09418D243226C5002458B4 /* VisualEffectView.swift in Sources */,
@@ -696,6 +703,7 @@
 				4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */,
 				1B86323B2467C3D700C3FD3A /* CommentListTableViewCell.swift in Sources */,
 				F66030D623EB045600FECB26 /* CreateUserView.swift in Sources */,
+				1BFFD1E72467F74B001CFE22 /* MultilineTextView.swift in Sources */,
 				1B7512D723CCABFB00B3CF19 /* Post+Domain.swift in Sources */,
 				F62F21EF241DFDA400BE463B /* CreateUserViewModel.swift in Sources */,
 				1BF86B08239FE88200FE9D42 /* PostRow.swift in Sources */,

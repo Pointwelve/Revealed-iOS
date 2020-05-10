@@ -13,3 +13,7 @@ extension CommentDetail: Hashable {
     hasher.combine(id)
   }
 }
+
+enum CommentError: Error {
+  case requestError
+}

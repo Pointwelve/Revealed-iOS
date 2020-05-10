@@ -32,8 +32,8 @@ struct PostDetailView: View {
 
       CommentCountView(count: viewModel.postDetailOutput.totalCommentCount,
                        commentText: viewModel.postDetailOutput.totalCommentString)
-
-//      CommentListViewControllerRepresentable()
+      
+      CommentListViewControllerRepresentable(commentList: self.viewModel.$commentList)
 
       Button(viewModel.postDetailOutput.replyPostText) {
         self.createCommentPresented.toggle()
@@ -41,11 +41,15 @@ struct PostDetailView: View {
       .frame(minWidth: 0, maxWidth: .infinity, minHeight: 51.0,
              alignment: .topLeading)
       .padding(padding)
-        .background(Color.white94).shadow(color: Color.black30, radius: -0.5, x: 0, y: 0)
+      .background(Color.white94).shadow(color: Color.black30, radius: -0.5, x: 0, y: 0)
       .font(.body)
       .foregroundColor(.secondary)
       .sheet(isPresented: $createCommentPresented) {
-        TextField(self.viewModel.postDetailOutput.replyPostText, text: self.$commentText)
+        CreateCommentView(replyText: self.viewModel.postDetailOutput.replyPostText) { comment in
+          self.createCommentPresented.toggle()
+          guard let comment = comment else { return }
+          self.viewModel.createCommentTrigger.send(comment)
+        }
       }.visualEffect(.system)
     }
     .padding(.top, padding)
