@@ -33,7 +33,7 @@ struct PostDetailView: View {
       CommentCountView(count: viewModel.postDetailOutput.totalCommentCount,
                        commentText: viewModel.postDetailOutput.totalCommentString)
 
-      Spacer()
+//      CommentListViewControllerRepresentable()
 
       Button(viewModel.postDetailOutput.replyPostText) {
         self.createCommentPresented.toggle()
