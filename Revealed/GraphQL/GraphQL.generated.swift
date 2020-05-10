@@ -89,7 +89,7 @@ public struct PostSignupInput: GraphQLMapConvertible {
   /// - Parameters:
   ///   - username
   ///   - device
-  public init(username: String, device: DeviceInput?? = nil) {
+  public init(username: String, device: Swift.Optional<DeviceInput?> = nil) {
     graphQLMap = ["username": username, "device": device]
   }
 
@@ -102,9 +102,9 @@ public struct PostSignupInput: GraphQLMapConvertible {
     }
   }
 
-  public var device: DeviceInput?? {
+  public var device: Swift.Optional<DeviceInput?> {
     get {
-      return graphQLMap["device"] as? DeviceInput?? ?? Swift.Optional<DeviceInput?>.none
+      return graphQLMap["device"] as? Swift.Optional<DeviceInput?> ?? Swift.Optional<DeviceInput?>.none
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "device")
@@ -1007,6 +1007,216 @@ public final class GetAllPostQuery: GraphQLQuery {
   }
 }
 
+public final class GetCommentsQuery: GraphQLQuery {
+  /// The raw GraphQL definition of this operation.
+  public let operationDefinition: String =
+    """
+    query getComments($postId: String!, $first: Int, $after: String) {
+      getComments(postId: $postId, first: $first, after: $after) {
+        __typename
+        edges {
+          __typename
+          ...CommentDetail
+        }
+        pageInfo {
+          __typename
+          hasNextPage
+          endCursor
+        }
+      }
+    }
+    """
+
+  public let operationName: String = "getComments"
+
+  public var queryDocument: String { return operationDefinition.appending(CommentDetail.fragmentDefinition).appending(UserDetail.fragmentDefinition) }
+
+  public var postId: String
+  public var first: Int?
+  public var after: String?
+
+  public init(postId: String, first: Int? = nil, after: String? = nil) {
+    self.postId = postId
+    self.first = first
+    self.after = after
+  }
+
+  public var variables: GraphQLMap? {
+    return ["postId": postId, "first": first, "after": after]
+  }
+
+  public struct Data: GraphQLSelectionSet {
+    public static let possibleTypes: [String] = ["Query"]
+
+    public static let selections: [GraphQLSelection] = [
+      GraphQLField("getComments", arguments: ["postId": GraphQLVariable("postId"), "first": GraphQLVariable("first"), "after": GraphQLVariable("after")], type: .nonNull(.object(GetComment.selections))),
+    ]
+
+    public private(set) var resultMap: ResultMap
+
+    public init(unsafeResultMap: ResultMap) {
+      self.resultMap = unsafeResultMap
+    }
+
+    public init(getComments: GetComment) {
+      self.init(unsafeResultMap: ["__typename": "Query", "getComments": getComments.resultMap])
+    }
+
+    public var getComments: GetComment {
+      get {
+        return GetComment(unsafeResultMap: resultMap["getComments"]! as! ResultMap)
+      }
+      set {
+        resultMap.updateValue(newValue.resultMap, forKey: "getComments")
+      }
+    }
+
+    public struct GetComment: GraphQLSelectionSet {
+      public static let possibleTypes: [String] = ["CommentConnection"]
+
+      public static let selections: [GraphQLSelection] = [
+        GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+        GraphQLField("edges", type: .list(.nonNull(.object(Edge.selections)))),
+        GraphQLField("pageInfo", type: .nonNull(.object(PageInfo.selections))),
+      ]
+
+      public private(set) var resultMap: ResultMap
+
+      public init(unsafeResultMap: ResultMap) {
+        self.resultMap = unsafeResultMap
+      }
+
+      public init(edges: [Edge]? = nil, pageInfo: PageInfo) {
+        self.init(unsafeResultMap: ["__typename": "CommentConnection", "edges": edges.flatMap { (value: [Edge]) -> [ResultMap] in value.map { (value: Edge) -> ResultMap in value.resultMap } }, "pageInfo": pageInfo.resultMap])
+      }
+
+      public var __typename: String {
+        get {
+          return resultMap["__typename"]! as! String
+        }
+        set {
+          resultMap.updateValue(newValue, forKey: "__typename")
+        }
+      }
+
+      public var edges: [Edge]? {
+        get {
+          return (resultMap["edges"] as? [ResultMap]).flatMap { (value: [ResultMap]) -> [Edge] in value.map { (value: ResultMap) -> Edge in Edge(unsafeResultMap: value) } }
+        }
+        set {
+          resultMap.updateValue(newValue.flatMap { (value: [Edge]) -> [ResultMap] in value.map { (value: Edge) -> ResultMap in value.resultMap } }, forKey: "edges")
+        }
+      }
+
+      public var pageInfo: PageInfo {
+        get {
+          return PageInfo(unsafeResultMap: resultMap["pageInfo"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "pageInfo")
+        }
+      }
+
+      public struct Edge: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["Comment"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(CommentDetail.self),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var commentDetail: CommentDetail {
+            get {
+              return CommentDetail(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+
+      public struct PageInfo: GraphQLSelectionSet {
+        public static let possibleTypes: [String] = ["PageInfo"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLField("hasNextPage", type: .nonNull(.scalar(Bool.self))),
+          GraphQLField("endCursor", type: .scalar(String.self)),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(hasNextPage: Bool, endCursor: String? = nil) {
+          self.init(unsafeResultMap: ["__typename": "PageInfo", "hasNextPage": hasNextPage, "endCursor": endCursor])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        public var hasNextPage: Bool {
+          get {
+            return resultMap["hasNextPage"]! as! Bool
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "hasNextPage")
+          }
+        }
+
+        public var endCursor: String? {
+          get {
+            return resultMap["endCursor"] as? String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "endCursor")
+          }
+        }
+      }
+    }
+  }
+}
+
 public final class PostSignupMutation: GraphQLMutation {
   /// The raw GraphQL definition of this operation.
   public let operationDefinition: String =
@@ -1287,7 +1497,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  // MARK: only and unicode (emoji)
+  /// MARKDOWN only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int

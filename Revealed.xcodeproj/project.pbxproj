@@ -52,6 +52,7 @@
 		1BFFD1DC2467CD3B001CFE22 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFD1DB2467CD3B001CFE22 /* SnapKit */; };
 		1BFFD1DF2467F2F8001CFE22 /* CombineDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 1BFFD1DE2467F2F8001CFE22 /* CombineDataSources */; };
 		1BFFD1E12467F38B001CFE22 /* Comment+Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BFFD1E02467F38B001CFE22 /* Comment+Domain.swift */; };
+		1BFFD1E32467F52B001CFE22 /* GetPostComment.graphql in Resources */ = {isa = PBXBuildFile; fileRef = 1BFFD1E22467F52B001CFE22 /* GetPostComment.graphql */; };
 		4C4C83AE23A3D148007A7D1A /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C83AD23A3D148007A7D1A /* AuthService.swift */; };
 		5A41114D23D8AA8E00EA83CE /* SwiftUIRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = 5A41114C23D8AA8E00EA83CE /* SwiftUIRefresh */; };
 		A08CA67A23F7E37300258F44 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A08CA67923F7E37300258F44 /* SplashView.swift */; };
@@ -136,6 +137,7 @@
 		1BF9082B239E95C600D1B9C4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		1BF9082E239E9E0200D1B9C4 /* RevealedError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealedError.swift; sourceTree = "<group>"; };
 		1BFFD1E02467F38B001CFE22 /* Comment+Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comment+Domain.swift"; sourceTree = "<group>"; };
+		1BFFD1E22467F52B001CFE22 /* GetPostComment.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GetPostComment.graphql; sourceTree = "<group>"; };
 		4C4C83AD23A3D148007A7D1A /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A08CA67923F7E37300258F44 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		A0F9CEE123ADE29B005E1B5E /* GetStartedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedView.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 				1B8AB2E723926C0500907AF6 /* schema.json */,
 				F62F21EC241CC1E400BE463B /* GraphQL.generated.swift */,
 				1BCBFC90242A487C00D56E6B /* CreateComment.graphql */,
+				1BFFD1E22467F52B001CFE22 /* GetPostComment.graphql */,
 			);
 			path = GraphQL;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				1BCBFC91242A487C00D56E6B /* CreateComment.graphql in Resources */,
 				1B6446B5238EA01200422926 /* LaunchScreen.storyboard in Resources */,
 				1B6446B2238EA01200422926 /* Preview Assets.xcassets in Resources */,
+				1BFFD1E32467F52B001CFE22 /* GetPostComment.graphql in Resources */,
 				1B6446AF238EA01200422926 /* Assets.xcassets in Resources */,
 				1BC61C952393D946006A83D7 /* Auth0.plist in Resources */,
 				F62F21EB241CAF8A00BE463B /* PostSignup.graphql in Resources */,

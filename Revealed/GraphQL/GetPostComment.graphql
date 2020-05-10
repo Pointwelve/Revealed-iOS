@@ -1,0 +1,11 @@
+query getComments($postId: String!, $first: Int, $after: String) {
+  getComments(postId: $postId, first: $first, after: $after) {
+    edges {
+        ...CommentDetail
+    }
+    pageInfo {
+      hasNextPage
+      endCursor
+    }
+  }
+}
