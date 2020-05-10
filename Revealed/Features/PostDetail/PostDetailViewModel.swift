@@ -55,6 +55,7 @@ final class PostDetailViewModel: ObservableObject {
       .eraseToAnyPublisher()
       .replaceError(with: Result<CommentDetail, CommentError>.failure(.requestError))
     }
+    .receive(on: DispatchQueue.main)
     .sink(receiveCompletion: { value in
       switch value {
       case .finished:
