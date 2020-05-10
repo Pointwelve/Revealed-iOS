@@ -8,18 +8,28 @@ public struct CommentInput: GraphQLMapConvertible {
   public var graphQLMap: GraphQLMap
 
   /// - Parameters:
-  ///   - postId
+  ///   - id
+  ///   - objectType
   ///   - content
-  public init(postId: String, content: String) {
-    graphQLMap = ["postId": postId, "content": content]
+  public init(id: String, objectType: CommentOnType, content: String) {
+    graphQLMap = ["id": id, "objectType": objectType, "content": content]
   }
 
-  public var postId: String {
+  public var id: String {
     get {
-      return graphQLMap["postId"] as! String
+      return graphQLMap["id"] as! String
     }
     set {
-      graphQLMap.updateValue(newValue, forKey: "postId")
+      graphQLMap.updateValue(newValue, forKey: "id")
+    }
+  }
+
+  public var objectType: CommentOnType {
+    get {
+      return graphQLMap["objectType"] as! CommentOnType
+    }
+    set {
+      graphQLMap.updateValue(newValue, forKey: "objectType")
     }
   }
 
@@ -30,6 +40,46 @@ public struct CommentInput: GraphQLMapConvertible {
     set {
       graphQLMap.updateValue(newValue, forKey: "content")
     }
+  }
+}
+
+public enum CommentOnType: RawRepresentable, Equatable, Hashable, CaseIterable, Apollo.JSONDecodable, Apollo.JSONEncodable {
+  public typealias RawValue = String
+  case post
+  case comment
+  /// Auto generated constant for unknown enum values
+  case __unknown(RawValue)
+
+  public init?(rawValue: RawValue) {
+    switch rawValue {
+      case "POST": self = .post
+      case "COMMENT": self = .comment
+      default: self = .__unknown(rawValue)
+    }
+  }
+
+  public var rawValue: RawValue {
+    switch self {
+      case .post: return "POST"
+      case .comment: return "COMMENT"
+      case .__unknown(let value): return value
+    }
+  }
+
+  public static func == (lhs: CommentOnType, rhs: CommentOnType) -> Bool {
+    switch (lhs, rhs) {
+      case (.post, .post): return true
+      case (.comment, .comment): return true
+      case (.__unknown(let lhsValue), .__unknown(let rhsValue)): return lhsValue == rhsValue
+      default: return false
+    }
+  }
+
+  public static var allCases: [CommentOnType] {
+    return [
+      .post,
+      .comment,
+    ]
   }
 }
 
@@ -89,7 +139,7 @@ public struct PostSignupInput: GraphQLMapConvertible {
   /// - Parameters:
   ///   - username
   ///   - device
-  public init(username: String, device: DeviceInput?? = nil) {
+  public init(username: String, device: Swift.Optional<DeviceInput?> = nil) {
     graphQLMap = ["username": username, "device": device]
   }
 
@@ -102,9 +152,9 @@ public struct PostSignupInput: GraphQLMapConvertible {
     }
   }
 
-  public var device: DeviceInput?? {
+  public var device: Swift.Optional<DeviceInput?> {
     get {
-      return graphQLMap["device"] as? DeviceInput?? ?? Swift.Optional<DeviceInput?>.none
+      return graphQLMap["device"] as? Swift.Optional<DeviceInput?> ?? Swift.Optional<DeviceInput?>.none
     }
     set {
       graphQLMap.updateValue(newValue, forKey: "device")
@@ -1497,7 +1547,7 @@ public struct PostDetail: GraphQLFragment {
     }
   }
 
-  // MARK: only and unicode (emoji)
+  /// MARKDOWN only and unicode (emoji)
   public var createdAt: Int {
     get {
       return resultMap["createdAt"]! as! Int

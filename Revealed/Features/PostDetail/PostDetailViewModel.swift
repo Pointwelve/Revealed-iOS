@@ -50,7 +50,7 @@ final class PostDetailViewModel: ObservableObject {
 
     // Create commnet API
     createCommentTrigger.flatMap {
-      ApolloNetwork.shared.apollo.mutateFuture(mutation: CreateCommentMutation(input: .init(postId: post.id, content: $0)))
+      ApolloNetwork.shared.apollo.mutateFuture(mutation: CreateCommentMutation(input: .init(id: post.id, objectType: .post, content: $0)))
       .map { Result<CommentDetail, CommentError>.success($0.createComment.fragments.commentDetail) }
       .eraseToAnyPublisher()
       .replaceError(with: Result<CommentDetail, CommentError>.failure(.requestError))
